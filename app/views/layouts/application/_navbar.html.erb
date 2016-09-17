@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+      </ul>
+      <ul class="navbar-nav navbar-right">
+          <p class="navbar-text">
+            Hello, <%= link_to current_user.name, class: 'navbar-link' %>
+            Wait agree admin
+          </p>
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Edit profile', edit_user_registration_path(current_user) %></li>
+                <li><a href="#">View orders</a></li>
+                <li class="divider"></li>
+                <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+          </ul>
+        <% else %>
+          <%= link_to 'Log in', new_guest_session_path, class: 'btn btn-default navbar-btn' %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
