@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20160917111725) do
     t.string   "name"
     t.string   "phone"
     t.string   "skype"
+    t.boolean  "role"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false

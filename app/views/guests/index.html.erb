@@ -1,1 +1,32 @@
-<h1>Index gueats.htmld</h1>
+<h1>Home Page</h1>
+
+<h2>Sign up</h2>
+
+<%= form_for @guest do |f| %>
+
+	<div class="row col-md-8">
+	
+	  <div class="field">
+	    <%= f.label :email, :class => 'control-label col-md-4' %>
+	    <%= f.email_field :email, :class => 'form-control col-md-4' %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :password, :class => 'control-label col-md-4' %>
+	    <%= f.password_field :password, :class => 'form-control col-md-4' %>
+	  </div>
+
+	  <div class="field">
+	    <%= f.label :password_confirmation, :class => 'control-label col-md-4' %>
+	    <%= f.password_field :password_confirmation, :class => 'form-control col-md-4' %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "Sign up", :class => 'form-control col-md-4' %>
+	  </div>
+
+	</div>
+
+<% end %>
+ 
+
