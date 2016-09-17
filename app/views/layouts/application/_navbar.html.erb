@@ -15,17 +15,17 @@
       </ul>
       <ul class="navbar-nav navbar-right">
           <p class="navbar-text">
-            Hello, <%= link_to current_user.name, class: 'navbar-link' %>
+            Hello, <%= link_to current_guest.name, class: 'navbar-link' %>
             Wait agree admin
           </p>
           <ul class="nav navbar-nav">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><%= link_to 'Edit profile', edit_user_registration_path(current_user) %></li>
+                <li><%= link_to 'Edit profile', edit_guest_registration_path(current_guest) %></li>
                 <li><a href="#">View orders</a></li>
                 <li class="divider"></li>
-                <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to 'Sign out', destroy_guest_session_path, method: :delete %></li>
               </ul>
             </li>
           </ul>
