@@ -1,6 +1,6 @@
-class AddDeviseToGuests < ActiveRecord::Migration[5.0]
+class AddDeviseToUsers < ActiveRecord::Migration[5.0]
   def self.up
-    change_table :guests do |t|
+    change_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -35,10 +35,10 @@ class AddDeviseToGuests < ActiveRecord::Migration[5.0]
       # t.timestamps null: false
     end
 
-    add_index :guests, :email,                unique: true
-    add_index :guests, :reset_password_token, unique: true
-    # add_index :guests, :confirmation_token,   unique: true
-    # add_index :guests, :unlock_token,         unique: true
+    add_index :users, :email,                unique: true
+    add_index :users, :reset_password_token, unique: true
+    # add_index :users, :confirmation_token,   unique: true
+    # add_index :users, :unlock_token,         unique: true
   end
 
   def self.down
