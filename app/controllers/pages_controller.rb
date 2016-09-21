@@ -9,8 +9,8 @@ before_action :block
 private
 
 def block
-	if current_user == nil
-		redirect_to new_user_session_path
+	if current_user == nil	
+		redirect_to new_user_registration_path
 	end
 end
 

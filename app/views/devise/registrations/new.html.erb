@@ -1,7 +1,27 @@
-<h2>Sign up</h2>
+<h2>Регистрация</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
+  <p>
+    <%= f.label 'Я' %><br />
+    <%= f.collection_select :position_id, Position.all, :id, :title %>
+  </p>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :skype %><br />
+    <%= f.text_field :skype, autofocus: true %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />

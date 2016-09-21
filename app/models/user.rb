@@ -8,4 +8,6 @@ class User < ApplicationRecord
   validates :skype, presence: true, length: {maximum: 50}
   validates :phone, presence: true, length: {maximum: 50}
 
+  belongs_to :position
+
 end

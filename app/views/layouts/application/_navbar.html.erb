@@ -15,22 +15,21 @@
       </ul>
       <ul class="navbar-nav navbar-right">
           <p class="navbar-text">
-            Hello, <%= link_to current_user.name, class: 'navbar-link' %>
-            Wait agree admin
+            Привет <%= link_to current_user.name, class: 'navbar-link' %>
           </p>
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Аккаунт <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><%= link_to 'Edit profile', edit_user_registration_path(current_user) %></li>
-                <li><a href="#">View orders</a></li>
+                <li><%= link_to 'Редактировать профиль', edit_user_registration_path(current_user) %></li>
                 <li class="divider"></li>
-                <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
           </ul>
         <% else %>
-          <%= link_to 'Log in', new_user_session_path, class: 'btn btn-default navbar-btn' %>
+          <%= link_to 'Регистрация', new_user_session_path, class: 'btn btn-default navbar-btn' %>
+          <%= link_to 'Войти', new_user_session_path, class: 'btn btn-default navbar-btn' %>
         <% end %>
       </ul>
     </div>
