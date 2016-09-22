@@ -25,5 +25,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
 
 gem 'devise'
+gem 'devise-i18n'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
