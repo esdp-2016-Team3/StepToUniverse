@@ -6,6 +6,7 @@
 	<h4>Номер телефона:<%= current_user.phone %></h4>
 	<h4>Почта(email): <%= current_user.email %></h4>
 	<h4>Я:<%= current_user.position.title %></h4>
+	<%= link_to 'Изменить мои данные', edit_user_registration_path(current_user), class: 'btn btn-default navbar-btn' %>
 <% else %>	
-	<h1>homepages</h1>
+	<h1>homepage</h1>
 <% end %>
