@@ -1,2 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#flash_alert {
+padding-top: 16px;
+float: right;
+}
+
+#flash_notice {
+padding-top: 16px;
+float: right;
+}
