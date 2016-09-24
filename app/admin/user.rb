@@ -1,7 +1,7 @@
 ActiveAdmin.register User, as: 'Status' do
   controller do
     def scoped_collection
-      User.where(status: 'notactive')
+      User.where(status: "notactive")
     end
   end
 
@@ -11,6 +11,7 @@ ActiveAdmin.register User, as: 'Status' do
       link_to user.name, admin_admin_user_path(user)
     end
     column :email
+    column :position
     column :phone
     column :skype
     column 'Accept' do |user|

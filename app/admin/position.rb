@@ -5,6 +5,7 @@ ActiveAdmin.register Position do
 #
 permit_params :title
 
+
 #, :of, :attributes, :on, :model
 #
 # or
