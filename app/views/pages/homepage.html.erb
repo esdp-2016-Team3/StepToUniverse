@@ -10,8 +10,11 @@
 	<h4>Я: <%= current_user.position.title %></h4>
 	<%= link_to 'Изменить мои данные', edit_user_registration_path(current_user), class: 'btn btn-default navbar-btn' %> -->
 <% else %>	
-	<h1>homepage</h1>
+    
+    <% Content.find(1) do |content| %>
+		<h1><div><%= content.title %></div></h1>
+		<div><%= content.description %></div>
+	<% end %>
 
-	
 <% end %>
 

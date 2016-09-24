@@ -27,6 +27,15 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
+GIT
+  remote: git://github.com/ejholmes/active_admin_editor.git
+  revision: 86f964be3071cd938c3cd17ad00df94ece3a50c0
+  specs:
+    active_admin_editor (1.1.0)
+      activeadmin (>= 0.4.0)
+      ejs
+      rails (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -97,6 +106,7 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-i18n (1.1.0)
+    ejs (1.1.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
@@ -226,6 +236,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_admin_editor!
   activeadmin!
   bootstrap-sass (~> 3.3.6)
   byebug

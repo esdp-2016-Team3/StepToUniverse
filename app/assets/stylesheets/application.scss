@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//= require active_admin/editor/wysiwyg
+
 #flash_alert {
 padding-top: 16px;
 float: right;
