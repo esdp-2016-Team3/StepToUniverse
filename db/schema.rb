@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924115643) do
+ActiveRecord::Schema.define(version: 20160924201756) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -41,6 +41,36 @@ ActiveRecord::Schema.define(version: 20160924115643) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "assets", force: :cascade do |t|
+    t.string   "storage_uid"
+    t.string   "storage_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "storage_width"
+    t.integer  "storage_height"
+    t.float    "storage_aspect_ratio"
+    t.integer  "storage_depth"
+    t.string   "storage_format"
+    t.string   "storage_mime_type"
+    t.string   "storage_size"
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
   create_table "contents", force: :cascade do |t|

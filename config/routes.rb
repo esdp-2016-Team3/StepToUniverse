@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   root 'pages#homepage'
 
   get '/admin/user/accept' => 'acceptions#accept', as: 'accept'
@@ -10,6 +11,5 @@ Rails.application.routes.draw do
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
 
 end
