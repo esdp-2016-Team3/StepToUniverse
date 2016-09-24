@@ -33,11 +33,15 @@
   <% end %>
 
   <div class="field">
+<<<<<<< HEAD
     <%= f.label :password %><br />
+=======
+    <%= f.label :пароль %> <i>("Оставьте поле пустым, если вы не хотите менять пароль")</i><br />
+>>>>>>> development
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>(<%= @minimum_password_length %> минимальное число симловол)</em>
     <% end %>
   </div>
 
@@ -58,6 +62,6 @@
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Удалить мой аккаунт", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Удалить мой аккаунт", registration_path(resource_name), data: { confirm: "Вы уверены?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Назад", :back %>

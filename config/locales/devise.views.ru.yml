@@ -13,7 +13,10 @@ ru:
         remember_me: "Запомнить меня"
         reset_password_token: "Ссылка сброса пароля"
         unlock_token: "Токен разблокировки"
+<<<<<<< HEAD
         position: "Роль"
+=======
+>>>>>>> development
     models:
       user: "Пользователь"
   devise:

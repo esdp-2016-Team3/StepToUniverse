@@ -31,7 +31,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> минимальное число симловол)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
@@ -41,8 +41,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <%= f.hidden_field :status, :value => 'notactive' %>
+
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Cохранить" %>
+
   </div>
 <% end %>
 
