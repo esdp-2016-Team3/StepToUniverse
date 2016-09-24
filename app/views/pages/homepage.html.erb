@@ -1,12 +1,18 @@
 <% if user_signed_in? %>
-	<h1>Привет<%= current_user.name  %></h1>
-	<h3>Пожалуйста подождите пока администратор подвердит ваш запрос на регистрацию</h3>
-	<h2>Ваши данные:</h2>
-	<h4>Skype:<%= current_user.skype %></h4>
-	<h4>Номер телефона:<%= current_user.phone %></h4>
-	<h4>Почта(email): <%= current_user.email %></h4>
-	<h4>Я:<%= current_user.position.title %></h4>
-	<%= link_to 'Изменить мои данные', edit_user_registration_path(current_user), class: 'btn btn-default navbar-btn' %>
+  <% if current_user.status == 'notactive' %>
+  	<h1>Привет <%= current_user.name  %></h1>
+  	<h3>Пожалуйста подождите пока администратор подвердит ваш запрос на регистрацию</h3>
+  	<h2>Ваши данные:</h2>
+  	<h4>Skype: <%= current_user.skype %></h4>
+  	<h4>Номер телефона:<%= current_user.phone %></h4>
+  	<h4>Почта(email): <%= current_user.email %></h4>
+  	<h4>Я: <%= current_user.position.title %></h4>
+  	<%= link_to 'Изменить мои данные', edit_user_registration_path(current_user), class: 'btn btn-default navbar-btn' %>
+  <% elsif current_user.position_id == 2 %>
+    You are a teacher.
+  <% elsif current_user.position_id == 1 %>
+    You are a student.
+  <% end %>
 <% else %>	
 	<h1>homepage</h1>
 <% end %>

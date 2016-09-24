@@ -26,7 +26,6 @@ ActiveAdmin.register User, as: 'Teacher' do
   controller do
     def scoped_collection
       User.where(status: 'active', position_id: 2)
-
     end
   end
   
