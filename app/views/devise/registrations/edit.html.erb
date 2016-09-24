@@ -4,17 +4,17 @@
   <%= devise_error_messages! %>
 
   <p>
-    <%= f.label 'Я' %><br />
+    <%= f.label :position_id %><br />
     <%= f.collection_select :position_id, Position.all, :id, :title %>
   </p>
 
   <div class="field">
-    <%= f.label "имя" %><br />
+    <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label "номер телефона" %><br />
+    <%= f.label :phone %><br />
     <%= f.text_field :phone, autofocus: true %>
   </div>
 
@@ -24,7 +24,7 @@
   </div>
 
   <div class="field">
-    <%= f.label "почта(email)" %><br />
+    <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
 
@@ -33,7 +33,11 @@
   <% end %>
 
   <div class="field">
+<<<<<<< HEAD
+    <%= f.label :password %><br />
+=======
     <%= f.label :пароль %> <i>("Оставьте поле пустым, если вы не хотите менять пароль")</i><br />
+>>>>>>> development
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
       <br />
@@ -42,12 +46,12 @@
   </div>
 
   <div class="field">
-    <%= f.label "подтверждение пароля" %><br />
+    <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label "Текущий пароль" %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.label :current_password %><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 

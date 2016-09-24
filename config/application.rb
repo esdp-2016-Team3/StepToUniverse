@@ -12,3 +12,4 @@ module Esdp20163
     config.i18n.locale = :ru
   end
 end
+
