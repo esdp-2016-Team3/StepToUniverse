@@ -14,6 +14,9 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   gem 'byebug', platform: :mri
 end
+group :development, :test do
+  gem 'foreman'
+end 
 
 group :development do
   gem 'web-console'
