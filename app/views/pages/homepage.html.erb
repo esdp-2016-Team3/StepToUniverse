@@ -19,7 +19,6 @@
 <% else %>	
     
     <% Content.find(1) do |content| %>
-		<%= content.title %>
 		<%= content.description.html_safe %>
 	<% end %>
 

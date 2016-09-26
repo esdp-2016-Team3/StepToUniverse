@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160924201756) do
+ActiveRecord::Schema.define(version: 20160926144901) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -43,18 +43,11 @@ ActiveRecord::Schema.define(version: 20160924201756) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "assets", force: :cascade do |t|
-    t.string   "storage_uid"
-    t.string   "storage_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "storage_width"
-    t.integer  "storage_height"
-    t.float    "storage_aspect_ratio"
-    t.integer  "storage_depth"
-    t.string   "storage_format"
-    t.string   "storage_mime_type"
-    t.string   "storage_size"
+  create_table "answers", force: :cascade do |t|
+    t.text     "content"
+    t.boolean  "is_correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -80,8 +73,22 @@ ActiveRecord::Schema.define(version: 20160924201756) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "levels", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text     "content"
+    t.boolean  "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
