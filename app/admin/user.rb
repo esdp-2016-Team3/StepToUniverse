@@ -56,16 +56,16 @@ ActiveAdmin.register User, as: 'Notactive' do
   index do
     selectable_column
     column :name do |user|
-      link_to user.name, admin_admin_user_path(user)
+      user.name
     end
     column :email
     column :phone
     column :skype
-    column 'Accept' do |user|
-      link_to 'Accept', accept_path(user)
+    column 'Подтверждение' do |user|
+      link_to 'Подтвердить', accept_path(user)
     end
-    column 'Reject' do |user|
-      link_to 'Reject', reject_path(user)
+    column 'Отказ' do |user|
+      link_to 'Отказать', reject_path(user)
     end
     actions
   end

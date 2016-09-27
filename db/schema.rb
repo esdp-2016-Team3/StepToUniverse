@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926144901) do
+ActiveRecord::Schema.define(version: 20160926151508) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -46,8 +46,10 @@ ActiveRecord::Schema.define(version: 20160926144901) do
   create_table "answers", force: :cascade do |t|
     t.text     "content"
     t.boolean  "is_correct"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -91,6 +93,8 @@ ActiveRecord::Schema.define(version: 20160926144901) do
     t.boolean  "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "level_id"
+    t.index ["level_id"], name: "index_questions_on_level_id"
   end
 
   create_table "users", force: :cascade do |t|
