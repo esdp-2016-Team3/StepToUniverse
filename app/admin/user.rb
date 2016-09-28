@@ -1,7 +1,6 @@
 ActiveAdmin.register User, as: 'Student' do
   controller do
     def scoped_collection
-      User.where(status: "notactive")
       User.where(status: 'active', position_id: 1)
     end
   end
@@ -49,7 +48,7 @@ end
 ActiveAdmin.register User, as: 'Notactive' do
   controller do
     def scoped_collection
-      User.where(status: 'notactive')
+      User.where.not(status: 'denied', status: 'active', confirmed_at: nil)
     end
   end
 

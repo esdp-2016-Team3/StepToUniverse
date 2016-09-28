@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/admin/user/reject' => 'acceptions#reject', as: 'reject'
 
-  devise_for :users
+  devise_for :users, :controllers => {:confirmations => "confirmations"}
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
