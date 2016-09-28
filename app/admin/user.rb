@@ -48,7 +48,7 @@ end
 ActiveAdmin.register User, as: 'Notactive' do
   controller do
     def scoped_collection
-      User.where.not(status: 'denied', status: 'active', confirmed_at: nil)
+      User.where(status: 'notactive').where.not(confirmed_at: nil)
     end
   end
 
