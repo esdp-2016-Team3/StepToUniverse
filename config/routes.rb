@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'pages#homepage'
 
+  get '/sample_test' => 'pages#sample_test', as: 'sample_test'
+
   get '/admin/user/accept' => 'acceptions#accept', as: 'accept'
 
   get '/admin/user/reject' => 'acceptions#reject', as: 'reject'

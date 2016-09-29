@@ -1,0 +1,10 @@
+<% @questions.each do |q| %>
+  <br>
+  <h1><%= q.id %> <%= q.level.name %></h1> <%= q.content %>
+  <% q.answers.order("RANDOM()").each do |a| %>
+    <br>
+    <%= a.content %>
+    <br>
+  <% end %>
+  <br>
+<% end %>
