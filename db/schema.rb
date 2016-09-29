@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20160926151508) do
   end
 
   create_table "answers", force: :cascade do |t|
-    t.text     "content"
+    t.string   "content"
     t.boolean  "is_correct"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20160926151508) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text     "content"
+    t.string   "content"
     t.boolean  "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
