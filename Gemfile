@@ -20,9 +20,8 @@ end
 
 group :development, :test do
   gem 'byebug', platform: :mri
-end
-group :development, :test do
   gem 'foreman'
+  gem 'pry'
 end 
 
 group :development do

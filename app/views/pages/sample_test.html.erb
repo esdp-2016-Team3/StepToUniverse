@@ -4,6 +4,7 @@
   <% q.answers.order("RANDOM()").each do |a| %>
     <br>
     <%= a.content %>
+    <%= radio_button_tag(:is_correct) %>
     <br>
   <% end %>
   <br>

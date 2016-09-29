@@ -1,8 +1,25 @@
-ActiveAdmin.register User, as: 'Student' do
+ActiveAdmin.register User, as: "Student" do
+
+  permit_params :name, :skype, :phone, :status, :email, :position_id, :password, :password_confirmation
+
   controller do
     def scoped_collection
       User.where(status: 'active', position_id: 1)
     end
+  end
+
+  form do |f|
+    f.inputs "Student" do
+      f.input :position
+      f.input :name
+      f.input :skype
+      f.input :phone
+      f.input :email
+      f.input :status
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.actions
   end
   
   index do
@@ -17,16 +34,34 @@ ActiveAdmin.register User, as: 'Student' do
     column 'Reject' do |user|
       link_to 'Reject', reject_path(user)
     end
+
     actions
   end
 
 end
 
 ActiveAdmin.register User, as: 'Teacher' do
+  
+  permit_params :name, :skype, :phone, :status, :email, :position_id, :password, :password_confirmation
+
   controller do
     def scoped_collection
       User.where(status: 'active', position_id: 2)
     end
+  end
+
+    form do |f|
+    f.inputs "Teacher" do
+      f.input :position
+      f.input :name
+      f.input :skype
+      f.input :phone
+      f.input :email
+      f.input :status
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.actions
   end
   
   index do
@@ -44,12 +79,29 @@ ActiveAdmin.register User, as: 'Teacher' do
   end
 
 end
-
 ActiveAdmin.register User, as: 'Notactive' do
+
+  permit_params :name, :skype, :phone, :status, :email, :position_id, :password, :password_confirmation
+  
+
   controller do
     def scoped_collection
       User.where(status: 'notactive').where.not(confirmed_at: nil)
     end
+  end
+
+  form do |f|
+    f.inputs "Notactive" do
+      f.input :position
+      f.input :name
+      f.input :skype
+      f.input :phone
+      f.input :email
+      f.input :status
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.actions
   end
 
   index do
@@ -72,11 +124,15 @@ ActiveAdmin.register User, as: 'Notactive' do
 end
 
 ActiveAdmin.register User, as: 'Rejected' do
+
+  permit_params :name, :skype, :phone, :password_confirmation, :password, :status, :email
+
   controller do
     def scoped_collection
       User.where(status: 'denied')
     end
   end
+
 
   index do
     selectable_column

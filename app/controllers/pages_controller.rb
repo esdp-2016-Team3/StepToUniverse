@@ -29,4 +29,8 @@ class PagesController < ApplicationController
     @questions = @questions.shuffle
   end
 
+  def method_name
+    
+  end
+
 end

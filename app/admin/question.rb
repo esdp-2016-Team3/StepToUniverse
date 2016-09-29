@@ -2,7 +2,7 @@ ActiveAdmin.register Question do
 
 permit_params :content, :level_id, answers_attributes: [:id, :content, :question_id, :_destroy, :is_correct]
  
-  form do |f|
+  form  do |f|
     f.inputs 'Question' do
       f.input :content
       f.input :is_active
