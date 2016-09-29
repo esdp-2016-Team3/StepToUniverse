@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   mount Ckeditor::Engine => '/ckeditor'
+
   root 'pages#homepage'
 
   get '/admin/user/accept' => 'acceptions#accept', as: 'accept'
@@ -9,7 +13,5 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => {:confirmations => "confirmations"}
   
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-
+  resources :questions
 end

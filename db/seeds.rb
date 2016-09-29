@@ -18,3 +18,40 @@ User.create(name: "teach2", email: 'teach2@gmail.com', status: 'active', positio
 User.create(name: "pend1", email: 'pend1@gmail.com', status: 'notactive', position_id: 1, skype: "pend.1", phone: +9379971, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:49:12')
 
 Content.create(title: "Главная анонимная", description: "контентная информация")
+
+Level.create(name: "Beginner")
+Level.create(name: "Intermediate")
+Level.create(name: "Advanced")
+Level.create(name: "Proficiency")
+
+count = 0
+7.times do
+
+  count += 1
+  Question.create(content: Faker::Lorem.sentence, level_id: 1, is_active: true)
+	  Answer.create(content: Faker::Lorem.sentence+'true', is_correct: true, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+  
+  count += 1
+  Question.create(content: Faker::Lorem.sentence, level_id: 2, is_active: true)
+	  Answer.create(content: Faker::Lorem.sentence+'true', is_correct: true, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+	  
+  count += 1
+  Question.create(content: Faker::Lorem.sentence, level_id: 3, is_active: true)
+	  Answer.create(content: Faker::Lorem.sentence+'true', is_correct: true, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+
+  count += 1
+  Question.create(content: Faker::Lorem.sentence, level_id: 4, is_active: true)
+	  Answer.create(content: Faker::Lorem.sentence+'true', is_correct: true, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+	  Answer.create(content: Faker::Lorem.sentence, is_correct: false, question_id: count)
+end

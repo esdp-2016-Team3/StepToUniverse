@@ -5,6 +5,7 @@ permit_params :content, :level_id, answers_attributes: [:id, :content, :question
   form do |f|
     f.inputs 'Question' do
       f.input :content
+      f.input :is_active
       f.input :level
     end
     f.inputs 'Answer' do
