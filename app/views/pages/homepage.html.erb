@@ -16,7 +16,7 @@
   <% end %>
 <% else %>	
     
-    <% Content.find(1) do |content| %>
+  <% Content.find(1) do |content| %>
 		<%= content.description.html_safe %>
 	<% end %>
 
