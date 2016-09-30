@@ -17,7 +17,7 @@
 <% else %>	
     
   <% Content.find(1) do |content| %>
-		<%= content.description.html_safe %>
+		<span id="desc"><%= content.description.html_safe %></span>
 	<% end %>
 
 <% end %>
