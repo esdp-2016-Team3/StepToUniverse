@@ -149,4 +149,3 @@ ActiveAdmin.register User, as: 'Rejected' do
   end
 
 end
-
