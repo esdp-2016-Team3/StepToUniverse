@@ -14,17 +14,20 @@ ru:
         reset_password_token: "Ссылка сброса пароля"
         unlock_token: "Токен разблокировки"
         position: "Роль"
-        status: "Статус"
 
     models:
-      content: "Контент"
       user: "Пользователь"
       notactive: "Запросы на регистрацию" 
-      position:  "Роли" 
       rejected: "Отказанные" 
-      student: "Студенты"
-      teacher: "Преподаватели"
-      students: "Студент"
+      position:
+            one: "Роль"
+            other: "Роли"
+      student:
+            one: "Студента"
+            other: "Студенты"
+      teacher:
+            one: "Преподавателя"
+            other: "Преподаватели"
   devise:
     confirmations:
       confirmed: "Ваш адрес эл. почты успешно подтвержден."
