@@ -1,29 +1,32 @@
 <div class="container">
-  <div class="list-group">
-  	<% count = 1 %>
-		<% @questions.each do |question| %>
-			<div class="well well-lg">
-				<ul class="list-group">
-				  <h3><li class="list-group-item list-group-item-info">
-				  	<span style="cursor:default">
-				  		<%= count %>. <%= question.content %>
-				  	</span>
-				  </li></h3>
-				</ul>
-				<ol type="a">
-					<% question.answers.order("RANDOM()").each do |answer| %>
-					  	<span style="cursor:pointer">
-					  		<a class="list-group-item answer">
-					  			<li>
-					  				<%= answer.content %> 
-					  			  <%= radio_button_tag :answer, answer %>
-					  			</li>
-					  		</a>
+	<%= form_tag('/result', method: 'get') do %>
+	  <div class="list-group">
+	  	<% count = 1 %>
+			<% @questions.each do |question| %>
+				<div class="well well-lg">
+					<ul class="list-group">
+					  <h3><li class="list-group-item list-group-item-info">
+					  	<span style="cursor:default">
+					  		<%= count %>. <%= question.content %>
 					  	</span>
-					<% end %>
-				</ol>
-			</div>
-  		<% count += 1 %>
-	 	<% end %>
-  </div>
+					  </li></h3>
+					</ul>
+					<ol type="a">
+						<% question.answers.order("RANDOM()").each do |answer| %>
+						  	<span style="cursor:pointer">
+						  		<a class="list-group-item answer">
+						  			<li>
+						  				<%= answer.content %> 
+						  			  <%= radio_button_tag question.id, answer.id %> 
+						  			</li>
+						  		</a>
+						  	</span>
+						<% end %>
+					</ol>
+				</div>
+	  		<% count += 1 %>
+		 	<% end %>
+	  </div>
+	  <%= submit_tag 'Button' %>
+	<% end %>
 </div>
