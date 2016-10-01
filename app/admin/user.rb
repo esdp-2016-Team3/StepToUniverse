@@ -28,7 +28,6 @@ ActiveAdmin.register User, as: "Student" do
       link_to user.name, admin_admin_user_path(user)
     end
     column :email
-    column :position
     column :phone
     column :skype
     column 'Reject' do |user|
@@ -109,6 +108,7 @@ ActiveAdmin.register User, as: 'Notactive' do
     column :name do |user|
       user.name
     end
+    column :position
     column :email
     column :phone
     column :skype
