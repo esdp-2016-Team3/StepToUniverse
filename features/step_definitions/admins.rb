@@ -1,4 +1,4 @@
-constants = {email: 'admin@example.com', password: 'password'}
+constants = {email: 'admin@example.com', password: 'password', f_email: 'asd@asd.asd', f_password: 'asddsa'}
 
 When(/^я нахожусь на странице авторизации админки$/) do
   visit('/admin/login')
@@ -80,4 +80,16 @@ When(/^он перемещается в список Отказанные$/) do
   click_on('Отказанные')
   sleep 2
   page.assert_text('pend1')
+end
+
+When(/^я пытаюсь авторизоватья как Незарегистрированный админ$/) do
+  within('.inputs') do
+    fill_in('Эл. почта*', with: constants[:f_email])
+    fill_in('Пароль*', with: constants[:f_password])
+  end
+  click_button('Войти')
+end
+
+When(/^авторизация админа не проходит$/) do
+  page.assert_text('Неверный адрес эл. почты или пароль.')
 end
