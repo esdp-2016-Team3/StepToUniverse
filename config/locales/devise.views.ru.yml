@@ -16,6 +16,7 @@ ru:
         position: "Роль"
 
     models:
+      content: "Контент"
       user: "Пользователь"
       notactive: "Запросы на регистрацию" 
       position:  "Роли" 

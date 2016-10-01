@@ -14,7 +14,10 @@
 					<% question.answers.order("RANDOM()").each do |answer| %>
 					  	<span style="cursor:pointer">
 					  		<a class="list-group-item answer">
-					  			<li><%= answer.content %></li>
+					  			<li>
+					  				<%= answer.content %> 
+					  			  <%= radio_button_tag :answer, answer %>
+					  			</li>
 					  		</a>
 					  	</span>
 					<% end %>
