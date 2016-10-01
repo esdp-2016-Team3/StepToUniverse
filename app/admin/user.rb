@@ -24,14 +24,12 @@ ActiveAdmin.register User, as: "Student" do
   
   index do
     selectable_column
-    column :name do |user|
-      link_to user.name, admin_admin_user_path(user)
-    end
+    column :name
     column :email
     column :phone
     column :skype
-    column 'Reject' do |user|
-      link_to 'Reject', reject_path(user)
+    column 'Отказ' do |user|
+      link_to 'Отказать', reject_path(user)
     end
 
     actions
@@ -65,14 +63,12 @@ ActiveAdmin.register User, as: 'Teacher' do
   
   index do
     selectable_column
-    column :name do |user|
-      link_to user.name, admin_admin_user_path(user)
-    end
+    column :name
     column :email
     column :phone
     column :skype
-    column 'Reject' do |user|
-      link_to 'Reject', reject_path(user)
+    column 'Отказ' do |user|
+      link_to 'Отказать', reject_path(user)
     end
     actions
   end
