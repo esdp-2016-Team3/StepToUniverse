@@ -14,6 +14,7 @@ ru:
         reset_password_token: "Ссылка сброса пароля"
         unlock_token: "Токен разблокировки"
         position: "Роль"
+        status: "Статус"
 
     models:
       content: "Контент"
@@ -21,8 +22,9 @@ ru:
       notactive: "Запросы на регистрацию" 
       position:  "Роли" 
       rejected: "Отказанные" 
-      student: "Ученики"
-      teacher: "Учителя"
+      student: "Студенты"
+      teacher: "Преподаватели"
+      students: "Студент"
   devise:
     confirmations:
       confirmed: "Ваш адрес эл. почты успешно подтвержден."
