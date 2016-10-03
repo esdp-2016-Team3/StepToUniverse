@@ -129,6 +129,20 @@ ActiveAdmin.register User, as: 'Rejected' do
     end
   end
 
+  form do |f|
+      f.inputs "Rejected" do
+        f.input :position
+        f.input :name
+        f.input :skype
+        f.input :phone
+        f.input :email
+        f.input :status
+        f.input :password
+        f.input :password_confirmation
+      end
+      f.actions
+  end
+
 
   index do
     selectable_column
