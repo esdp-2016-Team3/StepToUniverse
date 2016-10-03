@@ -133,7 +133,7 @@ ActiveAdmin.register User, as: 'Rejected' do
   index do
     selectable_column
     column :name do |user|
-      link_to user.name, admin_admin_user_path(user)
+        user.name
     end
     column :email
     column :phone

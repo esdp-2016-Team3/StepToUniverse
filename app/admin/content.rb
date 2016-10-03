@@ -11,5 +11,12 @@ permit_params :title, :description
     f.submit
   end
 
+  index do
+    selectable_column
+    column :title
+
+    actions
+  end
+
 end
 

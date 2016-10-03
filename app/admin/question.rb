@@ -18,4 +18,14 @@ ActiveAdmin.register Question do
     f.actions
     end
   end
+
+  index do
+    selectable_column
+    column :content
+    column :is_active
+    column :level
+
+    actions
+  end
+
 end

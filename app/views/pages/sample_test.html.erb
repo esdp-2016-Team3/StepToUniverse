@@ -16,7 +16,7 @@
 						  	<span style="cursor:pointer">
 						  		<a class="list-group-item answer">
 						  			<li>
-						  				<%= answer.content %> 
+						  			  <%= answer.content %> 
 						  			  <%= radio_button_tag question.id, answer.id %> 
 						  			</li>
 						  		</a>
@@ -27,6 +27,6 @@
 	  		<% count += 1 %>
 		 	<% end %>
 	  </div>
-	  <%= submit_tag 'Button' %>
+	  <%= submit_tag 'Завершить', class: 'btn btn-success' %>
 	<% end %>
 </div>
