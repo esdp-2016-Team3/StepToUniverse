@@ -17,8 +17,12 @@ ru:
 
     models:
       user: "Пользователь"
-      notactive: "Запросы на регистрацию" 
-      rejected: "Отказанные" 
+      notactive: 
+            one: "Запрос на регистрацию"
+            other: "Запросы на регистрацию"
+      rejected: 
+            one: "Отказанного" 
+            other: "Отказанные"
       position:
             one: "Роль"
             other: "Роли"
@@ -28,6 +32,9 @@ ru:
       teacher:
             one: "Преподавателя"
             other: "Преподаватели"
+      question:
+            one: "Вопрос"
+            other: "Вопросы"
   devise:
     confirmations:
       confirmed: "Ваш адрес эл. почты успешно подтвержден."
