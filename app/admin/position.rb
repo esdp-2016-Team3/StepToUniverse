@@ -5,6 +5,12 @@ ActiveAdmin.register Position do
 #
 permit_params :title
 
+  index do
+    selectable_column
+    column :title
+
+    actions
+  end
 #, :of, :attributes, :on, :model
 #
 # or

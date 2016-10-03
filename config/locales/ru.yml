@@ -1,5 +1,11 @@
 ru:
   activerecord:
+    models: 
+      foobar: 
+        notactives:  "Хрень" 
+        positions:  "Хреней" 
+        rejecteds: "Хрени" 
+        students: "Хрени" 
     errors:
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'

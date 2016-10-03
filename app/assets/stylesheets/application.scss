@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//= require active_admin/editor/wysiwyg
+
 #flash_alert {
 padding-top: 16px;
 float: right;
@@ -14,3 +16,21 @@ float: right;
 .label_home{
 	color: #F0FFF0
 }
+
+.link-to-top {
+  font-size: 30px;
+  width: 40px;
+  text-align: center;
+  color: red;
+  position: fixed;
+  bottom: 30px;
+  right: 50px;
+}
+
+
+.list-group-item {
+  padding-left: 30px;
+}
+
+
+

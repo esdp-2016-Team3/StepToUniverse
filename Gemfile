@@ -11,11 +11,17 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
+
 group :development, :test do
   gem 'byebug', platform: :mri
-end
-group :development, :test do
   gem 'foreman'
+  gem 'pry'
 end 
 
 group :development do
@@ -31,3 +37,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'paperclip'
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'faker'
+gem 'simple_form'

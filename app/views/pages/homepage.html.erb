@@ -1,4 +1,5 @@
 <% if user_signed_in? %>
+
   <% if current_user.status == 'notactive' %>
   	<h1>Привет <%= current_user.name  %></h1>
   	<h3>Пожалуйста подождите пока администратор подвердит ваш запрос на регистрацию</h3>
@@ -14,5 +15,13 @@
     You are a student.
   <% end %>
 <% else %>	
-	<h1>homepage</h1>
+  <div class="col-lg-2">
+    <%= link_to 'Пробный тест', sample_test_path, class: 'btn btn-primary' %>
+  </div>
+  <div class="col-lg-10">
+    <% Content.find(1) do |content| %>
+  		<span id="desc"><%= content.description.html_safe %></span>
+  	<% end %>
+  </div>
 <% end %>
+
