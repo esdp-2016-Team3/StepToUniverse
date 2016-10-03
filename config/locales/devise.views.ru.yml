@@ -18,6 +18,11 @@ ru:
         level: "Уровень"
         is_active: "Активность"
         content: "Контент"
+      content:
+        title: "заглавие"
+        description: "описание"
+        created_at: "создан"
+        updated_at: "изменён"
 
     models:
       user: "Пользователь"
@@ -39,6 +44,7 @@ ru:
       question:
             one: "Вопрос"
             other: "Вопросы"
+      content: "Содержание"
   devise:
     confirmations:
       confirmed: "Ваш адрес эл. почты успешно подтвержден."
