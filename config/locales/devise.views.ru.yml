@@ -67,9 +67,9 @@ ru:
       unconfirmed: "Вы должны подтвердить вашу учетную запись."
     mailer:
       confirmation_instructions:
-        action: "Активировать"
+        action: "Подтвердить"
         greeting: "Привет %{recipient}!"
-        instruction: "Вы можете активировать свою учетную запись, нажав ссылку снизу:"
+        instruction: "Вы можете подтвердить свою учетную запись, нажав ссылку снизу:"
         subject: "Инструкции по подтверждению учетной записи"
       password_change:
         greeting: "Приветствуем %{recipient}!"
