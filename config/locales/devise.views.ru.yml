@@ -1,6 +1,8 @@
 ru:
   activerecord:
     attributes:
+      position:
+        title: "Заглавие"
       user:
         name: "Имя"
         phone: "Телефон"
