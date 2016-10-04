@@ -25,6 +25,7 @@ ru:
         updated_at: "изменён"
 
     models:
+      admin_user: "Администратор"
       user: "Пользователь"
       notactive: 
             one: "Запрос на регистрацию"
