@@ -9,6 +9,13 @@ ActiveAdmin.register_page "Dashboard" do
           span "Добро пожаловать в панель Администратора "
         end
       end
+      column do
+          panel "Recent Customers" do
+          table_for Content.all.each do |content|
+            column(:title)    {|content| link_to(content.title, content_path(content)) }
+          end
+        end
+      end
     end
   end 
 end

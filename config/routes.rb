@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   get '/admin/user/reject' => 'acceptions#reject', as: 'reject'
 
   devise_for :users, :controllers => {:confirmations => "confirmations"}
+
+  get '/content/:id', to: 'contents#show', as: 'content'
   
   resources :questions
+
 end

@@ -14,14 +14,14 @@
 					</ul>
 					<ol type="a">
 						<% question.answers.order("RANDOM()").each do |answer| %>
-						  	<span style="cursor:pointer">
+						  	<label class="answer_block" for="<%= question.id %>_<%=answer.id %>">
 						  		<a class="list-group-item answer">
 						  			<li>
-						  			  <%= answer.content %> 
+						  			  <%= answer.content %>
 						  			  <span id="answer_<%= cnt %>"><%= radio_button_tag question.id, answer.id %></span>
 						  			</li>
 						  		</a>
-						  	</span>
+					  		</label> 
                 <% cnt += 1 %>
 						<% end %>
 					</ol>
