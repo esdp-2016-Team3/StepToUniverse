@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
 	belongs_to :position
+  has_many :students, class_name: "User", foreign_key: 'teacher_id'
+  has_one :teacher, class_name: "User", primary_key: 'teacher_id', foreign_key: 'id'
 
  
   devise :database_authenticatable, :registerable, 

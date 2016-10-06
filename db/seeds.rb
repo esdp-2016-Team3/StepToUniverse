@@ -3,14 +3,14 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the R3ngs' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 Position.create(title: "Студент", id: 1)
 Position.create(title: "Преподаватель", id: 2)
 
-User.create(name: "stud1", email: 'stud1@gmail.com', status: 'active', position_id: 1, skype: "stud.1", phone: +9379991, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:44:12')
-User.create(name: "stud2", email: 'stud2@gmail.com', status: 'active', position_id: 1, skype: "stud.2", phone: +9379992, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:46:12')
+User.create(name: "stud1", email: 'stud1@gmail.com', status: 'active', position_id: 1, teacher_id: 3, skype: "stud.1", phone: +9379991, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:44:12')
+User.create(name: "stud2", email: 'stud2@gmail.com', status: 'active', position_id: 1, teacher_id: 3, skype: "stud.2", phone: +9379992, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:46:12')
 
 User.create(name: "teach1", email: 'teach1@gmail.com', status: 'active', position_id: 2, skype: "stud.1", phone: +9379981, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:47:12')
 User.create(name: "teach2", email: 'teach2@gmail.com', status: 'active', position_id: 2, skype: "stud.2", phone: +9379981, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:48:12')

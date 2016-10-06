@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926151508) do
+ActiveRecord::Schema.define(version: 20161006141912) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(version: 20160926151508) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "libraries", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -118,9 +126,11 @@ ActiveRecord::Schema.define(version: 20160926151508) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "status"
+    t.integer  "teacher_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["position_id"], name: "index_users_on_position_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["teacher_id"], name: "index_users_on_teacher_id"
   end
 
 end
