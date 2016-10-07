@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'pages#homepage'
 
+  get '/list' => 'pages#list', as: 'list'
+
   get '/result' => 'pages#result', as: 'result'
 
   get '/sample_test' => 'pages#sample_test', as: 'sample_test'

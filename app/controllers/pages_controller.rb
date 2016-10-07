@@ -61,4 +61,9 @@ class PagesController < ApplicationController
       end
     end
   end
+
+  def list
+    @libraries = Library.all
+  end
+  
 end

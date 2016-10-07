@@ -29,6 +29,7 @@
             </li>
           </ul>
         <% else %>
+          <%= link_to 'Список литературы', list_path, class: 'btn btn-default navbar-btn' %>
           <%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-default navbar-btn' %>
           <%= link_to 'Войти', new_user_session_path, class: 'btn btn-default navbar-btn' %>
         <% end %>
