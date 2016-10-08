@@ -1,7 +1,29 @@
 <h1>Список литературы</h1>
 
-<% @text_files.each do |text_file| %>
-	<%= text_file.name %>
-  <%= text_file.description %>
-  <%= text_file.file.to_s %>
+<% if user_signed_in? && current_user.position.title == 'Преподаватель' %>
+  <%= form_for :text_file, url: text_file_create_path, method: 'post' do |f| %>
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %> <br>
+    <%= f.label :description %> <br>
+    <%= f.text_area :description %> <br>
+    <%= f.label :file %> <br>
+    <%= f.file_field :file %> <br>
+    <%= f.submit 'Создать' %>
+  <% end %>
 <% end %>
+
+<ol>
+  <% @text_files.each do |text_file| %>
+    <h3><li>
+    	<%= text_file.name %></h3>
+      <h4><%= text_file.description %></h4>
+      <%= text_file.file.url %>
+      <% if user_signed_in? %>
+        <%= link_to "Скачать", text_file.file.url(:original, false) %>
+      <% end %>
+      <% if user_signed_in? && current_user.position.title == 'Преподаватель'  %>
+        <%= link_to 'Удалить', text_file_destroy_path(text_file.id), method: 'delete' %>
+      <% end %>
+    </li>
+  <% end %>
+</ol>

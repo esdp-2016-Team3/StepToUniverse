@@ -24,6 +24,9 @@ Level.create(name: "Intermediate")
 Level.create(name: "Advanced")
 Level.create(name: "Proficiency")
 
+Text_file.create(name: 'Book1', description: Faker::Lorem.sentence, file: File.new('public/text_files/book1.pdf'))
+Text_file.create(name: 'Book2', description: Faker::Lorem.sentence, file: File.new('public/text_files/book2.pdf'))
+
 count = 0
 7.times do
 
