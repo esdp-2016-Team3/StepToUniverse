@@ -90,14 +90,6 @@ ActiveRecord::Schema.define(version: 20161006150034) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "libraries", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "positions", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -111,6 +103,14 @@ ActiveRecord::Schema.define(version: 20161006150034) do
     t.datetime "updated_at", null: false
     t.integer  "level_id"
     t.index ["level_id"], name: "index_questions_on_level_id"
+  end
+
+  create_table "text_files", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "status"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

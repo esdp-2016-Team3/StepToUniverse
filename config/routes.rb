@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root 'pages#homepage'
 
-  get '/list' => 'pages#list', as: 'list'
+  get '/literature_list' => 'pages#literature_list', as: 'literature_list'
 
   get '/result' => 'pages#result', as: 'result'
 

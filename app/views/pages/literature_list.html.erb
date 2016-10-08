@@ -2,5 +2,6 @@
 
 <% @text_files.each do |text_file| %>
 	<%= text_file.name %>
+  <%= text_file.description %>
+  <%= text_file.file.to_s %>
 <% end %>
-
