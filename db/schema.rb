@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20161008093243) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.string   "pather"
   end
 
   create_table "users", force: :cascade do |t|
