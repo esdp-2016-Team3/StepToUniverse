@@ -62,7 +62,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def list
+  def literature_list
     @libraries = Library.all
   end
   
