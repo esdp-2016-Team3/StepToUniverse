@@ -63,13 +63,11 @@ class PagesController < ApplicationController
     end
   end
 
-<<<<<<< refs/remotes/origin/development
   def literature_list
     @text_file = Text_file.new
     @text_files = Text_file.all
   end
   
-=======
   def result
     level_detection()
       if @lvl_2.count == 5
@@ -86,7 +84,6 @@ class PagesController < ApplicationController
         @level = 'Beginner'
       end
   end
->>>>>>> #30 Добавил функционал по созданию тестов преподавателем
 end
 
  
