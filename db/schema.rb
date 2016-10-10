@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< refs/remotes/origin/development
 ActiveRecord::Schema.define(version: 20161008093243) do
+=======
+ActiveRecord::Schema.define(version: 20161008105109) do
+>>>>>>> #30 Добавил функционал по созданию тестов преподавателем
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -41,6 +45,13 @@ ActiveRecord::Schema.define(version: 20161008093243) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "answer_teachers", force: :cascade do |t|
+    t.integer  "questions_teacher_id"
+    t.string   "content"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "answers", force: :cascade do |t|
@@ -102,7 +113,22 @@ ActiveRecord::Schema.define(version: 20161008093243) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "level_id"
+    t.integer  "survey_id"
     t.index ["level_id"], name: "index_questions_on_level_id"
+    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "questions_teachers", force: :cascade do |t|
+    t.integer  "survey_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "text_files", force: :cascade do |t|

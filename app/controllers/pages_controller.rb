@@ -29,9 +29,10 @@ class PagesController < ApplicationController
     @questions = @questions.shuffle
   end
 
-  def result
+  def level_detection
     arr = []
     @answers = []
+
     @lvl_1 = []
     @lvl_2 = []
     @lvl_3 = []
@@ -62,9 +63,30 @@ class PagesController < ApplicationController
     end
   end
 
+<<<<<<< refs/remotes/origin/development
   def literature_list
     @text_file = Text_file.new
     @text_files = Text_file.all
   end
   
+=======
+  def result
+    level_detection()
+      if @lvl_2.count == 5
+        if @lvl_3.count == 5
+           @level = @lvl_4.count > 2 ? 'Upper-Intermediate' : 'Intermediate'
+        elsif @lvl_3.count > 1
+          @level = 'Intermediate'
+        else
+          @level = 'Elementary'
+        end
+      elsif @lvl_2.count > 1
+        @level = 'Elementary'
+      else
+        @level = 'Beginner'
+      end
+  end
+>>>>>>> #30 Добавил функционал по созданию тестов преподавателем
 end
+
+ 

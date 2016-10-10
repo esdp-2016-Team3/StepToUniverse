@@ -17,7 +17,7 @@
 						  	<label class="answer_block" for="<%= question.id %>_<%=answer.id %>">
 						  		<a class="list-group-item answer">
 						  			<li>
-						  			  <%= answer.content %>
+						  			  <span> <%= answer.content %></span>
 						  			  <span id="answer_<%= cnt %>"><%= radio_button_tag question.id, answer.id %></span>
 						  			</li>
 						  		</a>

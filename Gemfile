@@ -41,3 +41,4 @@ gem 'paperclip'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'faker'
 gem 'simple_form'
+gem "nested_form"

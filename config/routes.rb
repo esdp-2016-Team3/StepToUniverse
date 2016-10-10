@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/content/:id', to: 'contents#show', as: 'content'
   
   resources :questions
+  resources :surveys
 
   post '/text_file/create' => 'files#create', as: 'text_file_create'
 

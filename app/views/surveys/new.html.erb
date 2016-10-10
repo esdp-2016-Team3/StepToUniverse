@@ -1,0 +1,20 @@
+<% count = 0 %>
+<%= nested_form_for @survey do |f| %>
+	<%= f.label :name %>
+    <%= f.text_field :name %>
+	<%= f.fields_for :questions do |ff| %>
+	  <%= ff.label :content %>
+	  <%= ff.text_field :content %>
+	  <%= ff.link_to_remove "Remove this task" %>
+	    <%= ff.fields_for :answers do |anw| %>
+	  	 <%= anw.label :content %>
+	 	 <%= anw.text_field :content %>
+	 	 <%= radio_button_tag :is_correct, :answer_id  %>
+	 	 <%= anw.link_to_remove "Remove this task" %>
+	 	 <% count += 1 %>
+		<% end %>
+		<p><%= ff.link_to_add "Add a answer", :answers %></p>
+	<% end %>
+	<p><%= f.link_to_add "Add a question", :questions %></p>
+	<%= f.submit %>
+<% end %>
