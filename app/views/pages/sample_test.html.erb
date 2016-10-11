@@ -2,6 +2,7 @@
 	<%= form_tag('/result', method: 'get') do %>
 	  <div class="list-group">
 	  	<% count = 1 %>
+      <% cnt = 1 %>
 			<% @questions.each do |question| %>
 				<div class="well well-lg">
 					<ul class="list-group">
@@ -13,14 +14,15 @@
 					</ul>
 					<ol type="a">
 						<% question.answers.order("RANDOM()").each do |answer| %>
-						  	<span style="cursor:pointer">
+						  	<label class="answer_block" for="<%= question.id %>_<%=answer.id %>">
 						  		<a class="list-group-item answer">
 						  			<li>
-						  			  <%= answer.content %> 
-						  			  <%= radio_button_tag question.id, answer.id %> 
+						  			  <span> <%= answer.content %></span>
+						  			  <span id="answer_<%= cnt %>"><%= radio_button_tag question.id, answer.id %></span>
 						  			</li>
 						  		</a>
-						  	</span>
+					  		</label> 
+                <% cnt += 1 %>
 						<% end %>
 					</ol>
 				</div>

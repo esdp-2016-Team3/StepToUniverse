@@ -24,7 +24,6 @@ ActiveAdmin.register Question do
     column :content
     column :is_active
     column :level
-
     actions
   end
 

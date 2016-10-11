@@ -10,6 +10,7 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
+      <%= image_tag('logo.jpg', size: '100') %>
         <li class="label_home"><h1>Step To Universe</h1></li>
       </ul>
       <ul class="navbar-nav navbar-right">
@@ -27,7 +28,9 @@
               </ul>
             </li>
           </ul>
+          <%= link_to 'Список литературы', literature_list_path, class: 'btn btn-default navbar-btn' %>
         <% else %>
+          <%= link_to 'Список литературы', literature_list_path, class: 'btn btn-default navbar-btn' %>
           <%= link_to 'Регистрация', new_user_registration_path, class: 'btn btn-default navbar-btn' %>
           <%= link_to 'Войти', new_user_session_path, class: 'btn btn-default navbar-btn' %>
         <% end %>

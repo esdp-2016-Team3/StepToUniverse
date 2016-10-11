@@ -1,16 +1,4 @@
-# This file is auto-generated from the current state of the database. Instead
-# of editing this file, please use the migrations feature of Active Record to
-# incrementally modify your database, and then regenerate this schema definition.
-#
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
-#
-# It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 20160926151508) do
+ActiveRecord::Schema.define(version: 20161008105109) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -75,6 +63,14 @@ ActiveRecord::Schema.define(version: 20160926151508) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "homeworks", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_homeworks_on_user_id"
+  end
+
   create_table "levels", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -94,7 +90,28 @@ ActiveRecord::Schema.define(version: 20160926151508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "level_id"
+    t.integer  "survey_id"
     t.index ["level_id"], name: "index_questions_on_level_id"
+    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "text_files", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "status"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "pather"
   end
 
   create_table "users", force: :cascade do |t|
@@ -118,9 +135,11 @@ ActiveRecord::Schema.define(version: 20160926151508) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "status"
+    t.integer  "teacher_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["position_id"], name: "index_users_on_position_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["teacher_id"], name: "index_users_on_teacher_id"
   end
 
 end

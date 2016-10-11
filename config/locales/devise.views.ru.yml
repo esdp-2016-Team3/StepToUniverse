@@ -1,6 +1,8 @@
 ru:
   activerecord:
     attributes:
+      position:
+        title: "Заглавие"
       user:
         name: "Имя"
         phone: "Телефон"
@@ -14,11 +16,25 @@ ru:
         reset_password_token: "Ссылка сброса пароля"
         unlock_token: "Токен разблокировки"
         position: "Роль"
+      question:
+        level: "Уровень"
+        is_active: "Активность"
+        content: "Контент"
+      content:
+        title: "заглавие"
+        description: "описание"
+        created_at: "создан"
+        updated_at: "изменён"
 
     models:
+      admin_user: "Администратор"
       user: "Пользователь"
-      notactive: "Запросы на регистрацию" 
-      rejected: "Отказанные" 
+      notactive: 
+            one: "Запрос на регистрацию"
+            other: "Запросы на регистрацию"
+      rejected: 
+            one: "Отказанного" 
+            other: "Отказанные"
       position:
             one: "Роль"
             other: "Роли"
@@ -28,6 +44,10 @@ ru:
       teacher:
             one: "Преподавателя"
             other: "Преподаватели"
+      question:
+            one: "Вопрос"
+            other: "Вопросы"
+      content: "Содержание"
   devise:
     confirmations:
       confirmed: "Ваш адрес эл. почты успешно подтвержден."
@@ -47,9 +67,9 @@ ru:
       unconfirmed: "Вы должны подтвердить вашу учетную запись."
     mailer:
       confirmation_instructions:
-        action: "Активировать"
+        action: "Подтвердить"
         greeting: "Привет %{recipient}!"
-        instruction: "Вы можете активировать свою учетную запись, нажав ссылку снизу:"
+        instruction: "Вы можете подтвердить свою учетную запись, нажав ссылку снизу:"
         subject: "Инструкции по подтверждению учетной записи"
       password_change:
         greeting: "Приветствуем %{recipient}!"

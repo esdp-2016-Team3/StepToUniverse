@@ -19,9 +19,7 @@
     <%= link_to 'Пробный тест', sample_test_path, class: 'btn btn-primary' %>
   </div>
   <div class="col-lg-10">
-    <% Content.find(1) do |content| %>
-  		<span id="desc"><%= content.description.html_safe %></span>
-  	<% end %>
+    <%= Content.find(1).description.html_safe %>
   </div>
 <% end %>
 
