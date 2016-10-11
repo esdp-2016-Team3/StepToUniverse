@@ -15,6 +15,7 @@ ActiveAdmin.register User, as: "Student" do
       f.input :skype
       f.input :phone
       f.input :email
+      f.input :teacher, collection: User.where(position_id: 2)
       f.input :status
       f.input :password
       f.input :password_confirmation
@@ -28,6 +29,7 @@ ActiveAdmin.register User, as: "Student" do
     column :email
     column :phone
     column :skype
+    column :teacher
     column 'Отказ' do |user|
       link_to 'Отказать', reject_path(user)
     end
