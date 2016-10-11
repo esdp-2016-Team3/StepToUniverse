@@ -17,8 +17,8 @@
 						  	<label class="answer_block" for="<%= question.id %>_<%=answer.id %>">
 						  		<a class="list-group-item answer">
 						  			<li>
+                      <span id="answer_<%= cnt %>"><%= radio_button_tag question.id, answer.id %></span>
 						  			  <span> <%= answer.content %></span>
-						  			  <span id="answer_<%= cnt %>"><%= radio_button_tag question.id, answer.id %></span>
 						  			</li>
 						  		</a>
 					  		</label> 
@@ -29,6 +29,25 @@
 	  		<% count += 1 %>
 		 	<% end %>
 	  </div>
-	  <%= submit_tag 'Завершить', class: 'btn btn-success' %>
+	  <%= submit_tag 'Завершить', class: 'btn btn-success', id: 'register', disabled: 'disabled' %>
 	<% end %>
 </div>
+
+<script>
+	(function() {
+    setInterval(function() {
+        var cnt = 0
+        $('form :input[type=radio]').each(function() {
+            if ($(this).prop("checked") == true) {
+              cnt ++
+            }
+        });
+
+        if (cnt != 20) {
+            $('#register').attr('disabled', 'disabled');
+        } else {
+            $('#register').removeAttr('disabled');
+      }
+    }, 1000);
+  })()
+</script>
