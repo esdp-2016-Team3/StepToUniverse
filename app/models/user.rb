@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-
+  has_many :text_files
   has_many :homeworks
   
 	belongs_to :position
