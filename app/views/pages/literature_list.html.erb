@@ -22,7 +22,9 @@
         <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>
       <% end %>
       <% if user_signed_in? && current_user.position.title == 'Преподаватель'  %>
-        <%= link_to 'Удалить', text_file_destroy_path(text_file.id), method: 'delete' %>
+        <% if text_file.user == current_user %>
+          <%= link_to 'Удалить', text_file_destroy_path(text_file.id), method: 'delete' %>
+        <% end %>
       <% end %>
     </li>
   <% end %>
