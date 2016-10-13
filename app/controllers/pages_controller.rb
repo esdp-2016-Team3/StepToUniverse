@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  
+  include Levels
+  include Results
 
 	def homepage
 		
@@ -29,7 +32,7 @@ class PagesController < ApplicationController
     @questions = @questions.shuffle
   end
 
-  def level_detection
+  def result()
     arr = []
     @answers = []
 
@@ -61,29 +64,25 @@ class PagesController < ApplicationController
         end
       end
     end
-  end
 
-  def literature_list
-    @text_file = TextFile.new
-    @text_files = TextFile.all
+    beginner = Beginner.new('Beginner', @lvl_1.count)
+    elementary = Elementary.new('Elementary', @lvl_2.count)
+    intermediate = Intermediate.new('Intermediate', @lvl_3.count)
+    upper = UpperIntermediate.new('Upper-Intermediate', @lvl_4.count)
+
+    array_levels = [beginner, elementary, intermediate, upper]
+    result_new = Result.new
+    @result = result_new.define(array_levels)
+  
   end
   
-  def result
-    level_detection()
-      if @lvl_2.count == 5
-        if @lvl_3.count == 5
-           @level = @lvl_4.count > 2 ? 'Upper-Intermediate' : 'Intermediate'
-        elsif @lvl_3.count > 1
-          @level = 'Intermediate'
-        else
-          @level = 'Elementary'
-        end
-      elsif @lvl_2.count > 1
-        @level = 'Elementary'
-      else
-        @level = 'Beginner'
-      end
+  def literature_list
+    @text_file = Text_file.new
+    @text_files = Text_file.all
   end
+  
 end
 
+    @text_file = TextFile.new
+    @text_files = TextFile.all
  

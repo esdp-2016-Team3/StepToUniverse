@@ -22,6 +22,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'foreman'
   gem 'pry'
+  gem 'pry-byebug'
 end 
 
 group :development do
