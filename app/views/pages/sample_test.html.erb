@@ -15,11 +15,13 @@
 					<ol type="a">
 						<% question.answers.order("RANDOM()").each do |answer| %>
 						  	<label class="answer_block" for="<%= question.id %>_<%=answer.id %>">
-						  		<a class="list-group-item answer">
-						  			<li>
-                      <span id="answer_<%= cnt %>"><%= radio_button_tag question.id, answer.id %></span>
-						  			  <span> <%= answer.content %></span>
-						  			</li>
+						  		<a class="list-group-item answer" style="cursor:pointer">
+                    <span>
+                     <div style="display:inline-block;width:3%"><span id="answer_<%= cnt %>"><%= radio_button_tag question.id, answer.id %></span></div>
+  						  			<div style="display:inline-block;width:90%"><li style="width:80%">                    
+  						  			  <span> <%= answer.content %></span>
+  						  			</li></div>
+                    </span>
 						  		</a>
 					  		</label> 
                 <% cnt += 1 %>
