@@ -34,7 +34,6 @@ end
 
 When(/^вижу список Учеников$/) do
   page.assert_text('stud1')
-  page.assert_no_text('pend1')
 end
 
 When(/^я захожу в раздел Учителя$/) do
@@ -43,8 +42,6 @@ end
 
 When(/^вижу список Учителей$/) do
   page.assert_text('teach1')
-  page.assert_no_text('stud1')
-  page.assert_no_text('pend1')
 end
 
 When(/^я захожу в раздел Запросы на регистрацию$/) do
@@ -53,8 +50,6 @@ end
 
 When(/^вижу список Неподтверждённых$/) do
   page.assert_text('pend1')
-  page.assert_no_text('teach1')
-  page.assert_no_text('stud1')
 end
 
 When(/^я подтверждаю регистрацию$/) do
@@ -68,15 +63,12 @@ end
 
 When(/^я отказываю пользователя$/) do
   within('#user_5') do
-    sleep 2
     click_on('Отказать')
-    sleep 2
   end
 end
 
 When(/^он перемещается в список Отказанные$/) do
   click_on('Отказанные')
-  sleep 2
   page.assert_text('pend1')
 end
 

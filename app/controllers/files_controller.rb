@@ -1,7 +1,7 @@
 class FilesController < ApplicationController
   
   def create
-    @text_file = Text_file.new(text_file_params)
+    @text_file = TextFile.new(text_file_params)
     @asd = params[:text_file]
     @asd = @asd[:file]
     @asd = @asd.original_filename

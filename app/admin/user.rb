@@ -37,7 +37,9 @@ ActiveAdmin.register User, as: "Student" do
     column :phone
     column :skype
     column :teacher do |t|
-      p t.teacher.name.to_s
+      if t.teacher != nil
+       t.teacher.name.to_s
+      end
     end
     column 'Отказ' do |user|
       link_to 'Отказать', reject_path(user)
