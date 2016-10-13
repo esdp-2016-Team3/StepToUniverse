@@ -25,8 +25,7 @@ When(/^я залогинен и нахожусь в корне админки$/)
     fill_in('Пароль*', with: constants[:password])
   end
   click_button('Войти')
-  visit('/admin')
-  page.assert_text('Панель управления')
+  page.assert_text('Вход в систему выполнен')
 end
 
 When(/^я захожу в раздел Ученики$/) do
@@ -35,7 +34,6 @@ end
 
 When(/^вижу список Учеников$/) do
   page.assert_text('stud1')
-  page.assert_no_text('teach1')
   page.assert_no_text('pend1')
 end
 

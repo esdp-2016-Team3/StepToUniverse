@@ -1,4 +1,4 @@
-class Text_file < ApplicationRecord
+class TextFile < ApplicationRecord
   
   belongs_to :user
 

@@ -15,5 +15,5 @@ When(/^я отмечаю ответы и отправляю форму$/) do
 end
 
 When(/^я вижу результаты$/) do
-  page.assert_text('Level 1')
+  page.assert_text('Ваш приблизительный уровень')
 end

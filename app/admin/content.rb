@@ -20,7 +20,7 @@ permit_params :title, :description
 
 end
 
-ActiveAdmin.register Text_file do
+ActiveAdmin.register TextFile do
 
 permit_params :title, :description
 
