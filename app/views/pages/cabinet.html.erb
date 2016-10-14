@@ -1,7 +1,7 @@
 <% if current_user.position_id == 2 %>
   <h1>Кабинет преподавателя</h1>
   <h3>Отправить домашку</h3>
-  <%= nested_form_for :homework, url: homework_create_path, method: 'post' do |f| %>
+  <%= nested_form_for @homework, url: homework_create_path, method: 'post' do |f| %>
     <div style="width:49%;float:left">
       <h4>Описание домашки</h4>
       <%= f.label 'Название' %> <br>
@@ -14,13 +14,14 @@
     <div style="width:49%;float:right">
       <br>
       <h4>Прикрепить файл</h4>  
-      <%= f.fields_for :text_files, url: text_file_create_path, method: 'post' do |ff| %>
+      <%= f.fields_for :text_files do |ff| %>
         <%= ff.label 'Название файла' %> <br>
         <%= ff.text_field :name %> <br>
         <%= ff.label 'Описание' %> <br>
         <%= ff.text_area :description %> <br>
         <%= ff.label 'Файл' %> <br>
         <%= ff.file_field :file %> <br>
+        <% ff.hidden_field :pather, value: '' %>
       <% end %>
     </div>
     <%= f.submit %>
