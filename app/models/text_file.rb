@@ -1,6 +1,7 @@
 class TextFile < ApplicationRecord
   
-  belongs_to :user
+  belongs_to :user, required: false
+  belongs_to :homework, required: false
 
   has_attached_file :file, path: ':rails_root/public/text_files/:filename', url: '/public/text_files/:basename.:extension'
 

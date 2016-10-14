@@ -80,9 +80,11 @@ class PagesController < ApplicationController
     @text_file = Text_file.new
     @text_files = Text_file.all
   end
+
+  def cabinet
+    if current_user.position_id == 2
+      @homework = Homework.new
+    end
+  end
   
 end
-
-    @text_file = TextFile.new
-    @text_files = TextFile.all
- 
