@@ -77,8 +77,8 @@ class PagesController < ApplicationController
   end
   
   def literature_list
-    @text_file = Text_file.new
-    @text_files = Text_file.all
+    @text_file = TextFile.new
+    @text_files = TextFile.all
   end
 
   def cabinet
