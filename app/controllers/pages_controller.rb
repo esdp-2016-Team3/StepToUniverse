@@ -87,10 +87,19 @@ class PagesController < ApplicationController
         @homework = Homework.new
         @homework.text_files.build
         @hw_assignment = HomeworkAssignment.new
+        @pend_hws = []
+        current_user.homeworks.each do |hw|
+          hw.homework_assignments.each do |ass|
+            if ass.homework_result != nil && ass.homework_result.is_checked == false
+              @pend_hws.push ass.homework_result
+            end
+          end
+        end
       elsif current_user.position_id == 1
         if current_user.homework_assignments.any?
-          @hwa = current_user.homework_assignments
+          @hwa = current_user.homework_assignments.where(is_done: nil)
           @homework_result = HomeworkResult.new
+          @hwd = current_user.homework_assignments.where(is_done: true)
         end
       end
     end

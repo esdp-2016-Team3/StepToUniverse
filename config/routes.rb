@@ -34,6 +34,8 @@ Rails.application.routes.draw do
 
   post '/homework/finish' => 'homeworks#result', as: 'hw_result_create'
 
+  put '/homework/:id/check' => 'homeworks#check', as: 'hw_check'
+
   delete '/text_file/:id/delete' => 'files#destroy', as: 'text_file_destroy'
 
 end

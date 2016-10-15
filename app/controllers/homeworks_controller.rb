@@ -26,8 +26,20 @@ class HomeworksController < ApplicationController
   end
 
   def result
-    if HomeworkResult.create(result_params)
+    if @assign = HomeworkResult.create(result_params)
+      @assign = @assign.homework_assignment
+      @assign.is_done = true
+      @assign.save
       redirect_to cabinet_path, notice: 'Домашнее задание успешно завершено.'
+    else
+      render 'cabinet'
+    end
+  end
+
+  def check
+    @result = HomeworkResult.find(params[:id])
+    if @result.update(result_params)
+      redirect_to cabinet_path, notice: 'Домашнее задание успешно проверенно.'
     else
       render 'cabinet'
     end

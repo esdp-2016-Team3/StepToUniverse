@@ -1,7 +1,19 @@
 <% if current_user == nil %>
   <h1>Эта страница доступна только для авторизованных пользователей.</h1>
+
+
 <% elsif current_user.position_id == 2 %>
   <h1>Кабинет преподавателя</h1>
+  <h3>Домашки на проверку</h3>
+    <br>
+    <% @pend_hws.each do |hwres| %>
+      <h4>Result_id: <%= hwres.id %></h4>
+      <h5>Homework_title: <%= hwres.homework_assignment.homework.title %></h5>
+      <%= form_for hwres, url: hw_check_path(hwres.id), method: 'put' do |f| %>
+        <%= f.hidden_field :is_checked, value: true %>
+        <%= f.submit 'Проверить', class: 'btn btn-default' %> <br><br>
+      <% end %>
+    <% end %>
   <h3>Отправить домашку</h3>
     <br>
     <%= form_for @hw_assignment, url: hw_assignment_create_path, method: 'post' do |f| %>
@@ -37,14 +49,17 @@
     </div>
     <%= f.submit %>
   <% end %>
+
+
 <% elsif current_user.position_id == 1 %>
-<h1>Кабинет студента</h1>
-  <% unless @hwa == nil
-  @hwa.each do |hwa| %>
+  <h1>Кабинет студента</h1>
+  <h1>Невыполненные домашки</h1>
+  <% unless @hwa == nil %>
+  <% @hwa.each do |hwa| %>
     <h2><%= hwa.homework.title %></h2> <br>
     <% hwa.homework.text_files.each do |text_file| %>
         <h4>
-        Text file: <%= text_file.name %></h4>
+        Текстовый файл: <%= text_file.name %></h4>
         <h5><%= text_file.description %></h5>
         <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>
     <% end %>
@@ -53,6 +68,17 @@
       <%= f.hidden_field :is_checked, value: false %>
       <%= f.hidden_field :homework_assignment_id, value: hwa.id %>
       <%= f.submit 'Завершить', class: 'btn btn-default' %>
+    <% end %>
+  <% end end %>
+  <% unless @hwd == nil %>
+  <h1>Выполненные домашки</h1>
+  <% @hwd.each do |hwd| %>
+    <h2><%= hwd.homework.title %></h2> <br>
+    <% hwd.homework.text_files.each do |text_file| %>
+        <h4>
+        Текстовый файл: <%= text_file.name %></h4>
+        <h5><%= text_file.description %></h5>
+        <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>
     <% end %>
   <% end end %>
 <% end %>
