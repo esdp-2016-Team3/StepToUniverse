@@ -90,10 +90,7 @@ class PagesController < ApplicationController
       elsif current_user.position_id == 1
         if current_user.homework_assignments.any?
           @hwa = current_user.homework_assignments
-          @homeworks = []
-          @hwa.each do |hwa|
-          @homeworks.push hwa.homework
-          end
+          @homework_result = HomeworkResult.new
         end
       end
     end

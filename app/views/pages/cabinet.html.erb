@@ -38,14 +38,20 @@
     <%= f.submit %>
   <% end %>
 <% elsif current_user.position_id == 1 %>
-  <% unless @homeworks == nil
-  @homeworks.each do |hw| %>
-    <h2><%= hw.title %></h2> <br>
-    <% hw.text_files.each do |text_file| %>
+  <% unless @hwa == nil
+  @hwa.each do |hwa| %>
+    <h2><%= hwa.homework.title %></h2> <br>
+    <% hwa.homework.text_files.each do |text_file| %>
         <h4>
         Text file: <%= text_file.name %></h4>
         <h5><%= text_file.description %></h5>
         <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>
-    <% end end %>
-  <% end %>
+    <% end %>
+    <br><br>
+    <%= form_for @homework_result, url: hw_result_create_path do |f| %>
+      <%= f.hidden_field :is_checked, value: false %>
+      <%= f.hidden_field :homework_assignment_id, value: hwa.id %>
+      <%= f.submit 'Завершить', class: 'btn btn-default' %>
+    <% end %>
+  <% end end %>
 <% end %>

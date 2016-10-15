@@ -25,6 +25,14 @@ class HomeworksController < ApplicationController
     end
   end
 
+  def result
+    if HomeworkResult.create(result_params)
+      redirect_to cabinet_path, notice: 'Домашнее задание успешно завершено.'
+    else
+      render 'cabinet'
+    end
+  end
+
   private
 
   def homework_params
@@ -33,6 +41,10 @@ class HomeworksController < ApplicationController
 
   def assignment_params
     params.require(:homework_assignment).permit(:user_id, :homework_id)
+  end
+
+  def result_params
+    params.require(:homework_result).permit(:is_checked, :homework_assignment_id)
   end
 
 end
