@@ -86,8 +86,15 @@ class PagesController < ApplicationController
       if current_user.position_id == 2
         @homework = Homework.new
         @homework.text_files.build
+        @hw_assignment = HomeworkAssignment.new
       elsif current_user.position_id == 1
-        @homeworks = current_user.homeworks
+        if current_user.homework_assignments.any?
+          @hwa = current_user.homework_assignments
+          @homeworks = []
+          @hwa.each do |hwa|
+          @homeworks.push hwa.homework
+          end
+        end
       end
     end
   end

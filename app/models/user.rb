@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :text_files
   has_many :homeworks
+  has_many :homework_assignments
   
 	belongs_to :position
   has_many :students, class_name: "User", foreign_key: 'teacher_id'

@@ -11,6 +11,14 @@ class HomeworksController < ApplicationController
 
     if @homework.save
 
+      redirect_to cabinet_path, notice: 'Домашнее задание успешно создано.'
+    else
+      render 'cabinet'
+    end
+  end
+
+  def assign
+    if HomeworkAssignment.create(assignment_params)
       redirect_to cabinet_path, notice: 'Домашнее задание успешно отправлено.'
     else
       render 'cabinet'
@@ -21,6 +29,10 @@ class HomeworksController < ApplicationController
 
   def homework_params
     params.require(:homework).permit(:title, :user_id, text_files_attributes: [:id, :name, :description, :file, :pather, :homework_id])
+  end
+
+  def assignment_params
+    params.require(:homework_assignment).permit(:user_id, :homework_id)
   end
 
 end

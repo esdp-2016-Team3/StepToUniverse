@@ -3,13 +3,22 @@
 <% elsif current_user.position_id == 2 %>
   <h1>Кабинет преподавателя</h1>
   <h3>Отправить домашку</h3>
+    <br>
+    <%= form_for @hw_assignment, url: hw_assignment_create_path, method: 'post' do |f| %>
+      <%= f.label 'Ученик' %>
+      <%= f.collection_select :user_id, User.where(teacher_id: current_user.id), :id, :name %> <br> <br>
+      <%= f.label 'Домашка' %>
+      <%= f.collection_select :homework_id, Homework.where(user_id: current_user.id), :id, :title %>
+      <br> <br>
+      <%= f.submit 'Отправить', class: 'btn btn-default' %>
+    <% end %>
+  <h3>Создать домашку</h3>
   <%= nested_form_for @homework, url: homework_create_path, method: 'post' do |f| %>
     <div style="width:49%;float:left">
       <h4>Описание домашки</h4>
       <%= f.label 'Название' %> <br>
       <%= f.text_field :title %> <br>
-      <%= f.label 'Пользователь' %> <br>
-      <%= f.collection_select :user_id, User.where(teacher_id: current_user.id), :id, :name %> <br>
+      <% f.hidden_field :user_id, value: current_user.id %> <br>
       <br>
       
     </div>
@@ -29,13 +38,14 @@
     <%= f.submit %>
   <% end %>
 <% elsif current_user.position_id == 1 %>
-  <% @homeworks.each do |hw| %>
+  <% unless @homeworks == nil
+  @homeworks.each do |hw| %>
     <h2><%= hw.title %></h2> <br>
     <% hw.text_files.each do |text_file| %>
         <h4>
-        <%= text_file.name %></h4>
+        Text file: <%= text_file.name %></h4>
         <h5><%= text_file.description %></h5>
         <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>
-    <% end %>
+    <% end end %>
   <% end %>
 <% end %>
