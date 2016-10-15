@@ -78,7 +78,7 @@ class PagesController < ApplicationController
   
   def literature_list
     @text_file = TextFile.new
-    @text_files = TextFile.all
+    @text_files = TextFile.where(homework_id: nil)
   end
 
   def cabinet
