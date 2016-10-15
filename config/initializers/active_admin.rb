@@ -192,7 +192,6 @@ ActiveAdmin.setup do |config|
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
   #
   # To load a javascript file:
-      config.register_javascript 'create_question_validation.js'
       config.register_javascript 'ckeditor/init.js'
   # == CSV options
   #
