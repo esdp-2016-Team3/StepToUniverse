@@ -27,6 +27,13 @@ Level.create(name: "Proficiency")
 TextFile.create(name: 'Book1', description: Faker::Lorem.sentence, user_id: 3, pather: 'book1.pdf', file: File.new('public/text_files/book1.pdf'))
 TextFile.create(name: 'Book2', description: Faker::Lorem.sentence, user_id: 3, pather: 'book2.pdf', file: File.new('public/text_files/book2.pdf'))
 
+TextFile.create(name: 'Hw1', description: Faker::Lorem.sentence, homework_id: 1, pather: 'hw1.pdf', file: File.new('public/text_files/hw1.pdf'))
+TextFile.create(name: 'Hw2', description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/text_files/hw2.pdf'))
+
+Homework.create(title: 'Homework1', user_id: 1)
+Homework.create(title: 'Homework2', user_id: 1)
+
+
 count = 0
 7.times do
 

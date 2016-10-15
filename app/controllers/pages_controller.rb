@@ -82,9 +82,13 @@ class PagesController < ApplicationController
   end
 
   def cabinet
-    if current_user.position_id == 2
-      @homework = Homework.new
-      @homework.text_files.build
+    if current_user
+      if current_user.position_id == 2
+        @homework = Homework.new
+        @homework.text_files.build
+      elsif current_user.position_id == 1
+        @homeworks = current_user.homeworks
+      end
     end
   end
   

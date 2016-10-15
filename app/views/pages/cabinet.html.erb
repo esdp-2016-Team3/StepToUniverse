@@ -1,4 +1,6 @@
-<% if current_user.position_id == 2 %>
+<% if current_user == nil %>
+  <h1>Эта страница доступна только для авторизованных пользователей.</h1>
+<% elsif current_user.position_id == 2 %>
   <h1>Кабинет преподавателя</h1>
   <h3>Отправить домашку</h3>
   <%= nested_form_for @homework, url: homework_create_path, method: 'post' do |f| %>
@@ -25,5 +27,15 @@
       <% end %>
     </div>
     <%= f.submit %>
+  <% end %>
+<% elsif current_user.position_id == 1 %>
+  <% @homeworks.each do |hw| %>
+    <h2><%= hw.title %></h2> <br>
+    <% hw.text_files.each do |text_file| %>
+        <h4>
+        <%= text_file.name %></h4>
+        <h5><%= text_file.description %></h5>
+        <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>
+    <% end %>
   <% end %>
 <% end %>
