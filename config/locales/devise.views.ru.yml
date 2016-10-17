@@ -48,6 +48,9 @@ ru:
             one: "Вопрос"
             other: "Вопросы"
       content: "Содержание"
+      comment:
+            one: "Комментарий"
+            other: "Комментарии"
   devise:
     confirmations:
       confirmed: "Ваш адрес эл. почты успешно подтвержден."
