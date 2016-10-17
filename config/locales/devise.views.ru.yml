@@ -51,6 +51,9 @@ ru:
       comment:
             one: "Комментарий"
             other: "Комментарии"
+      text_file:
+            one: "Литературу"
+            other: "Список литературы"
   devise:
     confirmations:
       confirmed: "Ваш адрес эл. почты успешно подтвержден."
