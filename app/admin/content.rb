@@ -22,7 +22,7 @@ end
 
 ActiveAdmin.register TextFile do
 
-permit_params :title, :description
+permit_params :name, :status, :description
 
   form do |f|
     f.inputs do
