@@ -26,10 +26,10 @@ class SurveysController < ApplicationController
       								                        :content, 
       								                        :survey_id, 
       								                        :_destroy,
-      								 answers_attributes: [:id, 
-                                                          :content, 
-                                                          :question_id, 
-                                                          :_destroy, 
-                                                          :is_correct]])
+      								   answers_attributes: [:id, 
+                                              :content, 
+                                              :question_id, 
+                                              :_destroy, 
+                                              :is_correct]])
   	end
 end

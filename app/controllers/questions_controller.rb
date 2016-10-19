@@ -67,10 +67,10 @@ class QuestionsController < ApplicationController
                                        :level_id, 
                                        :is_active, 
                                        answers_attributes: [:id, 
-                                                             :content, 
-                                                             :question_id, 
-                                                             :_destroy, 
-                                                             :is_correct])
+                                                            :content, 
+                                                            :question_id, 
+                                                            :_destroy, 
+                                                            :is_correct])
   end 
 
 end

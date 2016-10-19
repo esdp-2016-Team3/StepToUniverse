@@ -7,7 +7,7 @@
 				<div class="well well-lg">
 					<ul class="list-group">
 					  <h3><li class="list-group-item list-group-item-info">
-					  	<span style="cursor:default">
+					  	<span style="cursor:default", id="<%= question.id %>" >
 					  		<%= count %>. <%= question.content %>
 					  	</span>
 					  </li></h3>
@@ -17,7 +17,7 @@
 						  	<label class="answer_block" for="<%= question.id %>_<%=answer.id %>">
 						  		<a class="list-group-item answer" style="cursor:pointer">
                     <span>
-                     <div style="display:inline-block;width:3%"><span id="answer_<%= cnt %>"><%= radio_button_tag question.id, answer.id %></span></div>
+                     <div style="display:inline-block;width:3%"><span id="<%= question.id %>"><%= radio_button_tag question.id, answer.id %></span></div>
   						  			<div style="display:inline-block;width:90%"><li style="width:80%">                    
   						  			  <span> <%= answer.content %></span>
   						  			</li></div>
