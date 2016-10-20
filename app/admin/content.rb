@@ -24,6 +24,12 @@ ActiveAdmin.register TextFile do
 
 permit_params :name, :status, :description, :user_id
 
+  controller do
+    def scoped_collection
+      TextFile.where.not(user_id: nil)
+    end
+  end
+
   form do |f|
     f.inputs do
       f.input :name
@@ -37,6 +43,7 @@ permit_params :name, :status, :description, :user_id
 
   index do
     selectable_column
+
     column :name
     column :user
 
