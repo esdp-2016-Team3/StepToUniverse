@@ -2,6 +2,7 @@ class FilesController < ApplicationController
   
   def create
     @text_file = TextFile.new(text_file_params)
+    @text_file.user_id = current_user.id if current_user
     @file = params[:text_file]
     @file = @file[:file]
     @file = @file.original_filename
