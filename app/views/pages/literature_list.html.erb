@@ -14,8 +14,8 @@
 
 <ol>
   <% @text_files.each do |text_file| %>
-    <h3><li>
-    	<%= text_file.name %></h3>
+    	<h3><li><%= text_file.name %></h3>
+      <h4><%= User.find(text_file.user_id).name %></h4>
       <h4><%= text_file.description %></h4>
       <% if user_signed_in? %>
         <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>

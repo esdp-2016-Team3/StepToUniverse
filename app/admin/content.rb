@@ -22,7 +22,7 @@ end
 
 ActiveAdmin.register TextFile do
 
-permit_params :name, :status, :description
+permit_params :name, :status, :description, :user_id
 
   form do |f|
     f.inputs do
@@ -38,6 +38,7 @@ permit_params :name, :status, :description
   index do
     selectable_column
     column :name
+    column :user
 
     actions
   end
