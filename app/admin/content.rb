@@ -22,7 +22,7 @@ end
 
 ActiveAdmin.register TextFile do
 
-permit_params :name, :status, :description, :user_id
+permit_params :name, :description, :user_id
 actions :all, except: [:new]
   controller do
     def scoped_collection
@@ -34,8 +34,6 @@ actions :all, except: [:new]
     f.inputs do
       f.input :name
       f.input :description
-      f.input :status
-      f.input :file, as: :file
     end
 
     f.submit
