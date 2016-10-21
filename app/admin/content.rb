@@ -23,7 +23,7 @@ end
 ActiveAdmin.register TextFile do
 
 permit_params :name, :status, :description, :user_id
-
+actions :all, except: [:new]
   controller do
     def scoped_collection
       TextFile.where.not(user_id: nil)

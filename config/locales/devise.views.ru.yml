@@ -25,6 +25,11 @@ ru:
         description: "описание"
         created_at: "создан"
         updated_at: "изменён"
+      text_file:
+        name: "Наименование"
+        description: "Описание"
+        status: "Статус"
+        file: "Файл"
 
     models:
       admin_user: "Администратор"
