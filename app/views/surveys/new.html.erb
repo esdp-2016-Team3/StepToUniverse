@@ -2,19 +2,20 @@
 <%= nested_form_for @survey do |f| %>
 	<%= f.label :name %>
     <%= f.text_field :name %>
-	<%= f.fields_for :questions do |ff| %>
-	  <%= ff.label :content %>
-	  <%= ff.text_field :content %>
+	<%= f.simple_fields_for :questions_for_students do |ff| %>
+	  <%= ff.label :title %>
+	  <%= ff.text_field :title %>
 	  <%= ff.link_to_remove "Remove this task" %>
-	    <%= ff.fields_for :answers do |anw| %>
-	  	 <%= anw.label :content %>
-	 	 <%= anw.text_field :content %>
-	 	 <%= radio_button_tag :is_correct, :answer_id  %>
+	    <%= ff.simple_fields_for :answers_for_students do |anw| %>
+	  	 <%= anw.label :title %>
+	 	 <%= anw.text_field :title %>
+	 	 <%= radio_button_tag :is_correct, as: :boolean, boolean_style: :inline %>
 	 	 <%= anw.link_to_remove "Remove this task" %>
 	 	 <% count += 1 %>
 		<% end %>
-		<p><%= ff.link_to_add "Add a answer", :answers %></p>
+		<p><%= ff.link_to_add "Add a answer", :answers_for_students %></p>
 	<% end %>
-	<p><%= f.link_to_add "Add a question", :questions %></p>
+	<p><%= f.link_to_add "Add a question", :questions_for_students %></p>
 	<%= f.submit %>
+
 <% end %>
