@@ -7,25 +7,28 @@ Rails.application.routes.draw do
 
   root 'pages#homepage'
 
-  get '/literature_list' => 'pages#literature_list', as: 'literature_list'
+  resources :questions
+  resources :surveys
+
+  get '/cabinet' => 'pages#cabinet', as: 'cabinet'
 
   get '/result' => 'pages#result', as: 'result'
-
   get '/sample_test' => 'pages#sample_test', as: 'sample_test'
 
   get '/admin/user/accept' => 'acceptions#accept', as: 'accept'
-
   get '/admin/user/reject' => 'acceptions#reject', as: 'reject'
 
   devise_for :users, :controllers => {:confirmations => "confirmations"}
 
-  get '/content/:id', to: 'contents#show', as: 'content'
-  
-  resources :questions
-  resources :surveys
+  get '/content/:id', to: 'contents#show', as: 'content'  
 
-  post '/text_file/create' => 'files#create', as: 'text_file_create'
+  get '/literature_list' => 'pages#literature_list', as: 'literature_list'
+  post '/library_file/create' => 'library_files#create', as: 'library_file_create'
+  delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
 
-  delete '/text_file/:id/delete' => 'files#destroy', as: 'text_file_destroy'
+  post '/homework/create' => 'homeworks#create', as: 'homework_create'
+  post '/homework/send' => 'homeworks#assign', as: 'hw_assignment_create'
+  post '/homework/finish' => 'homeworks#result', as: 'hw_result_create'
+  put '/homework/:id/check' => 'homeworks#check', as: 'hw_check'
 
 end

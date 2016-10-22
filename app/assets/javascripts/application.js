@@ -17,3 +17,21 @@
 //= require jquery_nested_form
 //= require turbolinks
 //= require_tree .
+
+
+(function() {
+    setInterval(function() {
+        var cnt = 0
+        $('form :input[type=radio]').each(function() {
+            if ($(this).prop("checked") == true) {
+              cnt ++
+            }
+        });
+
+        if (cnt != 20) {
+            $('#register').attr('disabled', 'disabled');
+        } else {
+            $('#register').removeAttr('disabled');
+      }
+    }, 1000);
+  })()

@@ -1,4 +1,16 @@
-ActiveRecord::Schema.define(version: 20161008105109) do
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 20161022120816) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -40,6 +52,15 @@ ActiveRecord::Schema.define(version: 20161008105109) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
+  create_table "answers_for_students", force: :cascade do |t|
+    t.string   "title"
+    t.boolean  "is_correct"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "questions_for_student_id"
+    t.index ["questions_for_student_id"], name: "index_answers_for_students_on_questions_for_student_id"
+  end
+
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -63,6 +84,38 @@ ActiveRecord::Schema.define(version: 20161008105109) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "homework_assignments", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "homework_id"
+    t.boolean  "is_done"
+    t.index ["homework_id"], name: "index_homework_assignments_on_homework_id"
+    t.index ["user_id"], name: "index_homework_assignments_on_user_id"
+  end
+
+  create_table "homework_files", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "homework_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "pather"
+    t.index ["homework_id"], name: "index_homework_files_on_homework_id"
+  end
+
+  create_table "homework_results", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.boolean  "is_checked"
+    t.integer  "homework_assignment_id"
+    t.index ["homework_assignment_id"], name: "index_homework_results_on_homework_assignment_id"
+  end
+
   create_table "homeworks", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -78,6 +131,20 @@ ActiveRecord::Schema.define(version: 20161008105109) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "library_files", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "user_id"
+    t.string   "literature_file_name"
+    t.string   "literature_content_type"
+    t.integer  "literature_file_size"
+    t.datetime "literature_updated_at"
+    t.string   "path_file"
+    t.index ["user_id"], name: "index_library_files_on_user_id"
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -90,28 +157,21 @@ ActiveRecord::Schema.define(version: 20161008105109) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "level_id"
-    t.integer  "survey_id"
     t.index ["level_id"], name: "index_questions_on_level_id"
-    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "questions_for_students", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "survey_id"
+    t.index ["survey_id"], name: "index_questions_for_students_on_survey_id"
   end
 
   create_table "surveys", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "text_files", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "status"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-    t.string   "pather"
   end
 
   create_table "users", force: :cascade do |t|

@@ -25,6 +25,10 @@ ru:
         description: "описание"
         created_at: "создан"
         updated_at: "изменён"
+      text_file:
+        user: "Добавил(а)"
+        name: "Наименование"
+        description: "Описание"
 
     models:
       admin_user: "Администратор"
@@ -48,6 +52,12 @@ ru:
             one: "Вопрос"
             other: "Вопросы"
       content: "Содержание"
+      comment:
+            one: "Комментарий"
+            other: "Комментарии"
+      text_file:
+            one: "Литературу"
+            other: "Список литературы"
   devise:
     confirmations:
       confirmed: "Ваш адрес эл. почты успешно подтвержден."

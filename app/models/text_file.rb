@@ -1,4 +1,8 @@
-class Text_file < ApplicationRecord
+class TextFile < ApplicationRecord
+  
+  belongs_to :user, required: false
+  belongs_to :homework, required: false
+
   has_attached_file :file, path: ':rails_root/public/text_files/:filename', url: '/public/text_files/:basename.:extension'
 
   validates_attachment :file, :content_type => {:content_type => ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "text/plain"]}

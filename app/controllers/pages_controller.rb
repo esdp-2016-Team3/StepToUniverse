@@ -1,89 +1,96 @@
 class PagesController < ApplicationController
-
-	def homepage
-		
-	end
+  
+  include Levels
+  include Results
 
   def sample_test
     @questions = []
-    @q = Question.where(level_id: 1, is_active: true).order("RANDOM()").limit(5)
-    @q.each do |q|
-      @questions.push q
-    end
+    level = Level.all.count
+    count = 1
 
-    @q = Question.where(level_id: 2, is_active: true).order("RANDOM()").limit(5)
-    @q.each do |q|
-      @questions.push q
-    end
-
-    @q = Question.where(level_id: 3, is_active: true).order("RANDOM()").limit(5)
-    @q.each do |q|
-      @questions.push q
-    end
-
-    @q = Question.where(level_id: 4, is_active: true).order("RANDOM()").limit(5)
-    @q.each do |q|
-      @questions.push q
+    level.times do 
+      @question = Question.where(level_id: count, is_active: true).order("RANDOM()").limit(5)
+      @question.each do |question|
+        @questions.push question
+      end
+      count += 1
     end
 
     @questions = @questions.shuffle
   end
 
-  def level_detection
+  def result
     arr = []
     @answers = []
 
-    @lvl_1 = []
-    @lvl_2 = []
-    @lvl_3 = []
-    @lvl_4 = []
+    @level_1 = []
+    @level_2 = []
+    @level_3 = []
+    @level_4 = []
 
-    params.values.each do |k|
-      if k.to_i != 0
-        arr.push k.to_i
+    params.values.each do |value|
+      if value.to_i != 0
+        arr.push value.to_i
       end
     end
 
-    arr.each do |n|
-      @answers.push Answer.find(n)
+    arr.each do |elem|
+      @answers.push Answer.find(elem)
     end
 
-    @answers.each do |ans|
-      if ans.is_correct == true
-        if ans.question.level.id == 1
-          @lvl_1.push ans
-        elsif ans.question.level.id == 2
-          @lvl_2.push ans
-        elsif ans.question.level.id == 3
-          @lvl_3.push ans
-        elsif ans.question.level.id == 4
-          @lvl_4.push ans
+    @answers.each do |answer|
+      if answer.is_correct == true
+        if answer.question.level.id == 1
+          @level_1.push answer
+        elsif answer.question.level.id == 2
+          @level_2.push answer
+        elsif answer.question.level.id == 3
+          @level_3.push answer
+        elsif answer.question.level.id == 4
+          @level_4.push answer
         end
       end
     end
-  end
 
-  def literature_list
-    @text_file = Text_file.new
-    @text_files = Text_file.all
+    beginner = Beginner.new('Beginner', @level_1.count)
+    elementary = Elementary.new('Elementary', @level_2.count)
+    intermediate = Intermediate.new('Intermediate', @level_3.count)
+    upper = UpperIntermediate.new('Upper-Intermediate', @level_4.count)
+
+    array_levels = [beginner, elementary, intermediate, upper]
+
+    result_new = Result.new
+    @result = result_new.define(array_levels)
+  
   end
   
-  def result
-    level_detection()
-      if @lvl_2.count == 5
-        if @lvl_3.count == 5
-           @level = @lvl_4.count > 2 ? 'Upper-Intermediate' : 'Intermediate'
-        elsif @lvl_3.count > 1
-          @level = 'Intermediate'
-        else
-          @level = 'Elementary'
-        end
-      elsif @lvl_2.count > 1
-        @level = 'Elementary'
-      else
-        @level = 'Beginner'
-      end
+  def literature_list
+    @library_file = LibraryFile.new
+    @library_files = LibraryFile.all
   end
-end
 
- 
+  def cabinet
+    if current_user
+      if current_user.position_id == 2
+        @homework = Homework.new
+        @homework.homework_files.build
+        @hw_assignment = HomeworkAssignment.new
+        @pend_hws = []
+        current_user.homeworks.each do |hw|
+          hw.homework_assignments.each do |assignment|
+            if assignment.homework_result != nil && assignment.homework_result.is_checked == false
+              @pend_hws.push assignment.homework_result
+            end
+          end
+        end
+      elsif current_user.position_id == 1
+        if current_user.homework_assignments.any?
+          @hwa = current_user.homework_assignments.where(is_done: nil)
+          @homework_result = HomeworkResult.new
+          @hwd = current_user.homework_assignments.where(is_done: true)
+        end
+      end
+    end
+  end
+  
+end

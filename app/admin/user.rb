@@ -1,10 +1,17 @@
 ActiveAdmin.register User, as: "Student" do
 
-  permit_params :name, :skype, :phone, :status, :email, :position_id, :password, :password_confirmation
+  permit_params :name, :skype, :phone, :status, :email, :teacher_id, :position_id, :password, :password_confirmation
 
   controller do
     def scoped_collection
       User.where(status: 'active', position_id: 1)
+    end
+  end
+
+  controller do
+    def update_resource(object, attributes)
+      update_method = attributes.first[:password].present? ? :update_attributes : :update_without_password
+      object.send(update_method, *attributes)
     end
   end
 
@@ -15,6 +22,7 @@ ActiveAdmin.register User, as: "Student" do
       f.input :skype
       f.input :phone
       f.input :email
+      f.input :teacher_id, as: :select, collection: User.where(position_id: 2)
       f.input :status
       f.input :password
       f.input :password_confirmation
@@ -28,6 +36,11 @@ ActiveAdmin.register User, as: "Student" do
     column :email
     column :phone
     column :skype
+    column :teacher do |t|
+      if t.teacher != nil
+       t.teacher.name.to_s
+      end
+    end
     column 'Отказ' do |user|
       link_to 'Отказать', reject_path(user)
     end

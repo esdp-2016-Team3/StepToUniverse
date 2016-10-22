@@ -7,7 +7,7 @@
 				<div class="well well-lg">
 					<ul class="list-group">
 					  <h3><li class="list-group-item list-group-item-info">
-					  	<span style="cursor:default">
+					  	<span style="cursor:default", id="<%= question.id %>" >
 					  		<%= count %>. <%= question.content %>
 					  	</span>
 					  </li></h3>
@@ -15,11 +15,13 @@
 					<ol type="a">
 						<% question.answers.order("RANDOM()").each do |answer| %>
 						  	<label class="answer_block" for="<%= question.id %>_<%=answer.id %>">
-						  		<a class="list-group-item answer">
-						  			<li>
-						  			  <span> <%= answer.content %></span>
-						  			  <span id="answer_<%= cnt %>"><%= radio_button_tag question.id, answer.id %></span>
-						  			</li>
+						  		<a class="list-group-item answer" style="cursor:pointer">
+                    <span>
+                     <div style="display:inline-block;width:3%"><span id="<%= question.id %>"><%= radio_button_tag question.id, answer.id %></span></div>
+  						  			<div style="display:inline-block;width:90%"><li style="width:80%">                    
+  						  			  <span> <%= answer.content %></span>
+  						  			</li></div>
+                    </span>
 						  		</a>
 					  		</label> 
                 <% cnt += 1 %>
@@ -29,6 +31,6 @@
 	  		<% count += 1 %>
 		 	<% end %>
 	  </div>
-	  <%= submit_tag 'Завершить', class: 'btn btn-success' %>
+	  <%= submit_tag 'Завершить', class: 'btn btn-success', id: 'register', disabled: 'disabled' %>
 	<% end %>
 </div>
