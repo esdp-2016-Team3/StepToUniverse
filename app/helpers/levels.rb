@@ -1,5 +1,5 @@
 module Levels
-  class Level
+  class LanguageLevel
     attr_accessor :name, :result
 
     def initialize(name, result)
@@ -8,19 +8,19 @@ module Levels
     end
   end
   
-  class Beginner < Level
+  class Beginner < LanguageLevel
   end
 
-  class Elementary < Level
+  class Elementary < LanguageLevel
   end
 
-  class Intermediate < Level
+  class Intermediate < LanguageLevel
   end
 
-  class UpperIntermediate < Level
+  class UpperIntermediate < LanguageLevel
   end
 
-  class EmptyLevel < Level
+  class EmptyLevel < LanguageLevel
   end
 
 end
