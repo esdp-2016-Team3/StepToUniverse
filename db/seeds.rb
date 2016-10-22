@@ -24,8 +24,8 @@ Level.create(name: "Intermediate")
 Level.create(name: "Advanced")
 Level.create(name: "Proficiency")
 
-TextFile.create(name: 'Book1', description: Faker::Lorem.sentence, user_id: 3, pather: 'book1.pdf', file: File.new('public/text_files/book1.pdf'))
-TextFile.create(name: 'Book2', description: Faker::Lorem.sentence, user_id: 3, pather: 'book2.pdf', file: File.new('public/text_files/book2.pdf'))
+LibraryFile.create(name: 'Book1', description: Faker::Lorem.sentence, user_id: 3, pather: 'book1.pdf', file: File.new('public/library_files/book1.pdf'))
+LibraryFile.create(name: 'Book2', description: Faker::Lorem.sentence, user_id: 3, pather: 'book2.pdf', file: File.new('public/library_files/book2.pdf'))
 
 TextFile.create(name: 'Hw1', description: Faker::Lorem.sentence, homework_id: 1, pather: 'hw1.pdf', file: File.new('public/text_files/hw1.pdf'))
 TextFile.create(name: 'Hw2', description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/text_files/hw2.pdf'))
