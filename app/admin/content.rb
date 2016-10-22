@@ -20,33 +20,3 @@ permit_params :title, :description
 
 end
 
-ActiveAdmin.register TextFile do
-
-permit_params :name, :description, :user_id
-actions :all, except: [:new]
-  controller do
-    def scoped_collection
-      TextFile.where.not(user_id: nil)
-    end
-  end
-
-  form do |f|
-    f.inputs do
-      f.input :name
-      f.input :description
-    end
-
-    f.submit
-  end
-
-  index do
-    selectable_column
-
-    column :name
-    column :user
-
-    actions
-  end
-
-end
-
