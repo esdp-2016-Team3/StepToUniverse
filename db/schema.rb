@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015114754) do
+ActiveRecord::Schema.define(version: 20161022065213) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 20161015114754) do
     t.datetime "updated_at",  null: false
     t.integer  "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "answers_for_students", force: :cascade do |t|
+    t.string   "title"
+    t.boolean  "is_correct"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "questions_for_student_id"
+    t.index ["questions_for_student_id"], name: "index_answers_for_students_on_questions_for_student_id"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -108,6 +117,20 @@ ActiveRecord::Schema.define(version: 20161015114754) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "library_files", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "user_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "pather"
+    t.index ["user_id"], name: "index_library_files_on_user_id"
+  end
+
   create_table "positions", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
@@ -120,9 +143,15 @@ ActiveRecord::Schema.define(version: 20161015114754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "level_id"
-    t.integer  "survey_id"
     t.index ["level_id"], name: "index_questions_on_level_id"
-    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "questions_for_students", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "survey_id"
+    t.index ["survey_id"], name: "index_questions_for_students_on_survey_id"
   end
 
   create_table "surveys", force: :cascade do |t|
