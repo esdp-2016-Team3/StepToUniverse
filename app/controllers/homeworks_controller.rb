@@ -1,16 +1,13 @@
 class HomeworksController < ApplicationController
-  
   def create
-    params[:homework][:text_files_attributes].each do |at|
-      @a = params[:homework][:text_files_attributes][at.to_sym][:file]
+    params[:homework][:homework_files_attributes].each do |at|
+      @a = params[:homework][:homework_files_attributes][at.to_sym][:file]
       @a = @a.original_filename
-      params[:homework][:text_files_attributes][at.to_sym][:pather] = @a
+      params[:homework][:homework_files_attributes][at.to_sym][:pather] = @a
     end
-
     @homework = Homework.new(homework_params)
-
+    @homework.user_id = current_user.id if current_user
     if @homework.save
-
       redirect_to cabinet_path, notice: 'Домашнее задание успешно создано.'
     else
       render 'cabinet'
@@ -48,7 +45,7 @@ class HomeworksController < ApplicationController
   private
 
   def homework_params
-    params.require(:homework).permit(:title, :user_id, text_files_attributes: [:id, :name, :description, :file, :pather, :homework_id])
+    params.require(:homework).permit(:title, :user_id, homework_files_attributes: [:id, :name, :description, :file, :pather, :homework_id])
   end
 
   def assignment_params

@@ -1,7 +1,6 @@
 <% if current_user == nil %>
   <h1>Эта страница доступна только для авторизованных пользователей.</h1>
-
-
+  
 <% elsif current_user.position_id == 2 %>
   <h1>Кабинет преподавателя</h1>
   <h3>Домашки на проверку</h3>
@@ -30,14 +29,12 @@
       <h4>Описание домашки</h4>
       <%= f.label 'Название' %> <br>
       <%= f.text_field :title %> <br>
-      <% f.hidden_field :user_id, value: current_user.id %> <br>
       <br>
-      
     </div>
     <div style="width:49%;float:right">
       <br>
       <h4>Прикрепить файл</h4>  
-      <%= f.fields_for :text_files do |ff| %>
+      <%= f.fields_for :homework_files do |ff| %>
         <%= ff.label 'Название файла' %> <br>
         <%= ff.text_field :name %> <br>
         <%= ff.label 'Описание' %> <br>
@@ -49,19 +46,17 @@
     </div>
     <%= f.submit %>
   <% end %>
-
-
 <% elsif current_user.position_id == 1 %>
   <h1>Кабинет студента</h1>
   <h1>Невыполненные домашки</h1>
   <% unless @hwa == nil %>
   <% @hwa.each do |hwa| %>
     <h2><%= hwa.homework.title %></h2> <br>
-    <% hwa.homework.text_files.each do |text_file| %>
+    <% hwa.homework.homework_files.each do |homework_file| %>
         <h4>
-        Текстовый файл: <%= text_file.name %></h4>
-        <h5><%= text_file.description %></h5>
-        <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>
+        Текстовый файл: <%= homework_file.name %></h4>
+        <h5><%= homework_file.description %></h5>
+        <%= link_to "Скачать", '/homework_files/'+homework_file.pather.to_s %>
     <% end %>
     <br><br>
     <%= form_for @homework_result, url: hw_result_create_path do |f| %>
@@ -74,11 +69,11 @@
   <h1>Выполненные домашки</h1>
   <% @hwd.each do |hwd| %>
     <h2><%= hwd.homework.title %></h2> <br>
-    <% hwd.homework.text_files.each do |text_file| %>
+    <% hwd.homework.homework_files.each do |homework_file| %>
         <h4>
-        Текстовый файл: <%= text_file.name %></h4>
-        <h5><%= text_file.description %></h5>
-        <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>
+        Текстовый файл: <%= homework_file.name %></h4>
+        <h5><%= homework_file.description %></h5>
+        <%= link_to "Скачать", '/homework_files/'+homework_file.pather.to_s %>
     <% end %>
   <% end end %>
 <% end %>

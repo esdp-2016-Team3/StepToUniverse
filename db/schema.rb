@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022065213) do
+ActiveRecord::Schema.define(version: 20161022120816) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -94,6 +94,20 @@ ActiveRecord::Schema.define(version: 20161022065213) do
     t.index ["user_id"], name: "index_homework_assignments_on_user_id"
   end
 
+  create_table "homework_files", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "homework_id"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "pather"
+    t.index ["homework_id"], name: "index_homework_files_on_homework_id"
+  end
+
   create_table "homework_results", force: :cascade do |t|
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -120,14 +134,14 @@ ActiveRecord::Schema.define(version: 20161022065213) do
   create_table "library_files", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-    t.string   "pather"
+    t.string   "literature_file_name"
+    t.string   "literature_content_type"
+    t.integer  "literature_file_size"
+    t.datetime "literature_updated_at"
+    t.string   "path_file"
     t.index ["user_id"], name: "index_library_files_on_user_id"
   end
 
@@ -158,23 +172,6 @@ ActiveRecord::Schema.define(version: 20161022065213) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "text_files", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "status"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
-    t.string   "pather"
-    t.integer  "user_id"
-    t.integer  "homework_id"
-    t.index ["homework_id"], name: "index_text_files_on_homework_id"
-    t.index ["user_id"], name: "index_text_files_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

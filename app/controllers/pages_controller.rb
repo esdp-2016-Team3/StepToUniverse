@@ -19,14 +19,14 @@ class PagesController < ApplicationController
     @questions = @questions.shuffle
   end
 
-  def result()
+  def result
     arr = []
     @answers = []
 
-    @lvl_1 = []
-    @lvl_2 = []
-    @lvl_3 = []
-    @lvl_4 = []
+    @level_1 = []
+    @level_2 = []
+    @level_3 = []
+    @level_4 = []
 
     params.values.each do |value|
       if value.to_i != 0
@@ -41,21 +41,21 @@ class PagesController < ApplicationController
     @answers.each do |answer|
       if answer.is_correct == true
         if answer.question.level.id == 1
-          @lvl_1.push answer
+          @level_1.push answer
         elsif answer.question.level.id == 2
-          @lvl_2.push answer
+          @level_2.push answer
         elsif answer.question.level.id == 3
-          @lvl_3.push answer
+          @level_3.push answer
         elsif answer.question.level.id == 4
-          @lvl_4.push answer
+          @level_4.push answer
         end
       end
     end
 
-    beginner = Beginner.new('Beginner', @lvl_1.count)
-    elementary = Elementary.new('Elementary', @lvl_2.count)
-    intermediate = Intermediate.new('Intermediate', @lvl_3.count)
-    upper = UpperIntermediate.new('Upper-Intermediate', @lvl_4.count)
+    beginner = Beginner.new('Beginner', @level_1.count)
+    elementary = Elementary.new('Elementary', @level_2.count)
+    intermediate = Intermediate.new('Intermediate', @level_3.count)
+    upper = UpperIntermediate.new('Upper-Intermediate', @level_4.count)
 
     array_levels = [beginner, elementary, intermediate, upper]
 
@@ -73,13 +73,13 @@ class PagesController < ApplicationController
     if current_user
       if current_user.position_id == 2
         @homework = Homework.new
-        @homework.text_files.build
+        @homework.homework_files.build
         @hw_assignment = HomeworkAssignment.new
         @pend_hws = []
         current_user.homeworks.each do |hw|
-          hw.homework_assignments.each do |ass|
-            if ass.homework_result != nil && ass.homework_result.is_checked == false
-              @pend_hws.push ass.homework_result
+          hw.homework_assignments.each do |assignment|
+            if assignment.homework_result != nil && assignment.homework_result.is_checked == false
+              @pend_hws.push assignment.homework_result
             end
           end
         end
