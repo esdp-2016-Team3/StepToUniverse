@@ -1,7 +1,7 @@
 <h1>Список литературы</h1>
 
 <% if user_signed_in? && current_user.position.title == 'Преподаватель' %>
-  <%= form_for :text_file, url: text_file_create_path, method: 'post' do |f| %>
+  <%= simple_form_for :library_file, url: library_file_create_path, method: 'post' do |f| %>
     <%= f.label :name %> <br>
     <%= f.text_field :name %> <br>
     <%= f.label :description %> <br>
@@ -13,16 +13,16 @@
 <% end %>
 
 <ol>
-  <% @text_files.each do |text_file| %>
-    	<h3><li><%= text_file.name %></h3>
-      <h4><%= User.find(text_file.user_id).name %></h4>
-      <h4><%= text_file.description %></h4>
+  <% @library_files.each do |library_file| %>
+    	<h3><li><%= library_file.name %></h3>
+      <h4><%= User.find(library_file.user_id).name %></h4>
+      <h4><%= library_file.description %></h4>
       <% if user_signed_in? %>
-        <%= link_to "Скачать", '/text_files/'+text_file.pather.to_s %>
+        <%= link_to "Скачать", '/library_files/'+library_file.pather.to_s %>
       <% end %>
       <% if user_signed_in? && current_user.position.title == 'Преподаватель'  %>
-        <% if text_file.user == current_user %>
-          <%= link_to 'Удалить', text_file_destroy_path(text_file.id), method: 'delete' %>
+        <% if library_file.user == current_user %>
+          <%= link_to 'Удалить', library_file_destroy_path(library_file.id), method: 'delete' %>
         <% end %>
       <% end %>
     </li>
