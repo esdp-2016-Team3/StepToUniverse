@@ -12,15 +12,15 @@ When(/^я как учитель1 логинюсь, добавляю книгу$/
   sleep 1
   page.assert_text('Book2')
   sleep 1
-  fill_in('Name', :with => 'Литература от препода №1')
+  fill_in('library_file_name', :with => 'Литература от препода №1')
   sleep 2
-  fill_in('Description', :with => 'Супер пупер книга блин')
+  fill_in('library_file_description', :with => 'Супер пупер книга блин')
   sleep 5
-  attach_file('File', Rails.root + 'public/library_files/book1.pdf')
+  attach_file('library_file_literature', Rails.root + 'public/library_files/book1.pdf')
   sleep 5
   p Rails.root + 'public/library_files/book1.pdf'
   sleep 5
-  click_on('Создать')
+  find('input[name="commit"]').click
   sleep 5
   page.assert_text('Литература от препода №1')
   sleep 3
@@ -35,10 +35,9 @@ When(/^я залогинен как админ и удаляю книгу доб
   click_button('Войти')
   page.assert_text('Вход в систему выполнен')
   click_on('Список литературы')
-  page.assert_text('Создать Литературу')
   page.assert_text('Список литературы')
   page.assert_text('Литература от препода №1')
-  within(:xpath, '//tr[@id="text_file_7"]') do
+  within(:xpath, '//tr[@id="library_file_3"]') do
     sleep 10
     click_on('Удалить')
     sleep 10
@@ -46,7 +45,6 @@ When(/^я залогинен как админ и удаляю книгу доб
     sleep 10
   end
   sleep 10
-  page.assert_text('Создать Литературу')
   page.assert_text('Список литературы')
   page.assert_no_text('Литература от препода №1')
   click_on('Выйти')
