@@ -25,7 +25,7 @@ ru:
         description: "описание"
         created_at: "создан"
         updated_at: "изменён"
-      text_file:
+      library_file:
         user: "Добавил(а)"
         name: "Наименование"
         description: "Описание"
@@ -55,7 +55,7 @@ ru:
       comment:
             one: "Комментарий"
             other: "Комментарии"
-      text_file:
+      library_file:
             one: "Литературу"
             other: "Список литературы"
   devise:
