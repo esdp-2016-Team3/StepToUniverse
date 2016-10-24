@@ -16,9 +16,9 @@ When(/^я как учитель1 логинюсь, добавляю книгу$/
   sleep 2
   fill_in('Description', :with => 'Супер пупер книга блин')
   sleep 5
-  attach_file('File', Rails.root + 'public/text_files/hw1.pdf')
+  attach_file('File', Rails.root + 'public/library_files/book1.pdf')
   sleep 5
-  p Rails.root + 'public/text_files/hw1.pdf'
+  p Rails.root + 'public/library_files/book1.pdf'
   sleep 5
   click_on('Создать')
   sleep 5
