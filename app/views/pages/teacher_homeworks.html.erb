@@ -1,3 +1,9 @@
+  <%= link_to 'Создать задание', new_homework_path, class: 'btn btn-default navbar-btn' %>
+
+
 <% @homeworks.each do |homework| %>
-	<%= homework.title %>
+	<div>
+		<%= homework.title %>  |  
+		<%= link_to 'Удалить', homework_destroy_path(homework.id), method: 'delete' %>
+	</div>
 <% end %>

@@ -12,9 +12,11 @@ Rails.application.routes.draw do
   resources :questions
   resources :surveys
   
+  get '/new_homework' => 'pages#new_homework', as: 'new_homework'
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
   get '/my_students' => "pages#my_students", as: 'my_students' 
   get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'
+1
   delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
   post '/library_file/create' => 'library_files#create', as: 'library_file_create'
   
@@ -35,5 +37,6 @@ Rails.application.routes.draw do
   post '/homework/send' => 'homeworks#assign', as: 'hw_assignment_create'
   post '/homework/finish' => 'homeworks#result', as: 'hw_result_create'
   put '/homework/:id/check' => 'homeworks#check', as: 'hw_check'
+  delete '/homework/:id/delete' => 'homeworks#destroy', as: 'homework_destroy'
 
 end
