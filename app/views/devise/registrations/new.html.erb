@@ -29,6 +29,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> минимальное число симловол)</em>
@@ -45,7 +50,6 @@
 
   <div class="actions">
     <%= f.submit "Cохранить" %>
-
   </div>
 <% end %>
 

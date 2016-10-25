@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(version: 20161022120816) do
     t.string   "name"
     t.string   "skype"
     t.string   "phone"
+    t.text     "description"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "position_id"
