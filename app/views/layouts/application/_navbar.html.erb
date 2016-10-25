@@ -10,7 +10,9 @@
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
-      <%= image_tag('logo.jpg', size: '100') %>
+        <%= link_to root_path do %>
+          <%= image_tag('logo.jpg', size: '100') %>
+        <% end %>
         <li class="label_home"><h1>Step To Universe</h1></li>
       </ul>
       <ul class="navbar-nav navbar-right">
