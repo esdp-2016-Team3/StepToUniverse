@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :surveys
-
+  
+  get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'
   get '/cabinet' => 'pages#cabinet', as: 'cabinet'
 
   get '/result' => 'pages#result', as: 'result'
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
   get '/admin/user/reject' => 'acceptions#reject', as: 'reject'
 
   devise_for :users, :controllers => {:confirmations => "confirmations"}
-
   get '/content/:id', to: 'contents#show', as: 'content'  
 
   get '/literature_list' => 'pages#literature_list', as: 'literature_list'
