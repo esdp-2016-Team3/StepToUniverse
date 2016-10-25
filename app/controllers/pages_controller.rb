@@ -104,5 +104,9 @@ class PagesController < ApplicationController
   def my_students
     @students = User.where(teacher_id: current_user.id)
   end
+
+  def teacher_homeworks
+    @homeworks = Homework.all.where(user_id: current_user.id)
+  end
   
 end
