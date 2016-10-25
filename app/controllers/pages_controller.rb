@@ -92,5 +92,9 @@ class PagesController < ApplicationController
       end
     end
   end
+
+  def teachers
+    @teachers = User.where(position_id: 2, status: 'active')
+  end
   
 end

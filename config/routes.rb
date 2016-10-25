@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root 'pages#homepage'
 
+  get '/teachers' => 'pages#teachers', as: 'teachers'
+
   resources :questions
   resources :surveys
 
