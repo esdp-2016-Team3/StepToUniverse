@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :surveys
-  
+
+  get '/my_students' => "pages#my_students", as: 'my_students' 
   get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'
   delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
   post '/library_file/create' => 'library_files#create', as: 'library_file_create'

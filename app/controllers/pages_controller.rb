@@ -94,11 +94,15 @@ class PagesController < ApplicationController
 
   def teacher_literature
     @literature = LibraryFile.new
-    @literatures = LibraryFile.all.where(user_id: current_user.id)
+    @literatures = LibraryFile.where(user_id: current_user.id)
   end
 
   def teachers
     @teachers = User.where(position_id: 2, status: 'active')
+  end
+
+  def my_students
+    @students = User.where(teacher_id: current_user.id)
   end
   
 end
