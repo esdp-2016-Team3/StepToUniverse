@@ -20,11 +20,6 @@
       <% if user_signed_in? %>
         <%= link_to "Скачать", '/library_files/'+library_file.path_file.to_s %>
       <% end %>
-      <% if user_signed_in? && current_user.position.title == 'Преподаватель'  %>
-        <% if library_file.user == current_user %>
-          <%= link_to 'Удалить', library_file_destroy_path(library_file.id), method: 'delete' %>
-        <% end %>
-      <% end %>
     </li>
   <% end %>
 </ol>

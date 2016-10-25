@@ -91,6 +91,11 @@ class PagesController < ApplicationController
         end
       end
     end
+  end  
+
+  def teacher_literature
+    @literatures = LibraryFile.all.where(user_id: current_user.id)
+    
   end
 
   def teachers
