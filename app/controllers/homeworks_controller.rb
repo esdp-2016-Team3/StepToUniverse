@@ -8,10 +8,17 @@ class HomeworksController < ApplicationController
     @homework = Homework.new(homework_params)
     @homework.user_id = current_user.id if current_user
     if @homework.save
-      redirect_to cabinet_path, notice: 'Домашнее задание успешно создано.'
+      redirect_to teacher_homeworks_path, notice: 'Домашнее задание успешно создано.'
     else
       render 'cabinet'
     end
+  end
+
+  def destroy
+    @homework = Homework.find(params[:id])
+    @homework.destroy
+    
+    redirect_to teacher_homeworks_path, notice: 'Успешно удалено.'
   end
 
   def assign

@@ -15,37 +15,4 @@
         <%= f.submit 'Проверить', class: 'btn btn-default' %> <br><br>
       <% end %>
     <% end %>
-  <h3>Отправить домашку</h3>
-    <br>
-    <%= form_for @hw_assignment, url: hw_assignment_create_path, method: 'post' do |f| %>
-      <%= f.label 'Ученик' %>
-      <%= f.collection_select :user_id, User.where(teacher_id: current_user.id), :id, :name %> <br> <br>
-      <%= f.label 'Домашка' %>
-      <%= f.collection_select :homework_id, Homework.where(user_id: current_user.id), :id, :title %>
-      <br> <br>
-      <%= f.submit 'Отправить', class: 'btn btn-default' %>
-    <% end %>
-  <h3>Создать домашку</h3>
-  <%= nested_form_for @homework, url: homework_create_path, method: 'post' do |f| %>
-    <div style="width:49%;float:left">
-      <h4>Описание домашки</h4>
-      <%= f.label 'Название' %> <br>
-      <%= f.text_field :title %> <br>
-      <br>
-    </div>
-    <div style="width:49%;float:right">
-      <br>
-      <h4>Прикрепить файл</h4>  
-      <%= f.fields_for :homework_files do |ff| %>
-        <%= ff.label 'Название файла' %> <br>
-        <%= ff.text_field :name %> <br>
-        <%= ff.label 'Описание' %> <br>
-        <%= ff.text_area :description %> <br>
-        <%= ff.label 'Файл' %> <br>
-        <%= ff.file_field :file %> <br>
-        <% ff.hidden_field :pather, value: '' %>
-      <% end %>
-    </div>
-    <%= f.submit %>
-  <% end %>
 </div>

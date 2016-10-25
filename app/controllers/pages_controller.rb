@@ -68,11 +68,14 @@ class PagesController < ApplicationController
     @library_files = LibraryFile.all
   end
 
+  def new_homework
+    @homework = Homework.new
+    @homework.homework_files.build
+  end
+
   def cabinet
     if current_user
       if current_user.position_id == 2
-        @homework = Homework.new
-        @homework.homework_files.build
         @hw_assignment = HomeworkAssignment.new
         @pend_hws = []
         current_user.homeworks.each do |hw|
