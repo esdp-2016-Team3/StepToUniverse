@@ -7,14 +7,14 @@ class LibraryFilesController < ApplicationController
     @library_file.path_file = @file
     @library_file.save
 
-    redirect_to literature_list_path, notice: 'Успешно создано.'
+    redirect_to teacher_literature_path, notice: 'Успешно создано.'
   end
 
   def destroy
     @library_file = LibraryFile.find(params[:id])
     @library_file.destroy
     
-    redirect_to literature_list_path, notice: 'Успешно удалено.'
+    redirect_to teacher_literature_path, notice: 'Успешно удалено.'
   end
 
   private

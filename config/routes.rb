@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :surveys
   
   get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'
+  delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
+  post '/library_file/create' => 'library_files#create', as: 'library_file_create'
+  
   get '/cabinet' => 'pages#cabinet', as: 'cabinet'
 
   get '/result' => 'pages#result', as: 'result'
@@ -25,8 +28,6 @@ Rails.application.routes.draw do
   get '/content/:id', to: 'contents#show', as: 'content'  
 
   get '/literature_list' => 'pages#literature_list', as: 'literature_list'
-  post '/library_file/create' => 'library_files#create', as: 'library_file_create'
-  delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
 
   post '/homework/create' => 'homeworks#create', as: 'homework_create'
   post '/homework/send' => 'homeworks#assign', as: 'hw_assignment_create'

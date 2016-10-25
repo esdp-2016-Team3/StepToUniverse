@@ -1,17 +1,5 @@
 <h1>Список литературы</h1>
 
-<% if user_signed_in? && current_user.position.title == 'Преподаватель' %>
-  <%= simple_form_for :library_file, url: library_file_create_path, method: 'post' do |f| %>
-    <%= f.label "Наименование" %> <br>
-    <%= f.text_field :name %> <br>
-    <%= f.label "Описание" %> <br>
-    <%= f.text_area :description %> <br>
-    <%= f.label "Файл" %> <br>
-    <%= f.file_field :literature %> <br>
-    <%= f.submit 'Создать' %>
-  <% end %>
-<% end %>
-
 <ol>
   <% @library_files.each do |library_file| %>
     	<h3><li><%= library_file.name %></h3>

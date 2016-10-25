@@ -65,7 +65,6 @@ class PagesController < ApplicationController
   end
   
   def literature_list
-    @library_file = LibraryFile.new
     @library_files = LibraryFile.all
   end
 
@@ -94,8 +93,8 @@ class PagesController < ApplicationController
   end  
 
   def teacher_literature
+    @literature = LibraryFile.new
     @literatures = LibraryFile.all.where(user_id: current_user.id)
-    
   end
 
   def teachers
