@@ -1,10 +1,10 @@
 <h1><%= @survey.name %></h1>
 <div class="col-md-12">
-	<% @survey.questions_for_students.each do |question| %>
+	<% @survey.homework_questions.each do |question| %>
     <div class="col-md-12">
 	    <h3><%= question.title %></h3>
 	  </div>
-	   <% question.answers_for_students.each do |answer| %>
+	   <% question.homework_answers.each do |answer| %>
       <div class="col-md-12">
 	   	  <h6><%= answer.title %> | <%= answer.is_correct %></h6>
 	   	</div>

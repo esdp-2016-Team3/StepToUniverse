@@ -1,0 +1,11 @@
+<%= simple_form_for @survey do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <% f.simple_fields_for :homework_questions do |builder| %>
+    <%= render "homework_question_fields", f: builder %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Question", f, :homework_questions %></p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

@@ -1,21 +1,3 @@
-<% count = 0 %>
-<%= nested_form_for @survey do |f| %>
-	<%= f.label :name %>
-    <%= f.text_field :name %>
-	<%= f.simple_fields_for :questions_for_students do |ff| %>
-	  <%= ff.label :title %>
-	  <%= ff.text_field :title %>
-	  <%= ff.link_to_remove "Remove this task" %>
-	    <%= ff.simple_fields_for :answers_for_students do |anw| %>
-	  	 <%= anw.label :title %>
-	 	 <%= anw.text_field :title %>
-	 	 <%= radio_button_tag :is_correct, as: :boolean, boolean_style: :inline %>
-	 	 <%= anw.link_to_remove "Remove this task" %>
-	 	 <% count += 1 %>
-		<% end %>
-		<p><%= ff.link_to_add "Add a answer", :answers_for_students %></p>
-	<% end %>
-	<p><%= f.link_to_add "Add a question", :questions_for_students %></p>
-	<%= f.submit %>
-
-<% end %>
+<div class="col-md-12">
+	<%= render 'form' %>
+</div>
