@@ -1,9 +1,26 @@
-<div class="col-md-2">
-  <%= link_to 'Моя литература', teacher_literature_path, class: 'btn btn-default navbar-btn' %>
-    <%= link_to 'Мои студенты', my_students_path, class: 'btn btn-default navbar-btn' %>
-        <%= link_to 'Домашние задания', teacher_homeworks_path, class: 'btn btn-default navbar-btn' %>
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Отправить домашнее задание</h3>
+    </div>
+    <div class="panel-body">
+      <br>
+      <%= form_for @hw_assignment, url: hw_assignment_create_path, method: 'post' do |f| %>
+          <%= f.label 'Ученик' %>
+          <%= f.collection_select :user_id, User.where(teacher_id: current_user.id), :id, :name %> <br> <br>
+          <%= f.label 'Домашка' %>
+          <%= f.collection_select :homework_id, Homework.where(user_id: current_user.id), :id, :title %>
+          <br> <br>
+          <%= f.submit 'Отправить', class: 'btn btn-default' %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to 'Моя литература', teacher_literature_path, class: 'btn btn-default navbar-btn' %></br>
+  <%= link_to 'Мои студенты', my_students_path, class: 'btn btn-default navbar-btn' %></br>
+  <%= link_to 'Домашние задания', teacher_homeworks_path, class: 'btn btn-default navbar-btn' %></br>
 </div>
-<div class="col-md-10">
+
+<div class="col-md-8">
   <h1>Кабинет преподавателя</h1>
   <h3>Домашки на проверку</h3>
     <br>
