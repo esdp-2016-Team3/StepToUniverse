@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :surveys
-  
   get '/new_homework' => 'pages#new_homework', as: 'new_homework'
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
   get '/my_students' => "pages#my_students", as: 'my_students' 

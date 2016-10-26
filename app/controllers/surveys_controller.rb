@@ -1,10 +1,10 @@
 class SurveysController < ApplicationController
-	def new
+	
+  def new
 	  @survey = Survey.new
     @question = @survey.homework_questions.build
     @question.homework_answers.build
   end
-	end
 
   def show
     @survey = Survey.find(params[:id])

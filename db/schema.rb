@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< refs/remotes/origin/development
 ActiveRecord::Schema.define(version: 20161025152831) do
-=======
-ActiveRecord::Schema.define(version: 20161025080023) do
->>>>>>> #45 изменил модели, связал их добавтл в хелперы методы удаления и добавления
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
