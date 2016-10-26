@@ -19,6 +19,9 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore all pictures
+public/system/*
+
 # Ignore Byebug command history file.
 .byebug_history
 
