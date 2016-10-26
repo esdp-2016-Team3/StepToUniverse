@@ -33,6 +33,11 @@
     <%= f.text_area :description, autofocus: true %>
   </div>
 
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Конфигурации в настоящее время в ожидании: <%= resource.unconfirmed_email %></div>
   <% end %>

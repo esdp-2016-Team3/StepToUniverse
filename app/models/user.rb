@@ -13,4 +13,10 @@ class User < ApplicationRecord
   validates :skype, presence: true, length: {maximum: 50}
   validates :phone, presence: true, length: {maximum: 50}
 
+  has_attached_file :avatar,
+                    styles: { medium: '300x300>', thumb: '100x100>'},
+                    default_url: '/avatars/missing.png'
+  validates_attachment_content_type :avatar,
+                                    content_type: ['image/jpeg', 'image/gif', 'image/png']
+
 end

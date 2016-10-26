@@ -2,13 +2,14 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 Position.create(title: "Студент", id: 1)
 Position.create(title: "Преподаватель", id: 2)
 
-User.create(name: "stud1", email: 'stud1@gmail.com', status: 'active', position_id: 1, teacher_id: 3, skype: "skypestud.1", phone: +9379991, description: 'Я хороший студент', password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:44:12')
-User.create(name: "stud2", email: 'stud2@gmail.com', status: 'active', position_id: 1, teacher_id: 3, skype: "skypestud.2", phone: +9379992, description: 'Я хорошая студентка', password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:46:12')
+User.create(name: "stud1", email: 'stud1@gmail.com', status: 'active', position_id: 1, teacher_id: 3, skype: "skypestud.1", phone: +9379991, description: 'Я хороший студент', avatar: Faker::Avatar.image, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:44:12')
+User.create(name: "stud2", email: 'stud2@gmail.com', status: 'active', position_id: 1, teacher_id: 3, skype: "skypestud.2", phone: +9379992, description: 'Я хорошая студентка', avatar: Faker::Avatar.image, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:46:12')
 
-User.create(name: "teach1", email: 'teach1@gmail.com', status: 'active', position_id: 2, skype: "teachskype.1", phone: +9379981, description: 'Я супер преподаватель научу вас английскому', password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:47:12')
-User.create(name: "teach2", email: 'teach2@gmail.com', status: 'active', position_id: 2, skype: "teachskype.2", phone: +9379981, description: 'Я квалифицированная преподавательница', password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:48:12')
+User.create(name: "teach1", email: 'teach1@gmail.com', status: 'active', position_id: 2, skype: "teachskype.1", phone: +9379981, description: 'Я супер преподаватель научу вас английскому', avatar: Faker::Avatar.image, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:47:12')
+User.create(name: "teach2", email: 'teach2@gmail.com', status: 'active', position_id: 2, skype: "teachskype.2", phone: +9379981, description: 'Я квалифицированная преподавательница', avatar: Faker::Avatar.image, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:48:12')
 
-User.create(name: "pend1", email: 'pend1@gmail.com', status: 'notactive', position_id: 1, skype: "pend.1", phone: +9379971, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:49:12')
+User.create(name: "pend1", email: 'pend1@gmail.com', status: 'notactive', position_id: 1, skype: "pend.1", phone: +9379971, description: 'Я способный студент', avatar: Faker::Avatar.image, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:49:12')
+User.create(name: "pend2", email: 'pend2@gmail.com', status: 'notactive', position_id: 2, skype: "pend.2", phone: +9379971, description: 'Помогу подготовиться к TOEFL', avatar: Faker::Avatar.image, password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:49:12')
 
 Content.create(title: "Главная анонимная", description: "контентная информация")
 
