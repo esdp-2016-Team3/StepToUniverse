@@ -1,7 +1,9 @@
 class SurveysController < ApplicationController
 	def new
 	  @survey = Survey.new
-	  @survey.questions_for_students.build
+    @question = @survey.homework_questions.build
+    @question.homework_answers.build
+  end
 	end
 
   def show
@@ -26,11 +28,11 @@ class SurveysController < ApplicationController
 
   def survey_params
     params.require(:survey).permit(:name, 
-      							     questions_for_students_attributes: [:id, 
+      							     homework_questions_attributes: [:id, 
       								                        :title, 
       								                        :survey_id, 
       								                        :_destroy,
-      								   answers_for_students_attributes: [:id, 
+      								   homework_answers_attributes: [:id, 
                                               :title, 
                                               :question_id, 
                                               :_destroy, 

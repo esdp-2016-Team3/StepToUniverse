@@ -16,9 +16,10 @@ Rails.application.routes.draw do
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
   get '/my_students' => "pages#my_students", as: 'my_students' 
   get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'
-1
+  
   delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
   post '/library_file/create' => 'library_files#create', as: 'library_file_create'
+  get '/literature_list' => 'pages#literature_list', as: 'literature_list'
   
   get '/cabinet' => 'pages#cabinet', as: 'cabinet'
 
@@ -31,7 +32,6 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:confirmations => "confirmations"}
   get '/content/:id', to: 'contents#show', as: 'content'  
 
-  get '/literature_list' => 'pages#literature_list', as: 'literature_list'
 
   post '/homework/create' => 'homeworks#create', as: 'homework_create'
   post '/homework/send' => 'homeworks#assign', as: 'hw_assignment_create'

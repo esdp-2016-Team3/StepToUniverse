@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< refs/remotes/origin/development
 ActiveRecord::Schema.define(version: 20161025152831) do
+=======
+ActiveRecord::Schema.define(version: 20161025080023) do
+>>>>>>> #45 изменил модели, связал их добавтл в хелперы методы удаления и добавления
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -52,15 +56,6 @@ ActiveRecord::Schema.define(version: 20161025152831) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "answers_for_students", force: :cascade do |t|
-    t.string   "title"
-    t.boolean  "is_correct"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.integer  "questions_for_student_id"
-    t.index ["questions_for_student_id"], name: "index_answers_for_students_on_questions_for_student_id"
-  end
-
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -82,6 +77,15 @@ ActiveRecord::Schema.define(version: 20161025152831) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "homework_answers", force: :cascade do |t|
+    t.string   "title"
+    t.boolean  "is_correct"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "homework_question_id"
+    t.index ["homework_question_id"], name: "index_homework_answers_on_homework_question_id"
   end
 
   create_table "homework_assignments", force: :cascade do |t|
@@ -106,6 +110,14 @@ ActiveRecord::Schema.define(version: 20161025152831) do
     t.datetime "file_updated_at"
     t.string   "pather"
     t.index ["homework_id"], name: "index_homework_files_on_homework_id"
+  end
+
+  create_table "homework_questions", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "survey_id"
+    t.index ["survey_id"], name: "index_homework_questions_on_survey_id"
   end
 
   create_table "homework_results", force: :cascade do |t|
@@ -158,14 +170,6 @@ ActiveRecord::Schema.define(version: 20161025152831) do
     t.datetime "updated_at", null: false
     t.integer  "level_id"
     t.index ["level_id"], name: "index_questions_on_level_id"
-  end
-
-  create_table "questions_for_students", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "survey_id"
-    t.index ["survey_id"], name: "index_questions_for_students_on_survey_id"
   end
 
   create_table "surveys", force: :cascade do |t|
