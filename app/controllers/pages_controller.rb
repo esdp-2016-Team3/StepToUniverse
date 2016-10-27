@@ -89,9 +89,9 @@ class PagesController < ApplicationController
         end
       elsif current_user.position_id == 1
         if current_user.homework_assignments.any?
-          @hwa = current_user.homework_assignments.where(is_done: nil)
+          @hwa = current_user.homework_assignments.where(status_id: 1)
           @homework_result = HomeworkResult.new
-          @hwd = current_user.homework_assignments.where(is_done: true)
+          @hwd = current_user.homework_assignments.where(status_id: 2)
         end
       end
     end

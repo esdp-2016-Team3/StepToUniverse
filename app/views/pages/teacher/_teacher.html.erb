@@ -28,7 +28,7 @@
       <h4>Result_id: <%= hwres.id %></h4>
       <h5>Homework_title: <%= hwres.homework_assignment.homework.title %></h5>
       <%= form_for hwres, url: hw_check_path(hwres.id), method: 'put' do |f| %>
-        <%= f.hidden_field :is_checked, value: true %>
+        <%= f.hidden_field :status, value: 3 %>
         <%= f.submit 'Проверить', class: 'btn btn-default' %> <br><br>
       <% end %>
     <% end %>

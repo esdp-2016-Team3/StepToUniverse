@@ -37,7 +37,7 @@ class HomeworksController < ApplicationController
   def result
     if @assign = HomeworkResult.create(result_params)
       @assign = @assign.homework_assignment
-      @assign.is_done = true
+      @assign.status_id = 2
       @assign.save
       redirect_to cabinet_path, notice: 'Домашнее задание успешно завершено.'
     else

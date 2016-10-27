@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161026121338) do
+ActiveRecord::Schema.define(version: 20161027135613) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 20161026121338) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "homework_id"
-    t.boolean  "is_done"
     t.index ["homework_id"], name: "index_homework_assignments_on_homework_id"
     t.index ["user_id"], name: "index_homework_assignments_on_user_id"
   end
@@ -119,9 +118,14 @@ ActiveRecord::Schema.define(version: 20161026121338) do
   create_table "homework_results", force: :cascade do |t|
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.boolean  "is_checked"
     t.integer  "homework_assignment_id"
     t.index ["homework_assignment_id"], name: "index_homework_results_on_homework_assignment_id"
+  end
+
+  create_table "homework_statuses", force: :cascade do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "homeworks", force: :cascade do |t|

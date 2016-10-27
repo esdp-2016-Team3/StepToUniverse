@@ -2,6 +2,10 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 Position.create(title: "Студент", id: 1)
 Position.create(title: "Преподаватель", id: 2)
 
+HomeworkStatus.create(status: "Sent", id: 1)
+HomeworkStatus.create(status: "Unchecked", id: 2)
+HomeworkStatus.create(status: "Checked", id: 3)
+
 fixtures_path = Rails.root.join('app', 'assets', 'images', 'avatars')
 
 User.create(name: "stud1", email: 'stud1@gmail.com', status: 'active', position_id: 1, teacher_id: 3, skype: "skypestud.1", phone: +9379991, description: 'Я хороший студент', avatar: File.open(fixtures_path.join('stud1.jpg')), password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:44:12')
@@ -36,8 +40,8 @@ Homework.create(title: 'Homework4', user_id: 3)
 HomeworkAssignment.create(user_id: 1, homework_id: 1)
 HomeworkAssignment.create(user_id: 1, homework_id: 2)
 
-HomeworkResult.create(homework_assignment_id: 1, is_checked: false)
-HomeworkResult.create(homework_assignment_id: 2, is_checked: true)
+# HomeworkResult.create(homework_assignment_id: 1, is_checked: false)
+# HomeworkResult.create(homework_assignment_id: 2, is_checked: true)
 
 count = 0
 7.times do
