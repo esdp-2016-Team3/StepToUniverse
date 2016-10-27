@@ -1,0 +1,29 @@
+<h1>Кабинет студента</h1>
+<h1>Невыполненные домашки</h1>
+<% unless @hwa == nil %>
+    <% @hwa.each do |hwa| %>
+        <h2><%= hwa.homework.title %></h2> <br>
+        <% hwa.homework.homework_files.each do |homework_file| %>
+            <h4>Текстовый файл: <%= homework_file.name %></h4>
+            <h5><%= homework_file.description %></h5>
+            <%= link_to "Скачать", '/homework_files/'+homework_file.pather.to_s %>
+        <% end %>
+        <br><br>
+        <%= form_for @homework_result, url: hw_result_create_path do |f| %>
+            <%= f.hidden_field :is_checked, value: false %>
+            <%= f.hidden_field :homework_assignment_id, value: hwa.id %>
+            <%= f.submit 'Завершить', class: 'btn btn-default' %>
+        <% end %>
+<% end end %>
+<h1>------------------------------------------------------</h1>
+<% unless @hwd == nil %>
+    <h1>Выполненные домашки</h1>
+    <% @hwd.each do |hwd| %>
+        <h2><%= hwd.homework.title %></h2> <br>
+        <% hwd.homework.homework_files.each do |homework_file| %>
+            <h4>
+              Текстовый файл: <%= homework_file.name %></h4>
+            <h5><%= homework_file.description %></h5>
+            <%= link_to "Скачать", '/homework_files/'+homework_file.pather.to_s %>
+        <% end %>
+<% end end %>
