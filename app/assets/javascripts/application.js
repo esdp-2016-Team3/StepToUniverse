@@ -1,3 +1,9 @@
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".fields").hide();
+}
+
+
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -16,24 +22,18 @@
 //= require ckeditor/init
 //= require jquery_nested_form
 //= require turbolinks
-// = require record.js
-// = require recorderWorker.js
-// = require libmp3lame.min.js
-// = require app.js
-// = require Fr.voice.js
-// = require mp3Worker.js
+//= require recorderWorker.js
+//= require record.js
+//= require recorder.js
+
+//= require mp3Worker.js
+
 //= require_tree .
 
-
-function remove_fields(link) {
-  $(link).prev("input[type=hidden]").val("1");
-  $(link).closest(".fields").hide();
-}
-
-function add_fields(link, association, content) {  
-    var new_id = new Date().getTime();  
-    var regexp = new RegExp("new_" + association, "g");  
-    $(link).parent().before(content.replace(regexp, new_id));  
+function add_fields(link, association, content) {
+    var new_id = new Date().getTime();
+    var regexp = new RegExp("new_" + association, "g");
+    $(link).parent().before(content.replace(regexp, new_id));
 }
 
 (function() {
