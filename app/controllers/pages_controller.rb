@@ -71,6 +71,8 @@ class PagesController < ApplicationController
   def new_homework
     @homework = Homework.new
     @homework.homework_files.build
+    question = @homework.homework_questions.build
+    question.homework_answers.build
   end
 
   def cabinet
@@ -109,7 +111,7 @@ class PagesController < ApplicationController
   end
 
   def teacher_homeworks
-    @homeworks = Homework.all.where(user_id: current_user.id)
+    @homeworks = Homework.where(user_id: current_user.id)
   end
   
 end

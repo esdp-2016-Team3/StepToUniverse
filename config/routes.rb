@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/teachers' => 'pages#teachers', as: 'teachers'
 
   resources :questions
-  resources :surveys
+
   get '/new_homework' => 'pages#new_homework', as: 'new_homework'
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
   get '/my_students' => "pages#my_students", as: 'my_students' 
@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   get '/content/:id', to: 'contents#show', as: 'content'  
 
 
+  get '/new_homework_question' => 'homeworks#new_homework_question', as: 'new_homework_question'  
+  post '/homework/create_homework_question' => 'homeworks#create_homework_question', as: 'create_homework_question'
   post '/homework/create' => 'homeworks#create', as: 'homework_create'
   post '/homework/send' => 'homeworks#assign', as: 'hw_assignment_create'
   post '/homework/finish' => 'homeworks#result', as: 'hw_result_create'

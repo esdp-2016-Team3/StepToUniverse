@@ -1,4 +1,9 @@
 class HomeworksController < ApplicationController
+
+  def index
+    @homeworks = Homework.all
+  end
+
   def create
     params[:homework][:homework_files_attributes].each do |at|
       @a = params[:homework][:homework_files_attributes][at.to_sym][:file]
@@ -49,10 +54,46 @@ class HomeworksController < ApplicationController
     end
   end
 
+  def new_homework_question
+    @homework = Homework.new
+    question = @homework.homework_questions.build
+    question.homework_answers.build
+  end
+
+  def create_homework_question
+    @homework = Homework.new(homework_params)
+    @homework.user_id = current_user.id if current_user
+    if @homework.save
+      redirect_to teacher_homeworks_path, notice: 'Домашнее задание успешно создано.'
+    else
+      render 'cabinet'
+    end
+  end
+
+
+  def show
+    @homework = Homework.find(params[:id])
+  end
+
   private
 
   def homework_params
-    params.require(:homework).permit(:title, :user_id, homework_files_attributes: [:id, :name, :description, :file, :pather, :homework_id])
+    params.require(:homework).permit(:title, :user_id, 
+                         homework_files_attributes: [:id, 
+                                              :name, 
+                                              :description, 
+                                              :file,
+                                              :pather, 
+                                              :homework_id],
+                         homework_questions_attributes: [:id, 
+                                              :title, 
+                                              :homework_id, 
+                                              :_destroy,
+                                              homework_answers_attributes: [:id, 
+                                                                    :title, 
+                                                                    :homework_question_id, 
+                                                                    :_destroy, 
+                                                                    :is_correct]])
   end
 
   def assignment_params

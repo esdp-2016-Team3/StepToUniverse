@@ -1,7 +1,5 @@
   <%= link_to 'Создать задание', new_homework_path, class: 'btn btn-default navbar-btn' %>
-    <%= link_to 'Создать тест', new_survey_path, class: 'btn btn-default navbar-btn' %>
-
-
+    <%= link_to 'Создать тест', new_homework_question_path, class: 'btn btn-default navbar-btn' %>
 
 <% @homeworks.each do |homework| %>
 	<div>
