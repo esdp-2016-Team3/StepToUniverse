@@ -112,10 +112,8 @@ ActiveRecord::Schema.define(version: 20161026121338) do
     t.string   "title"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "survey_id"
     t.integer  "homework_id"
     t.index ["homework_id"], name: "index_homework_questions_on_homework_id"
-    t.index ["survey_id"], name: "index_homework_questions_on_survey_id"
   end
 
   create_table "homework_results", force: :cascade do |t|
@@ -168,14 +166,6 @@ ActiveRecord::Schema.define(version: 20161026121338) do
     t.datetime "updated_at", null: false
     t.integer  "level_id"
     t.index ["level_id"], name: "index_questions_on_level_id"
-  end
-
-  create_table "surveys", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "homework_id"
-    t.index ["homework_id"], name: "index_surveys_on_homework_id"
   end
 
   create_table "users", force: :cascade do |t|

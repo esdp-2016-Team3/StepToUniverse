@@ -75,6 +75,10 @@ class HomeworksController < ApplicationController
     @homework = Homework.find(params[:id])
   end
 
+  def record
+
+  end
+
   private
 
   def homework_params

@@ -16,6 +16,12 @@
 //= require ckeditor/init
 //= require jquery_nested_form
 //= require turbolinks
+// = require record.js
+// = require recorderWorker.js
+// = require libmp3lame.min.js
+// = require app.js
+// = require Fr.voice.js
+// = require mp3Worker.js
 //= require_tree .
 
 

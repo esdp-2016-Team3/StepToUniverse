@@ -40,4 +40,6 @@ Rails.application.routes.draw do
   put '/homework/:id/check' => 'homeworks#check', as: 'hw_check'
   delete '/homework/:id/delete' => 'homeworks#destroy', as: 'homework_destroy'
 
+  get '/record' => 'homeworks#record', as: 'record'
+
 end
