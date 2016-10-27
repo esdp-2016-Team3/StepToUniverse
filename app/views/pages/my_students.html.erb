@@ -1,3 +1,4 @@
 <% @students.each do |student| %>
-	<div><%= student.name %>  |  <%= student.skype %>  |  <%= student.phone %>  |  <%= student.email %></div>
+	<div><%= student.name %>  |  
+	<%= link_to 'история студента', homework_student_path(student) %></div>
 <% end %>
