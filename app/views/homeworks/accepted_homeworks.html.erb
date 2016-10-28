@@ -1,0 +1,16 @@
+<h1>Кабинет преподавателя</h1>
+<h3>ДЗ на проверку</h3>
+<br>
+<h1>Непроверенные домашние задания</h1>
+<% @unchecked_homeworks.each do |unchecked_homework| %>
+    <h5>Homework_title: <%= unchecked_homework.homework_assignment.homework.title %></h5>
+    <%= form_for unchecked_homework, url: hw_check_path(unchecked_homework.id), method: 'put' do |f| %>
+        <%= f.hidden_field :status, value: 3 %>
+        <%= f.submit 'Проверить', class: 'btn btn-default' %> <br><br>
+    <% end %>
+<% end %>
+<h1>--------------------------------------------------------------------</h1>
+<h1>Проверенные домашние задания</h1>
+<% @checked_homeworks.each do |checked_homework| %>
+    <h5>Homework_title: <%= checked_homework.homework_assignment.homework.title %></h5>
+<% end %>
