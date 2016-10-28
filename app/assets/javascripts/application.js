@@ -19,8 +19,10 @@
 
 //= require recorderWorker.js
 //= require record.js
-//= require recorder.js
 //= require mp3Worker.js
+//= require recorder.js
+//= require Fr.voice.js
+//= require app.js
 
 //= require_tree .
 

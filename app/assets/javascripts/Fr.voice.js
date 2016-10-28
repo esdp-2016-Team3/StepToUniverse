@@ -17,7 +17,7 @@
          * You should also include libmp3lame.min.js
          * You can get both files from https://github.com/subins2000/Francium-voice/blob/master/js/
          */
-        mp3WorkerPath: "mp3Worker.js",
+        mp3WorkerPath: "/mp3Worker.js",
 
         stream: false,
         input: false,
