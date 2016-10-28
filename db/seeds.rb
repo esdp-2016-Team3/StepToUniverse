@@ -37,8 +37,8 @@ Homework.create(title: 'Homework2', user_id: 3)
 Homework.create(title: 'Homework3', user_id: 3)
 Homework.create(title: 'Homework4', user_id: 3)
 
-HomeworkAssignment.create(user_id: 1, homework_id: 1)
-HomeworkAssignment.create(user_id: 1, homework_id: 2)
+HomeworkAssignment.create(user_id: 1, homework_id: 1, homework_status_id: 1 )
+HomeworkAssignment.create(user_id: 1, homework_id: 2, homework_status_id: 1 )
 
 count = 0
 7.times do

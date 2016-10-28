@@ -16,13 +16,14 @@ Rails.application.routes.draw do
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
   get '/my_students' => "pages#my_students", as: 'my_students' 
   get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'
-  
+  get '/accepted_homeworks' => 'homeworks#accepted_homeworks', as: 'accepted_homeworks'
+
   delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
   post '/library_file/create' => 'library_files#create', as: 'library_file_create'
   get '/literature_list' => 'pages#literature_list', as: 'literature_list'
   
   get '/cabinet' => 'pages#cabinet', as: 'cabinet'
-
+  put '/cabinet/:id/update_hwassignment' => 'pages#update_hwassignment', as: 'update_hwassignment'
   get '/result' => 'pages#result', as: 'result'
   get '/sample_test' => 'pages#sample_test', as: 'sample_test'
 

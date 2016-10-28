@@ -89,20 +89,33 @@ class PagesController < ApplicationController
         @pend_hws = []
         current_user.homeworks.each do |hw|
           hw.homework_assignments.each do |assignment|
-            if assignment.homework_result != nil && assignment.homework_result.is_checked == false
+            if assignment.homework_result != nil
               @pend_hws.push assignment.homework_result
             end
           end
         end
       elsif current_user.position_id == 1
         if current_user.homework_assignments.any?
-          @hwa = current_user.homework_assignments.where(status_id: 1)
+          @hwa = current_user.homework_assignments.where(homework_status_id: 1)
           @homework_result = HomeworkResult.new
-          @hwd = current_user.homework_assignments.where(status_id: 2)
+          @hwd = current_user.homework_assignments.where(homework_status_id: 2)
         end
       end
     end
-  end  
+  end
+
+  def update_hwassignment
+    @hwa = HomeworkAssignment.find(params[:id])
+    if @hwa.update(assignment_params)
+      redirect_to cabinet_path, notice: 'Домашнее задание успешно завершенно'
+    else
+      render 'cabinet'
+    end
+  end
+
+  def assignment_params
+    params.require(:homework_assignment).permit(:user_id, :homework_id, :homework_status_id)
+  end
 
   def teacher_literature
     @literature = LibraryFile.new

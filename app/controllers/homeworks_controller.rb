@@ -1,9 +1,5 @@
 class HomeworksController < ApplicationController
 
-  def index
-    @homeworks = Homework.all
-  end
-
   def create
     params[:homework][:homework_files_attributes].each do |at|
       @a = params[:homework][:homework_files_attributes][at.to_sym][:file]
@@ -37,7 +33,7 @@ class HomeworksController < ApplicationController
   def result
     if @assign = HomeworkResult.create(result_params)
       @assign = @assign.homework_assignment
-      @assign.status_id = 2
+      # @assign.status_id = 2
       @assign.save
       redirect_to cabinet_path, notice: 'Домашнее задание успешно завершено.'
     else
@@ -79,6 +75,10 @@ class HomeworksController < ApplicationController
 
   end
 
+  def accepted_homeworks
+    @unchecked_homeworks = HomeworkAssignment.where(homework_status_id: 2)
+  end
+
   private
 
   def homework_params
@@ -100,11 +100,11 @@ class HomeworksController < ApplicationController
   end
 
   def assignment_params
-    params.require(:homework_assignment).permit(:user_id, :homework_id)
+    params.require(:homework_assignment).permit(:user_id, :homework_id, :homework_status_id)
   end
 
   def result_params
-    params.require(:homework_result).permit(:is_checked, :homework_assignment_id)
+    params.require(:homework_result).permit(:homework_assignment_id)
   end
 
 end
