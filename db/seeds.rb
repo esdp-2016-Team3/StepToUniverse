@@ -27,10 +27,10 @@ Level.create(name: "Proficiency")
 LibraryFile.create(name: 'Book1', description: Faker::Lorem.sentence, user_id: 3, path_file: 'book1.pdf', literature: File.new('public/library_files/book1.pdf'))
 LibraryFile.create(name: 'Book2', description: Faker::Lorem.sentence, user_id: 3, path_file: 'book2.pdf', literature: File.new('public/library_files/book2.pdf'))
 
-HomeworkFile.create(name: 'Hw1', description: Faker::Lorem.sentence, homework_id: 1, pather: 'hw1.pdf', file: File.new('public/homework_files/hw1.pdf'))
-HomeworkFile.create(name: 'Hw2', description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
-HomeworkFile.create(name: 'Hw3', description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
-HomeworkFile.create(name: 'Hw4', description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
+HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 1, pather: 'hw1.pdf', file: File.new('public/homework_files/hw1.pdf'))
+HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
+HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
+HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
 
 Homework.create(title: 'Homework1', user_id: 3)
 Homework.create(title: 'Homework2', user_id: 3)
@@ -39,9 +39,6 @@ Homework.create(title: 'Homework4', user_id: 3)
 
 HomeworkAssignment.create(user_id: 1, homework_id: 1)
 HomeworkAssignment.create(user_id: 1, homework_id: 2)
-
-# HomeworkResult.create(homework_assignment_id: 1, is_checked: false)
-# HomeworkResult.create(homework_assignment_id: 2, is_checked: true)
 
 count = 0
 7.times do

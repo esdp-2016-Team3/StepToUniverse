@@ -1,13 +1,8 @@
-<h3>Создать домашку</h3>
+<h3>Создать домашнее задание</h3>
   <%= nested_form_for @homework, url: homework_create_path, method: 'post' do |f| %>
-      <h4>Описание домашки</h4>
       <%= f.label 'Название' %> <br>
       <%= f.text_field :title %> <br>
-      <br>
-      <h4>Прикрепить файл</h4>  
       <%= f.fields_for :homework_files do |ff| %>
-        <%= ff.label 'Название файла' %> <br>
-        <%= ff.text_field :name %> <br>
         <%= ff.label 'Описание' %> <br>
         <%= ff.text_area :description %> <br>
         <%= ff.label 'Файл' %> <br>

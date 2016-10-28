@@ -83,8 +83,7 @@ class HomeworksController < ApplicationController
 
   def homework_params
     params.require(:homework).permit(:title, :user_id, 
-                         homework_files_attributes: [:id, 
-                                              :name, 
+                         homework_files_attributes: [:id,
                                               :description, 
                                               :file,
                                               :pather, 
