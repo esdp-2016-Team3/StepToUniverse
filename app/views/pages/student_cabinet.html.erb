@@ -1,10 +1,9 @@
+<h1>Кабинет студента</h1>
 <% @homeworks.each do |homework| %>
   <div>
 	  <% if current_user.position_id == 1 %>
-			<h1>Кабинет студента</h1>
 	   	<%= link_to homework.title, show_student_homework_path(homework) %>  |  
 	  <% elsif current_user.position_id == 2 %>
-	   	<h1>История студента</h1>
 	   	<%= homework.title %>
 	  <% else  %>
 	 		<h1>Эта страница доступна только для авторизованных пользователей.</h1>  
