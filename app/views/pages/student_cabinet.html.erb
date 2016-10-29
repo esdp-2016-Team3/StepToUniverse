@@ -4,9 +4,8 @@
 	  <% if current_user.position_id == 1 %>
 	   	<%= link_to homework.title, show_student_homework_path(homework) %>  |  
 	  <% elsif current_user.position_id == 2 %>
-	   	<%= homework.title %>
-	  <% else  %>
-	 		<h1>Эта страница доступна только для авторизованных пользователей.</h1>  
+	   	<%= homework.title %>	   
 	  <% end %>
+	  <%= status_homework(homework) %>
   </div>
 <% end %>
