@@ -1,0 +1,5 @@
+<%= @homework.title %>
+<% @homework.homework_files.each do |homework_file| %>
+    <h5><%= homework_file.description %></h5>
+    <%= link_to "Скачать", '/homework_files/'+homework_file.pather.to_s %>
+<% end %>

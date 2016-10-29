@@ -32,10 +32,10 @@ HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, pather: 
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
 
-Homework.create(title: 'Homework1', user_id: 3)
-Homework.create(title: 'Homework2', user_id: 3)
-Homework.create(title: 'Homework3', user_id: 3)
-Homework.create(title: 'Homework4', user_id: 3)
+Homework.create(title: 'Homework1', user_id: 3, type_homework: 'File')
+Homework.create(title: 'Homework2', user_id: 3, type_homework: 'File')
+Homework.create(title: 'Homework3', user_id: 3, type_homework: 'File')
+Homework.create(title: 'Homework4', user_id: 3, type_homework: 'File')
 
 HomeworkAssignment.create(user_id: 1, homework_id: 1, homework_status_id: 1 )
 HomeworkAssignment.create(user_id: 1, homework_id: 2, homework_status_id: 1 )

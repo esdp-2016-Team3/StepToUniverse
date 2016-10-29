@@ -15,6 +15,11 @@ class HomeworksController < ApplicationController
     end
   end
 
+  def show_student_homework
+    @homework = Homework.find(params[:id])
+    @homework_type = @homework.type_homework
+  end
+
   def destroy
     @homework = Homework.find(params[:id])
     @homework.destroy
@@ -25,17 +30,6 @@ class HomeworksController < ApplicationController
   def assign
     if HomeworkAssignment.create(assignment_params)
       redirect_to cabinet_path, notice: 'Домашнее задание успешно отправлено.'
-    else
-      render 'cabinet'
-    end
-  end
-
-  def result
-    if @assign = HomeworkResult.create(result_params)
-      @assign = @assign.homework_assignment
-      # @assign.status_id = 2
-      @assign.save
-      redirect_to cabinet_path, notice: 'Домашнее задание успешно завершено.'
     else
       render 'cabinet'
     end

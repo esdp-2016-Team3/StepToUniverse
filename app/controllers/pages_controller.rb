@@ -76,29 +76,19 @@ class PagesController < ApplicationController
     question.homework_answers.build
   end
 
-  def homework_student
-    student = User.find(params[:id])
-    homework_assignment = HomeworkAssignment.where(user_id: student)
+  def student_cabinet
+    find_user = User.find(params[:id])
+    homework_assignment = HomeworkAssignment.where(user_id: find_user)
     @homeworks = homeworks_student(homework_assignment)
   end
 
-  def cabinet
-    if current_user
-      if current_user.position_id == 2
-        @hw_assignment = HomeworkAssignment.new
-        @pend_hws = []
-        current_user.homeworks.each do |hw|
-          hw.homework_assignments.each do |assignment|
-            if assignment.homework_result != nil
-              @pend_hws.push assignment.homework_result
-            end
-          end
-        end
-      elsif current_user.position_id == 1
-        if current_user.homework_assignments.any?
-          @hwa = current_user.homework_assignments.where(homework_status_id: 1)
-          @homework_result = HomeworkResult.new
-          @hwd = current_user.homework_assignments.where(homework_status_id: 2)
+  def teacher_cabinet
+    @hw_assignment = HomeworkAssignment.new
+    @pend_hws = []
+    current_user.homeworks.each do |homework|
+      homework.homework_assignments.each do |assignment|
+        if assignment.homework_result != nil && assignment.homework_result.is_checked == false
+          @pend_hws.push assignment.homework_result
         end
       end
     end

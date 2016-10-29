@@ -1,4 +1,4 @@
 <% @students.each do |student| %>
 	<div><%= student.name %>  |  
-	<%= link_to 'история студента', homework_student_path(student) %></div>
+	<%= link_to 'история студента', student_cabinet_path(student) %></div>
 <% end %>

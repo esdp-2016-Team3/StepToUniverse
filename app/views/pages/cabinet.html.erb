@@ -1,8 +1,0 @@
-<% if current_user == nil %>
-  <h1>Эта страница доступна только для авторизованных пользователей.</h1>
-  
-<% elsif current_user.position_id == 2 %>
-  <%= render 'pages/teacher/teacher.html.erb' %>
-<% elsif current_user.position_id == 1 %>
-  <%= render 'pages/student/student.html.erb' %>
-<% end %>
