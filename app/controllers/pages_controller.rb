@@ -78,8 +78,8 @@ class PagesController < ApplicationController
 
   def student_cabinet
     find_user = User.find(params[:id])
-    homework_assignment = HomeworkAssignment.where(user_id: find_user)
-    @homeworks = homeworks_student(homework_assignment)
+    @homework_assignments = HomeworkAssignment.where(user_id: find_user, homework_status_id:1)
+    # @homeworks = homeworks_student(homework_assignment)
   end
 
   def teacher_cabinet
@@ -94,15 +94,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def update_hwassignment
-    @hwa = HomeworkAssignment.find(params[:id])
-    if @hwa.update(assignment_params)
-      redirect_to cabinet_path, notice: 'Домашнее задание успешно завершенно'
-    else
-      render 'cabinet'
-    end
-  end
-
+  # То что снизу надо вывести в родительский класс
   def assignment_params
     params.require(:homework_assignment).permit(:user_id, :homework_id, :homework_status_id)
   end

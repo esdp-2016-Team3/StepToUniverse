@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
   get '/my_students' => "pages#my_students", as: 'my_students' 
   get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'  
-  get '/accepted_homeworks' => 'homeworks#accepted_homeworks', as: 'accepted_homeworks'
   get '/literature_list' => 'pages#literature_list', as: 'literature_list'
   get '/teachers' => 'pages#teachers', as: 'teachers'
   get '/student_cabinet/:id' => 'pages#student_cabinet', as: 'student_cabinet'
@@ -28,8 +27,9 @@ Rails.application.routes.draw do
   get '/admin/user/reject' => 'acceptions#reject', as: 'reject'
 
   devise_for :users, :controllers => {:confirmations => "confirmations"}
-  get '/content/:id', to: 'contents#show', as: 'content'  
+  get '/content/:id', to: 'contents#show', as: 'content'
 
+  get '/accepted_homeworks' => 'homeworks#accepted_homeworks', as: 'accepted_homeworks'
   get 'show_student_homework/:id' => 'homeworks#show_student_homework', as: 'show_student_homework'
   get '/new_homework_question' => 'homeworks#new_homework_question', as: 'new_homework_question'  
   post '/homework/create_homework_question' => 'homeworks#create_homework_question', as: 'create_homework_question'
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   post '/homework/send' => 'homeworks#assign', as: 'hw_assignment_create'
   post '/homework/finish' => 'homeworks#result', as: 'hw_result_create'
   put '/homework/:id/check' => 'homeworks#check', as: 'hw_check'
+  put '/student_cabinet/:id' => 'homeworks#update_hwassignment', as: 'update_hwassignment'
   delete '/homework/:id/delete' => 'homeworks#destroy', as: 'homework_destroy'
   get '/record' => 'homeworks#record', as: 'record'
 

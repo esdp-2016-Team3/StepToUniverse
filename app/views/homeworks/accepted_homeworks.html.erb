@@ -2,6 +2,7 @@
 <h3>ДЗ на проверку</h3>
 <% @unchecked_homeworks.each do |unchecked_homework| %>
     <h6>--------------------------------------------------------------------</h6>
+    <h2>Автор ДЗ::<%= unchecked_homework.homework.user.name %></h2>
     <h3>Домашнее задание: <%= unchecked_homework.homework.title %></h3>
     <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
     <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
