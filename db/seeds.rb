@@ -28,8 +28,8 @@ Level.create(name: "Proficiency")
 # LibraryFile.create(name: 'Book1', description: Faker::Lorem.sentence, user_id: 3, path_file: 'book1.pdf', literature: File.new('public/library_files/book1.pdf'))
 # LibraryFile.create(name: 'Book2', description: Faker::Lorem.sentence, user_id: 3, path_file: 'book2.pdf', literature: File.new('public/library_files/book2.pdf'))
 
-LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 3, path_file: 'book1', literature: File.open(books_path.join('Fazovye_perehody.pdf')))
-LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 3, path_file: 'book2', literature: File.open(books_path.join('Teplotehnika.pdf')))
+LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 3, path_file: 'Fazovye_perehody.pdf', literature: File.open(books_path.join('Fazovye_perehody.pdf')))
+LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 3, path_file: 'Teplotehnika.pdf', literature: File.open(books_path.join('Teplotehnika.pdf')))
 
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 1, pather: 'hw1.pdf', file: File.new('public/homework_files/hw1.pdf'))
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
