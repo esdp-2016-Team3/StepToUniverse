@@ -7,6 +7,7 @@ HomeworkStatus.create(status: "Unchecked", id: 2)
 HomeworkStatus.create(status: "Checked", id: 3)
 
 fixtures_path = Rails.root.join('app', 'assets', 'images', 'avatars')
+books_path = Rails.root.join('app', 'assets', 'images', 'books')
 
 User.create(name: "stud1", email: 'stud1@gmail.com', status: 'active', position_id: 1, teacher_id: 3, skype: "skypestud.1", phone: +9379991, description: 'Я хороший студент', avatar: File.open(fixtures_path.join('stud1.jpg')), password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:44:12')
 User.create(name: "stud2", email: 'stud2@gmail.com', status: 'active', position_id: 1, teacher_id: 3, skype: "skypestud.2", phone: +9379992, description: 'Я хорошая студентка', avatar: File.open(fixtures_path.join('stud2.jpg')), password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:46:12')
@@ -24,8 +25,11 @@ Level.create(name: "Intermediate")
 Level.create(name: "Advanced")
 Level.create(name: "Proficiency")
 
-LibraryFile.create(name: 'Book1', description: Faker::Lorem.sentence, user_id: 3, path_file: 'book1.pdf', literature: File.new('public/library_files/book1.pdf'))
-LibraryFile.create(name: 'Book2', description: Faker::Lorem.sentence, user_id: 3, path_file: 'book2.pdf', literature: File.new('public/library_files/book2.pdf'))
+# LibraryFile.create(name: 'Book1', description: Faker::Lorem.sentence, user_id: 3, path_file: 'book1.pdf', literature: File.new('public/library_files/book1.pdf'))
+# LibraryFile.create(name: 'Book2', description: Faker::Lorem.sentence, user_id: 3, path_file: 'book2.pdf', literature: File.new('public/library_files/book2.pdf'))
+
+LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 3, path_file: 'book1', literature: File.open(books_path.join('Fazovye_perehody.pdf')))
+LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 3, path_file: 'book2', literature: File.open(books_path.join('Teplotehnika.pdf')))
 
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 1, pather: 'hw1.pdf', file: File.new('public/homework_files/hw1.pdf'))
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, pather: 'hw2.pdf', file: File.new('public/homework_files/hw2.pdf'))
