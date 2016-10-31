@@ -15,15 +15,10 @@
 //= require jquery_ujs
 //= require ckeditor/init
 //= require jquery_nested_form
-//= require turbolinks
 
-//= require recorderWorker.js
-//= require record.js
-//= require mp3Worker.js
-//= require recorder.js
-//= require Fr.voice.js
-//= require app.js
-
+//= require record_player/app
+//= require record_player/recorderWorker
+//= require record_player/recorder
 //= require_tree .
 
 

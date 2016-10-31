@@ -2,7 +2,6 @@
  * Deprecated. Since Fr.voice >= 0.5 This file is not needed
  */
 
-// console.log(123123)
 var recLength = 0,
     recBuffersL = [],
     recBuffersR = [],
