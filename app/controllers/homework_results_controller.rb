@@ -1,11 +1,11 @@
 class HomeworkResultsController < ApplicationController
 
   def result_homework
-    if @assign = HomeworkResult.create(result_params)
-      @assign = @assign.homework_assignment
+    if @homework_result = HomeworkResult.new(result_params)
+      @assign = @homework_result.homework_assignment
       @assign.status_id = 2
       @assign.save
-      redirect_to cabinet_path, notice: 'Домашнее задание успешно завершено.'
+      redirect_to student_cabinet_path, notice: 'Домашнее задание успешно завершено.'
     else
       render 'cabinet'
     end
@@ -33,7 +33,7 @@ class HomeworkResultsController < ApplicationController
   private 
 
   def result_params
-    params.require(:homework_result).permit(:is_checked, :homework_assignment_id)
+    params.require(:homework_result).permit(:homework_assignment_id)
   end
 
 end

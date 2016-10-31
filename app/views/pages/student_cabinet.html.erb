@@ -1,15 +1,12 @@
 <h1>Кабинет студента</h1>
-<% if user_signed_in? %>
-  <% @homework_assignments.each do |homework_assignment| %>
-    <div>
-      <h3>Преподаватель::<%= homework_assignment.homework.user.name %></h3>
-      <h3>Домашнее задание::<%= homework_assignment.homework.title %></h3>
-      <h3>Статус::<%= homework_assignment.homework_status.status %></h3>
-      <%= form_for homework_assignment, url: update_hwassignment_path(homework_assignment.id), method: 'put' do |f| %>
-          <%= f.hidden_field :homework_status_id, value: 2 %>
-          <%= f.submit 'Завершить', class: 'btn btn-default' %>
-      <% end %>
-      <h4>--------------------------------------------------------</h4>
-    </div>
-  <% end %>
+
+<% @homeworks.each do |homework| %>
+  <div>
+	  <% if current_user.position_id == 1 %>
+	   	<%= link_to homework.title, show_student_homework_path(homework) %>  |  
+	  <% elsif current_user.position_id == 2 %>
+	   	<%= homework.title %>	   
+	  <% end %>
+	  <%= status_homework(homework) %>
+  </div>
 <% end %>
