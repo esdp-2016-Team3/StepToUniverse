@@ -13,7 +13,6 @@ class HomeworkResultsController < ApplicationController
 
   def new
     if current_user
-      binding.pry
         if current_user.homework_assignments.any?
           @homework_assignment = current_user.homework_assignments.where(status_id: 1)
           @homework_result = HomeworkResult.new

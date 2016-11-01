@@ -16,4 +16,15 @@ module PagesHelper
     find_status.status
   end
 
+  def accepted_homeworks
+    unchecked_homeworks = HomeworkAssignment.where(homework_status_id: 2)
+    @unchecked_homeworks = []
+    @counter = 0
+    unchecked_homeworks.each do |unchecked_homework|
+      unchecked_homework.homework.user == current_user
+      @unchecked_homeworks.push unchecked_homework
+      @counter+=1
+    end
+    return @counter
+  end
 end
