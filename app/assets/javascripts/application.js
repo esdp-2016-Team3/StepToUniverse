@@ -11,15 +11,17 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require ckeditor/init
 //= require jquery_nested_form
 //= require add_and_remove_fields
 
-//= require record_player/app
-//= require record_player/recorderWorker
-//= require record_player/recorder
+//= require record_player/recorderWorker.js
+//= require record_player/Fr.voice.js
+//= requre record_player/recorder.js
+//= require record_player/app.js
+
 //= require_tree .
 
 

@@ -6,7 +6,7 @@ function restore(){
 }
 $(document).ready(function(){
     $(document).on("click", "#record:not(.disabled)", function(){
-        elem = $(this);
+        var elem = $(this);
         Fr.voice.record($("#live").is(":checked"), function(){
             elem.addClass("disabled");
             $("#live").addClass("disabled");
@@ -15,7 +15,7 @@ $(document).ready(function(){
             /**
              * The Waveform canvas
              */
-            analyser = Fr.voice.context.createAnalyser();
+            var analyser = Fr.voice.context.createAnalyser();
             analyser.fftSize = 2048;
             analyser.minDecibels = -90;
             analyser.maxDecibels = -10;
@@ -26,7 +26,7 @@ $(document).ready(function(){
             var dataArray = new Uint8Array(bufferLength);
 
             WIDTH = 500, HEIGHT = 200;
-            canvasCtx = $("#level")[0].getContext("2d");
+            var canvasCtx = $("#level")[0].getContext("2d");
             canvasCtx.clearRect(0, 0, WIDTH, HEIGHT);
 
             function draw() {
