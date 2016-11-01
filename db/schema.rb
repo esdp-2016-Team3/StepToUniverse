@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028144459) do
+ActiveRecord::Schema.define(version: 20161101134925) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -90,7 +90,9 @@ ActiveRecord::Schema.define(version: 20161028144459) do
     t.integer  "user_id"
     t.integer  "homework_id"
     t.integer  "homework_status_id"
+    t.integer  "homework_result_id"
     t.index ["homework_id"], name: "index_homework_assignments_on_homework_id"
+    t.index ["homework_result_id"], name: "index_homework_assignments_on_homework_result_id"
     t.index ["homework_status_id"], name: "index_homework_assignments_on_homework_status_id"
     t.index ["user_id"], name: "index_homework_assignments_on_user_id"
   end
@@ -120,6 +122,7 @@ ActiveRecord::Schema.define(version: 20161028144459) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "homework_assignment_id"
+    t.text     "description"
     t.index ["homework_assignment_id"], name: "index_homework_results_on_homework_assignment_id"
   end
 

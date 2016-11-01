@@ -22,6 +22,7 @@ class HomeworksController < ApplicationController
   end
 
   def show_student_homework
+    @new_homework_result = HomeworkResult.new
     @homework = Homework.find(params[:id])
     @homework_type = @homework.type_homework
   end

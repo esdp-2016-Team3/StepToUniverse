@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
   post '/library_file/create' => 'library_files#create', as: 'library_file_create'
 
-  get '/homework_results/result_homework' => 'homework_results#result_homework', as: 'result_homework'
-  # post '/homework/create' => 'homeworks#create', as: 'homework_create'
+  post '/homework_results/result_homework' => 'homework_results#result_homework', as: 'result_homework'
+  # get '/homework_result' => 'homework_results#new', as: 'homework_result'
   
   get '/new_homework' => 'pages#new_homework', as: 'new_homework'
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 

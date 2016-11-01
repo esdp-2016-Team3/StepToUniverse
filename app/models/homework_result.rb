@@ -1,3 +1,3 @@
 class HomeworkResult < ApplicationRecord
-  belongs_to :homework_assignment
+  has_one :homework_assignment
 end
