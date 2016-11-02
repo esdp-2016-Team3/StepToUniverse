@@ -7,7 +7,7 @@ class HomeworkResultsController < ApplicationController
       @homework_result.pather = @result_file
 
       assignment = HomeworkAssignment.find(@homework_result.homework_assignment_id)
-      assignment.upload(homework_status_id: 2)
+      assignment.update(homework_status_id: 2)
       @homework_result.save
 
       redirect_to student_cabinet_path(current_user), notice: 'Домашнее задание успешно завершено.'
