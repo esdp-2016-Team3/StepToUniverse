@@ -12,10 +12,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 group :test do
+  gem 'rspec-rails', '~> 3.5'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver','2.53.4'
 end
 
 group :development, :test do

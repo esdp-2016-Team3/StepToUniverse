@@ -46,29 +46,29 @@ count = 0
 
   count += 1
   Question.create(content: Faker::Lorem.sentence, level_id: 1, is_active: true)
-	  Answer.create(content: Faker::Lorem.sentence + '|true', is_correct: true, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-  
+  Answer.create(content: Faker::Lorem.sentence + '|true', is_correct: true, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+
   count += 1
   Question.create(content: Faker::Lorem.sentence, level_id: 2, is_active: true)
-	  Answer.create(content: Faker::Lorem.sentence + '|true', is_correct: true, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-	  
+  Answer.create(content: Faker::Lorem.sentence + '|true', is_correct: true, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+
   count += 1
   Question.create(content: Faker::Lorem.sentence, level_id: 3, is_active: true)
-	  Answer.create(content: Faker::Lorem.sentence + '|true', is_correct: true, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|true', is_correct: true, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
 
   count += 1
   Question.create(content: Faker::Lorem.sentence, level_id: 4, is_active: true)
-	  Answer.create(content: Faker::Lorem.sentence + '|true', is_correct: true, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
-	  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|true', is_correct: true, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
+  Answer.create(content: Faker::Lorem.sentence + '|false', is_correct: false, question_id: count)
 end

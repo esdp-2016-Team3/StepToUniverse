@@ -5,7 +5,7 @@
 # files.
 
 require 'cucumber/rails'
-
+include ActionController::Helpers
 Capybara.default_driver = :selenium
 
 # Capybara defaults to CSS3 selectors rather than XPath.
@@ -57,3 +57,35 @@ end
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+at_exit do
+  DatabaseCleaner.clean_with(:truncation)
+end
+
+Before('@login_teacher') do
+  visit new_user_session_path
+  fill_in "Email", with:"teacher1@gmail.com"
+  fill_in "Пароль",with: "asdasd"
+  click_button "Войти"
+end
+
+Before('@login_student') do
+  visit new_user_session_path
+  fill_in "Email", with:"stud1@gmail.com"
+  fill_in "Пароль",with: "asdasd"
+  click_button "Войти"
+end
+
+Before('@logadmin') do
+  visit new_admin_user_session_path
+  fill_in "Эл. почта", with: "admin@example.com"
+  fill_in "Пароль",with: "password"
+  click_button "Войти"
+end
+
+After('@logout') do
+  if page.has_content?("Привет")
+      click_on('Аккаунт')
+      click_on('Выйти')
+  end
+end
