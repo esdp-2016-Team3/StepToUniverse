@@ -2,7 +2,14 @@ class HomeworkResultsController < ApplicationController
 
   def result_homework
     if @homework_result = HomeworkResult.new(result_params)
+      @result_file = params[:homework_result][:file]
+      @result_file = @result_file.original_filename 
+      @homework_result.pather = @result_file
+
+      assignment = HomeworkAssignment.find(@homework_result.homework_assignment_id)
+      assignment.upload(homework_status_id: 2)
       @homework_result.save
+
       redirect_to student_cabinet_path(current_user), notice: 'Домашнее задание успешно завершено.'
     else
       render 'cabinet'
@@ -30,7 +37,7 @@ class HomeworkResultsController < ApplicationController
   private 
 
   def result_params
-    params.require(:homework_result).permit(:id, :description, :homework_assignment_id)
+    params.require(:homework_result).permit(:id, :description, :file, :pather, :homework_assignment_id)
   end
 
 end
