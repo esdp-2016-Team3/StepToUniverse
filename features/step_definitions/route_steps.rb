@@ -15,10 +15,10 @@ end
 
 When(/^перехожу на страницу писем Николая Петровича$/) do
   visit('https://mail.google.com/mail/')
-  sleep(0.5)
+  sleep(5)
 end
 
 When(/^кликаю на письмо через xpath$/) do
-  find(:xpath, "//*[@id=':2']/div/div[1]/div[7]").click
-  sleep(0.5)
+  find(:xpath, "//*[@id=':2']/div/div/div[7]").click
+  sleep(2)
 end

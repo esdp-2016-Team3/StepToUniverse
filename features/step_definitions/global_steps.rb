@@ -10,7 +10,7 @@ end
 
 When(/^кликаю на кнопку "([^"]*)"$/) do |button|
   click_button button
-  sleep(0.5)
+  sleep(3)
 end
 
 When(/^ввожу в поле "([^"]*)" текст "([^"]*)"$/) do |field, value|
@@ -47,9 +47,4 @@ end
 When(/^кликаю по html "([^"]*)"$/) do |arg|
   find('input[name="commit"]').click
   sleep(0.5)
-end
-
-When(/^кликаю на письмо "([^"]*)"$/) do |arg|
-  find("//*[@id=':2']/div/div/div[7]").click
-  sleep(2)
 end
