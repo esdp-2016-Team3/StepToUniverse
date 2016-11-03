@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   post '/library_file/create' => 'library_files#create', as: 'library_file_create'
 
   post '/homework_results/result_homework' => 'homework_results#result_homework', as: 'result_homework'
-  # get '/homework_result' => 'homework_results#new', as: 'homework_result'
   
   get '/new_homework' => 'pages#new_homework', as: 'new_homework'
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
@@ -39,7 +38,7 @@ Rails.application.routes.draw do
   post '/homework/create' => 'homeworks#create', as: 'homework_create'
   post '/homework/send' => 'homeworks#assign', as: 'hw_assignment_create'
   post '/homework/finish' => 'homeworks#result', as: 'hw_result_create'
-  put '/homework/:id/check' => 'homeworks#check', as: 'hw_check'
+  get '/homework/:id/check' => 'homeworks#check', as: 'hw_check'
   put '/student_cabinet/:id' => 'homeworks#update_hwassignment', as: 'update_hwassignment'
   delete '/homework/:id/delete' => 'homeworks#destroy', as: 'homework_destroy'
   get '/record' => 'homeworks#record', as: 'record'

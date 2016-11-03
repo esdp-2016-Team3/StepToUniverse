@@ -22,16 +22,3 @@
   <%= link_to 'ДЗ на проверку', accepted_homeworks_path, class: 'btn btn-default navbar-btn' %> <%= accepted_homeworks %>
 </div>
 
-<div class="col-md-8">
-  <h1>Кабинет преподавателя</h1>
-  <h3>Домашки на проверку</h3>
-    <br>
-    <% @pend_hws.each do |hwres| %>
-      <h4>Result_id: <%= hwres.id %></h4>
-      <h5>Homework_title: <%= hwres.homework_assignment.homework.title %></h5>
-      <%= form_for hwres, url: hw_check_path(hwres.id), method: 'put' do |f| %>
-        <%= f.hidden_field :status, value: 3 %>
-        <%= f.submit 'Проверить', class: 'btn btn-default' %> <br><br>
-      <% end %>
-    <% end %>
-</div>

@@ -44,8 +44,9 @@ class HomeworksController < ApplicationController
 
   def check
     @result = HomeworkResult.find(params[:id])
-    if @result.update(result_params)
-      redirect_to cabinet_path, notice: 'Домашнее задание успешно проверенно.'
+    assignment = HomeworkAssignment.find(@result.homework_assignment_id)
+    if assignment.update!(homework_status_id: 3)
+      redirect_to accepted_homeworks_path, notice: 'Домашнее задание успешно проверенно.'
     else
       render 'cabinet'
     end

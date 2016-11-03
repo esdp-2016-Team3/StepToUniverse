@@ -1,14 +1,13 @@
-<h1>Кабинет преподавателя</h1>
 <h3>ДЗ на проверку</h3>
-<% @unchecked_homeworks.each do |unchecked_homework| %>
-    <h6>--------------------------------------------------------------------</h6>
-    <h2>Автор ДЗ::<%= unchecked_homework.homework.user.name %></h2>
+
+<div class="col-md-12">
+  <%  @unchecked_homeworks.each do |unchecked_homework| %>
     <h3>Домашнее задание: <%= unchecked_homework.homework.title %></h3>
     <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
     <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
-    <%#= form_for unchecked_homework, url: hw_check_path(unchecked_homework.id), method: 'put' do |f| %>
-        <%#= f.hidden_field :status, value: 3 %>
-        <%#= f.submit 'Проверить', class: 'btn btn-default' %>
-    <%# end %>
-    <h6>--------------------------------------------------------------------</h6>
-<% end %>
+    <h5><%= unchecked_homework.homework_result.description %></h5>
+    <%= link_to "Скачать", '/homework_results/'+unchecked_homework.homework_result.pather.to_s %>
+    <%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></br>
+  <% end %>
+</div>
+

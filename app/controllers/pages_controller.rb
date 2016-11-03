@@ -84,14 +84,6 @@ class PagesController < ApplicationController
 
   def teacher_cabinet
     @hw_assignment = HomeworkAssignment.new
-    @pend_hws = []
-    current_user.homeworks.each do |homework|
-      homework.homework_assignments.each do |assignment|
-        if assignment.homework_result != nil && assignment.homework_status_id == 2
-          @pend_hws.push assignment.homework_result
-        end
-      end
-    end
   end
 
   def teacher_literature
