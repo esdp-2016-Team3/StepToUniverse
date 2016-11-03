@@ -11,7 +11,8 @@ module PagesHelper
 	end
 
 	def status_homework(homework)
-    status_id = homework.homework_assignments.first.homework_status_id
+    homework_assignment = HomeworkAssignment.find(homework.id)
+    status_id = homework_assignment.homework_status_id
     find_status = HomeworkStatus.find(status_id)
     find_status.status
   end
