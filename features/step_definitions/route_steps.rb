@@ -1,8 +1,3 @@
-When(/^я на странице "\/posts"$/) do
-  visit posts_path
-  sleep(0.5)
-end
-
 When(/^я на странице "\/admin\/login"$/) do
   visit new_admin_user_session_path
   sleep(0.5)
@@ -23,26 +18,6 @@ When(/^я на странице "\/users\/sign_up"$/) do
   sleep(0.5)
 end
 
-When(/^я на странице создания поста$/) do
-  visit new_post_path
-  sleep(0.5)
-end
-
-When(/^я на странице юзера "\/organizations\/new"$/) do
-  visit new_organization_path
-  sleep(0.5)
-end
-
-When(/^я на странице админ "\/admin\/organizations"$/) do
-  visit admin_organizations_path
-  sleep(0.5)
-end
-
-When(/^перехожу на "\/organizations\/list"$/) do
-  visit ('/organizations/list')
-  sleep(0.5)
-end
-
 When /^кликаю через xpath1 "([^"]*)" для "([^"]*)"$/ do |link, person|
   # Use capybara to find row based on 'person' text... no need for the additional 'find'
   # the '.,' sets the scope to the current node, that is the tr in question
@@ -52,13 +27,22 @@ When /^кликаю через xpath1 "([^"]*)" для "([^"]*)"$/ do |link, per
   sleep(0.5)
 end
 
-When(/^перехожу "\/posts"$/) do
-  visit ('/posts')
-  sleep(0.5)
-end
-
-
 When(/^я на рутовой странице$/) do
   visit root_path
   sleep(0.5)
+end
+
+When(/^перехожу на страницу почты$/) do
+  visit('https://accounts.google.com')
+  sleep(3)
+end
+
+When(/^перехожу на страницу visit\('https:\/\/mail\.google\.com\/mail\/'\)$/) do
+  visit('https://mail.google.com/mail/')
+  sleep(15)
+end
+
+When(/^кликаю на письмо$/) do
+  find(:xpath, "//div[@class='Cp']/div/table/tbody/tr[1]/td[2]").click
+  sleep(20)
 end

@@ -37,3 +37,19 @@ When(/^должен не найти "([^"]*)"$/) do |text|
   page.assert_no_text(text)
   sleep(0.5)
 end
+
+
+When(/^кликаю на "([^"]*)"$/) do |arg|
+  click_on(arg)
+  sleep(0.5)
+end
+
+When(/^кликаю по html "([^"]*)"$/) do |arg|
+  find('input[name="commit"]').click
+  sleep(0.5)
+end
+
+When(/^кликаю на письмо "([^"]*)"$/) do |arg|
+  find("//*[@id=':2']/div/div/div[7]").click
+  sleep(2)
+end
