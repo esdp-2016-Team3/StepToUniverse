@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require ckeditor/init
-//= require jquery_nested_form
 //= require add_and_remove_fields
 
 //= require record_player/recorderWorker.js
