@@ -5,7 +5,6 @@ class HomeworkResultsController < ApplicationController
       @result_file = params[:homework_result][:file]
       @result_file = @result_file.original_filename 
       @homework_result.pather = @result_file
-
       assignment = HomeworkAssignment.find(@homework_result.homework_assignment_id)
       assignment.update(homework_status_id: 2)
       @homework_result.save

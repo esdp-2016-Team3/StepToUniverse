@@ -1,4 +1,6 @@
 class HomeworksController < ApplicationController
+  
+  include ApplicationHelper
 
   def create
     params[:homework][:homework_files_attributes].each do |at|
@@ -17,7 +19,8 @@ class HomeworksController < ApplicationController
 
   def show_student_homework
     @new_homework_result = HomeworkResult.new
-    @homework = Homework.find(params[:id])
+    @homework_assignment = HomeworkAssignment.find(params[:id])
+    @homework = homework(@homework_assignment)
     @homework_type = @homework.type_homework
   end
 

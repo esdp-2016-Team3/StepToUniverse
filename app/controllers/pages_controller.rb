@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   include Levels
   include Results
   include PagesHelper
+  include ApplicationHelper
 
   def sample_test
     @questions = []
@@ -77,9 +78,8 @@ class PagesController < ApplicationController
   end
 
   def student_cabinet
-    find_user = User.find(params[:id])
-    homework_assignment = HomeworkAssignment.where(user_id: find_user)
-    @homeworks = homeworks_student(homework_assignment)
+    user_id = User.find(params[:id])
+    @homework_assignment = homeworks_student(user_id)
   end
 
   def teacher_cabinet

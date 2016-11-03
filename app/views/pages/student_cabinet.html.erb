@@ -1,12 +1,12 @@
 <h1>Кабинет студента</h1>
 
-<% @homeworks.each do |homework| %>
+<% @homework_assignment.each do |homework_assignment| %>
   <div>
 	  <% if current_user.position_id == 1 %>
-	   	<%= link_to homework.title, show_student_homework_path(homework) %>  |  
+	   	<%= link_to homework(homework_assignment).title, show_student_homework_path(homework_assignment) %>  |  
 	  <% elsif current_user.position_id == 2 %>
-	   	<%= homework.title %>	   
+	   	<%= homework(homework_assignment).title %>	   
 	  <% end %>
-	  <%= status_homework(homework) %>
+	  <%= status_homework(homework_assignment) %>
   </div>
 <% end %>

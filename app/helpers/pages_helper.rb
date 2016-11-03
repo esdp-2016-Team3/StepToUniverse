@@ -1,15 +1,15 @@
 module PagesHelper
 
-	def homeworks_student(homework_assignment)
-		homeworks = []
-		homework_assignment.each do |h|
-  		homeworks << Homework.find(h.homework_id)
+	def homeworks_student(user_id)
+		homework_assignments = []
+    homework_assignment = HomeworkAssignment.where(user_id: user_id)
+		homework_assignment.each do |hwa|
+  		homework_assignments << hwa
     end
-    return homeworks
+    return homework_assignments
 	end
 
-	def status_homework(homework)
-    homework_assignment = HomeworkAssignment.find(homework)
+	def status_homework(homework_assignment)
     status_id = homework_assignment.homework_status_id
     find_status = HomeworkStatus.find(status_id)
     find_status.status
