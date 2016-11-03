@@ -99,7 +99,7 @@ class HomeworksController < ApplicationController
   private
 
   def homework_params
-    params.require(:homework).permit(:title, :user_id, 
+    params.require(:homework).permit(:title, :user_id, :type_homework, 
                          homework_files_attributes: [:id,
                                               :description, 
                                               :file,
