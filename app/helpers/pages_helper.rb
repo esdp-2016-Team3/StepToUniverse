@@ -2,16 +2,14 @@ module PagesHelper
 
 	def homeworks_student(homework_assignment)
 		homeworks = []
-	
 		homework_assignment.each do |h|
-  			homeworks << Homework.find(h.homework_id)
+  		homeworks << Homework.find(h.homework_id)
     end
-  
     return homeworks
 	end
 
 	def status_homework(homework)
-    homework_assignment = HomeworkAssignment.find(homework.id)
+    homework_assignment = HomeworkAssignment.find(homework)
     status_id = homework_assignment.homework_status_id
     find_status = HomeworkStatus.find(status_id)
     find_status.status

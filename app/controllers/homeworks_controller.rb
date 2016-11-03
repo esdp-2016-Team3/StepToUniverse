@@ -1,11 +1,5 @@
 class HomeworksController < ApplicationController
 
-  def student_homeworks
-    find_user = User.find(params[:id])
-    homework_assignment = HomeworkAssignment.where(user_id: find_user)
-    @homeworks = homeworks_student(homework_assignment)
-  end
-
   def create
     params[:homework][:homework_files_attributes].each do |at|
       @a = params[:homework][:homework_files_attributes][at.to_sym][:file]
