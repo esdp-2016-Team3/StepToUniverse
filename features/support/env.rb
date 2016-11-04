@@ -5,8 +5,15 @@
 # files.
 
 require 'cucumber/rails'
+
+require 'selenium-webdriver'
+Selenium::WebDriver::Firefox::Binary.path='/home/maxim/firefox/firefox'
+
 include ActionController::Helpers
 Capybara.default_driver = :selenium
+Capybara.server_port = 3000
+
+
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any

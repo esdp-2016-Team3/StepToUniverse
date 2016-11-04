@@ -19,8 +19,8 @@ When(/^ввожу в поле "([^"]*)" текст "([^"]*)"$/) do |field, value
 end
 
 When(/^должен увидеть текст "([^"]*)"$/) do |text|
+  sleep(5)
   page.assert_text(text)
-  sleep(0.5)
 end
 
 When(/^выбираю из списка "([^"]*)" в поле "([^"]*)"$/) do |value, field|
@@ -47,4 +47,19 @@ end
 When(/^кликаю по html "([^"]*)"$/) do |arg|
   find('input[name="commit"]').click
   sleep(0.5)
+end
+
+
+When(/^перехожу на другую вкладку браузера$/) do
+  # Find our target window
+  handle = page.driver.find_window("Esdp20163")
+sleep(0.5)
+# Close it
+page.driver.browser.switch_to.window(handle)
+  sleep(0.5)
+  # page.driver.browser.close
+
+# Have the Selenium driver point to another window
+# last_handle = page.driver.browser.window_handles.last
+  # page.driver.browser.switch_to.window(last_handle)
 end

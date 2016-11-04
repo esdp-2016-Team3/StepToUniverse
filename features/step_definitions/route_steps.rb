@@ -15,7 +15,7 @@ end
 
 When(/^перехожу на страницу писем Николая Петровича$/) do
   visit('https://mail.google.com/mail/')
-  sleep(5)
+  sleep(10)
 end
 
 When(/^кликаю на письмо через xpath$/) do
