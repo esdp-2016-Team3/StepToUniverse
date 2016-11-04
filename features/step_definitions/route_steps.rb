@@ -22,3 +22,13 @@ When(/^кликаю на письмо через xpath$/) do
   find(:xpath, "//*[@id=':2']/div/div/div[7]").click
   sleep(2)
 end
+
+When(/^отмечаю через xpath все письма$/) do
+  find(:xpath, "//*[@id=':3g']/div[1]/span/div").click
+  sleep(2)
+end
+
+When(/^удаляю через xpath все письма$/) do
+  find(:xpath, "//*[@id=':5']/div[2]/div[1]/div[1]/div/div/div[2]/div[3]/div/div").click
+  sleep(2)
+end

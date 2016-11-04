@@ -53,12 +53,12 @@ end
 When(/^перехожу на другую вкладку браузера$/) do
   # Find our target window
   handle = page.driver.find_window("Esdp20163")
+  close_tab = page.driver.find_window("Входящие-nic.pet.esdp@gmail.com-Gmail")
 sleep(0.5)
 # Close it
 page.driver.browser.switch_to.window(handle)
   sleep(0.5)
-  # page.driver.browser.close
-
+  page.driver.browser.close(close_tab)
 # Have the Selenium driver point to another window
 # last_handle = page.driver.browser.window_handles.last
   # page.driver.browser.switch_to.window(last_handle)
