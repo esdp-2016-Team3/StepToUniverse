@@ -1,7 +1,7 @@
 class Homework < ApplicationRecord
   belongs_to :user
   has_many :homework_files, dependent: :destroy
-  has_many :homework_assignments
+  has_many :homework_assignments, dependent: :destroy
   belongs_to :homework
   has_many :homework_questions, dependent: :destroy
   

@@ -1,5 +1,7 @@
 <% if @homework_type == "File" %>
  <%= render 'homework_results/form_homework_file' %>
-<% else  %>
+<% elsif @homework_type == "Question" %>
+ <%= render 'homework_results/form_homework_question' %>
+<% else %>
  Фича на стадии разработка
 <% end %>

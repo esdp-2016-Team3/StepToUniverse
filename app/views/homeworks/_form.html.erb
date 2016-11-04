@@ -1,5 +1,6 @@
 <%= simple_form_for @homework, url: create_homework_question_path do |f| %>
   <p>
+    <%= f.hidden_field :type_homework, value: 'Question' %>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
