@@ -22,7 +22,7 @@ ActiveAdmin.register User, as: "Student" do
       f.input :skype
       f.input :phone
       f.input :email
-      f.input :teacher_id, as: :select, collection: User.where(position_id: 2)
+      f.input :teacher_id, as: :select, collection: User.where(position_id: 2, status: 'active')
       f.input :status
       f.input :password
       f.input :password_confirmation
