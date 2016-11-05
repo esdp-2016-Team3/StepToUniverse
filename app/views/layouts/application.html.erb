@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Esdp20163</title>
+    <title>StepToUniverse</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
     <%= render 'layouts/application/navbar' %>
     
     <div class="container">
-    
       <%= flash_messages %>
     	<%= yield %>
-
     </div>
   </body>
 </html>
