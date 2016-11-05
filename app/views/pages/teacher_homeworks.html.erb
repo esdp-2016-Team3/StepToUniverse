@@ -1,11 +1,21 @@
-  <%= link_to 'Создать задание', new_homework_path, class: 'btn btn-default navbar-btn' %>
-  <%= link_to 'Создать тест', new_homework_question_path, class: 'btn btn-default navbar-btn' %>
-  <%= link_to 'Записать звуковое сообщение', record_path, class: 'btn btn-default navbar-btn' %>
-
-
-<% @homeworks.each do |homework| %>
-	<div>
-		<%= homework.title %>  |  
-		<%= link_to 'Удалить', homework_destroy_path(homework.id), method: 'delete' %>
-	</div>
-<% end %>
+<div class="col-md-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Создание домашнего задания</h3>
+    </div>
+    <div class="panel-body">
+      <br>
+        <%= link_to 'Создать задание', new_homework_path, class: 'btn btn-default navbar-btn' %><br>
+        <%= link_to 'Создать тест', new_homework_question_path, class: 'btn btn-default navbar-btn' %><br>
+        <%= link_to 'Записать звуковое сообщение', record_path, class: 'btn btn-default navbar-btn' %>
+    </div>
+  </div>
+</div>
+<div class="col-md-8">
+  <% @homeworks.each do |homework| %>
+    <div>
+      <%= homework.title %>  |
+      <%= link_to 'Удалить', homework_destroy_path(homework.id), method: 'delete' %>
+    </div>
+  <% end %>
+</div>
