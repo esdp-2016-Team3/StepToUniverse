@@ -70,13 +70,6 @@ class PagesController < ApplicationController
     @library_files = LibraryFile.all
   end
 
-  def new_homework
-    @homework = Homework.new
-    @homework.homework_files.build
-    question = @homework.homework_questions.build
-    question.homework_answers.build
-  end
-
   def student_cabinet
     user_id = User.find(params[:id])
     @homework_assignment = homeworks_student(user_id)

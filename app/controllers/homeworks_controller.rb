@@ -17,6 +17,13 @@ class HomeworksController < ApplicationController
     end
   end
 
+  def new_homework
+    @homework = Homework.new
+    @homework.homework_files.build
+    question = @homework.homework_questions.build
+    question.homework_answers.build
+  end
+  
   def show_student_homework
     @new_homework_result = HomeworkResult.new
     @homework_assignment = HomeworkAssignment.find(params[:id])
