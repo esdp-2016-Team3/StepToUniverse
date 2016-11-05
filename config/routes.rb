@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
   post '/homework_results/result_homework' => 'homework_results#result_homework', as: 'result_homework'
   
-  get '/new_homework' => 'pages#new_homework', as: 'new_homework'
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
   get '/my_students' => "pages#my_students", as: 'my_students' 
   get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'  
@@ -31,6 +30,9 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:confirmations => "confirmations"}
   get '/content/:id', to: 'contents#show', as: 'content'
 
+  post 'homework_results/create' => 'homework_results#create', as: 'create_result_question'
+
+  get '/new_homework' => 'homeworks#new_homework', as: 'new_homework'
   get '/accepted_homeworks' => 'homeworks#accepted_homeworks', as: 'accepted_homeworks'
   get 'show_student_homework/:id' => 'homeworks#show_student_homework', as: 'show_student_homework'
   get '/new_homework_question' => 'homeworks#new_homework_question', as: 'new_homework_question'  
