@@ -6,7 +6,7 @@
     <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
     <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
     <h5><%= unchecked_homework.homework_result.description %></h5>
-    <%= link_to "Скачать", '/homework_results/'+unchecked_homework.homework_result.pather.to_s %>
+    <%= link_to "Скачать", '/homework_results/'+unchecked_homework.homework_result.pather.to_s, download: unchecked_homework.homework_result.pather.to_s %>
     <%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></br>
   <% end %>
 </div>
