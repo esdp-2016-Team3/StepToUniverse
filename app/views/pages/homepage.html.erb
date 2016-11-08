@@ -19,9 +19,6 @@
   <% end %>
 
 <% else %>
-  <div class="col-lg-2">
-    <%= link_to 'Пробный тест', sample_test_path, class: 'btn btn-primary' %>
-  </div>
   <div class="col-lg-10">
     <%= Content.find(1).description.html_safe %>
   </div>

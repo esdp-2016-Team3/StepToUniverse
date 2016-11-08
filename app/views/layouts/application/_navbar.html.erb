@@ -13,13 +13,18 @@
         <%= link_to root_path do %>
           <%= image_tag('logo.jpg', size: '100') %>
         <% end %>
-        <li class="label_home"><h1>Step To Universe</h1></li>
       </ul>
       <ul class="navbar-nav navbar-right">
+        <%= link_to 'Пробный тест', sample_test_path, class: 'btn btn-default navbar-btn' %>
         <%= link_to 'Наши преподаватели', teachers_path, class: 'btn btn-default navbar-btn' %>
+        <%= link_to 'Цена', content_path(4), class: 'btn btn-default navbar-btn' %>
+        <%= link_to 'Методика', content_path(5), class: 'btn btn-default navbar-btn' %>
+        <%= link_to 'Контакты', content_path(6), class: 'btn btn-default navbar-btn' %>
+        <%= link_to 'О нас', content_path(7), class: 'btn btn-default navbar-btn' %>
+        <%= link_to 'FAQ', content_path(8), class: 'btn btn-default navbar-btn' %>
         <% if user_signed_in? %>
           <p class="navbar-text">
-            Привет <%= link_to current_user.name, class: 'navbar-link' %>
+            Привет <%= current_user.name %>
           </p>
           <ul class="nav navbar-nav">
             <li class="dropdown">
