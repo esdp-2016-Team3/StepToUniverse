@@ -5,13 +5,14 @@
 	  <%= link_to "Скачать", '/homework_files/'+homework_file.pather.to_s, download: homework_file.pather.to_s%>
 	<% end %>
 </div>
-
-<div class="col-md-6">
-	<%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
-		<%= result.input :description  %>
-		<%= result.hidden_field :homework_assignment_id, value: homework_result(@homework_assignment.id) %>
-      <%= result.file_field :file %> <br>
-      <% result.hidden_field :pather, value: '' %>
-		<%= result.submit %>
-	<% end %>
-</div>
+<% if @status_name == "Sent" %>
+	<div class="col-md-6">
+		<%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
+			<%= result.input :description  %>
+			<%= result.hidden_field :homework_assignment_id, value: homework_result(@homework_assignment.id) %>
+	      <%= result.file_field :file %> <br>
+	      <% result.hidden_field :pather, value: '' %>
+			<%= result.submit %>
+		<% end %>
+	</div>
+<% end %>
