@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => {:confirmations => "confirmations"}
   get '/content/:id', to: 'contents#show', as: 'content'
 
+  get 'show_result_homework/:id' => 'homework_results#show_result_homework_question', as: 'show_result_question'
+
   get '/new_homework' => 'homeworks#new_homework', as: 'new_homework'
   get '/accepted_homeworks' => 'homeworks#accepted_homeworks', as: 'accepted_homeworks'
   get 'show_student_homework/:id' => 'homeworks#show_student_homework', as: 'show_student_homework'

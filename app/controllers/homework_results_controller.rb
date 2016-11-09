@@ -1,11 +1,13 @@
 class HomeworkResultsController < ApplicationController
 
   include HomeworkResultsHelper
+  include ApplicationHelper
 
   respond_to :html, :xml, :json
 
   def result_homework
     if @homework_result = HomeworkResult.new(result_params)
+
       if @result_file = params[:homework_result][:file] != nil
         @result_file = @result_file.original_filename 
         @homework_result.pather = @result_file
@@ -28,8 +30,11 @@ class HomeworkResultsController < ApplicationController
     end
   end
 
-  def result_homework_question
-    
+  def show_result_homework_question
+    @homework_result = HomeworkResult.find(params[:id])
+    @homework_assignment = HomeworkAssignment.find(@homework_result.homework_assignment_id)
+    @homework = homework(@homework_assignment)
+    @array_answers = student_answers(@homework_result.description)
   end
 
   def new

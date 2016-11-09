@@ -1,13 +1,19 @@
-<h3>ДЗ на проверку</h3>
-
 <div class="col-md-12">
+	<h2>ДЗ на проверку</h2>
   <%  @unchecked_homeworks.each do |unchecked_homework| %>
-    <h3>Домашнее задание: <%= unchecked_homework.homework.title %></h3>
-    <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
-    <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
-    <h5><%= unchecked_homework.homework_result.description %></h5>
-    <%= link_to "Скачать", '/homework_results/'+unchecked_homework.homework_result.pather.to_s, download: unchecked_homework.homework_result.pather.to_s %>
-    <%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></br>
+  	<% if homework_type(unchecked_homework.homework_id) == 'Question' %>
+	    <h3>Домашнее задание: <%= unchecked_homework.homework.title %></h3>
+	    <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
+	    <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
+	    <%= link_to 'Посмотреть', show_result_question_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></br>
+		<% else %>
+	    <h3>Домашнее задание: <%= unchecked_homework.homework.title %></h3>
+	    <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
+	    <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
+	    <h5><%= unchecked_homework.homework_result.description %></h5>
+	    <%= link_to "Скачать", '/homework_results/'+unchecked_homework.homework_result.pather.to_s, download: unchecked_homework.homework_result.pather.to_s %>
+	    <%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></br>
+  	<% end %>
   <% end %>
 </div>
 

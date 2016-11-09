@@ -1,0 +1,13 @@
+<div class="col-md-12">
+	<h1><%= @homework.title %></h1>
+	<% @homework.homework_questions.each do |question| %>
+		<div class="col-md-12">
+			<h3><%= question.title %></h3>
+		</div>
+		<% question.homework_answers.each do |answer| %>
+			<div class="col-md-12">
+				<h6><%= answer.title %> <%= status_answer(@array_answers, answer) %> </h6>
+			</div>
+		<% end %>
+	<% end %>
+</div>
