@@ -80,8 +80,9 @@ class HomeworksController < ApplicationController
     end
   end
 
-  def show
+  def show_homework
     @homework = Homework.find(params[:id])
+    @type = @homework.type_homework
   end
 
   def record

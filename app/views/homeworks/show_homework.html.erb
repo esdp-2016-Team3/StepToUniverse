@@ -1,0 +1,21 @@
+<div class="col-md-12">
+	<h2><%= @homework.title %></h2>
+	<% if @type == "File" %>
+		<%= @homework.title %>
+		<% @homework.homework_files.each do |homework_file| %>
+		  <h5><%= homework_file.description %></h5>
+		  <%= link_to "Скачать", '/homework_files/'+homework_file.pather.to_s, download: homework_file.pather.to_s%>
+		<% end %>
+	<% elsif @type == "Question" %>
+		<% @homework.homework_questions.each do |question| %>
+		    <div class="col-md-12">
+			  	<h3><%= question.title %></h3>
+			  </div>
+			   <% question.homework_answers.each do |answer| %>
+		      <div class="col-md-12">
+			   	  <h6><%= answer.title %> <%= answer.is_correct ? "правильный ответ" : " " %> </h6>
+			   	</div>
+			  <% end %>
+		<% end %>
+	<% end %>
+</div>
