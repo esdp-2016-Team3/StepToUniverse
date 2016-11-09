@@ -8,7 +8,7 @@ class HomeworkFile < ApplicationRecord
                                                                   "text/plain",
                                                                   "audio/mpeg",
                                                                   "audio/mpeg3",
-                                                                  "audio/wav",
+                                                                  "audio/x-wav",
                                                                   "image/pjpeg",
                                                                   "image/jpeg",
                                                                   "application/zip"

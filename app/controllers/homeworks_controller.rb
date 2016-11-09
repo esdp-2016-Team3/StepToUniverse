@@ -13,7 +13,8 @@ class HomeworksController < ApplicationController
     if @homework.save
       redirect_to teacher_homeworks_path, notice: 'Домашнее задание успешно создано.'
     else
-      render 'cabinet'
+      redirect_to new_homework_path
+      flash[:notice] = 'Не могу сохранить это домашнее задание'
     end
   end
 
