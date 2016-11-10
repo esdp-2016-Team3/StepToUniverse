@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   post '/homework_results/result_homework' => 'homework_results#result_homework', as: 'result_homework'
   
+  get '/timetable/' => 'pages#timetable', as: 'timetable'
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
   get '/my_students' => "pages#my_students", as: 'my_students' 
   get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'  
