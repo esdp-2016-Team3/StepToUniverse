@@ -5,14 +5,14 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
-    if current_user.position_id==2
+    if resource.class == AdminUser
+      admin_user_session
+      admin_root_path
+    elsif current_user.position_id==2
       teacher_cabinet_path
     elsif
       current_user.position_id==1
       student_cabinet_path(current_user)
-    else
-        current_user.admin?
-        new_admin_user_session_path
     end
   end
 
