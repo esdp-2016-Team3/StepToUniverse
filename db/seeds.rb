@@ -18,7 +18,12 @@ User.create(name: "teach2", email: 'teach2@gmail.com', status: 'active', positio
 User.create(name: "pend1", email: 'pend1@gmail.com', status: 'notactive', position_id: 1, skype: "pend.1", phone: +9379971, description: 'Я способный студент', avatar: File.open(fixtures_path.join('pend1.jpg')), password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:49:12')
 User.create(name: "pend2", email: 'pend2@gmail.com', status: 'notactive', position_id: 2, skype: "pend.2", phone: +9379971, description: 'Помогу подготовиться к TOEFL', avatar: File.open(fixtures_path.join('pend2.jpg')), password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:49:12')
 
-Content.create(title: "Главная анонимная", description: "контентная информация")
+Content.create(title: "Главная анонимная", description: "Супер контент!")
+Content.create(title: "Цена", description: "Созвонимся, договоримся)")
+Content.create(title: "Методика", description: "Лучшая методика! Учись, учить и еще раз учись")
+Content.create(title: "Контакты", description: "0558 126 394")
+Content.create(title: "О нас", description: "Мы красавчики! Английский знаем лучше всех!")
+Content.create(title: "FAQ", description: "Часто задаваемые вопросы")
 
 Level.create(name: "Beginner")
 Level.create(name: "Intermediate")
