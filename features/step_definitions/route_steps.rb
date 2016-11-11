@@ -8,27 +8,43 @@ When(/^я на рутовой странице$/) do
   sleep(0.5)
 end
 
-When(/^перехожу на страницу почты Gmail$/) do
-  visit('https://accounts.google.com')
+When(/^перехожу на страницу почты mailcatcher$/) do
+  visit('http://127.0.0.1:1080')
   sleep(0.5)
 end
 
-When(/^перехожу на страницу писем Николая Петровича$/) do
-  visit('https://mail.google.com/mail/')
-  sleep(20)
-end
-
 When(/^кликаю на письмо через xpath$/) do
-  find(:xpath, "//*[@id=':7']/div/div/div[7]").click
-  sleep(2)
+  find(:xpath, "//*[@id='messages']/table/tbody/tr[1]/td[2]").click
+  sleep(0.5)
 end
 
-When(/^отмечаю через xpath все письма$/) do
-  find(:xpath, "//*[@id=':3n']/div[1]/span/div").click
-  sleep(2)
+When(/^кликаю через xpath "([^"]*)"$/) do |arg|
+  find(:xpath, "//*[@id='user_7']/td[7]/a").click
+  sleep(0.5)
 end
 
-When(/^удаляю через xpath все письма$/) do
-  find(:xpath, "//*[@id=':5']/div[2]/div[1]/div[1]/div/div/div[2]/div[3]/div/div").click
-  sleep(2)
+When(/^перехожу на страницу письма для подтверждения$/) do
+  visit 'http://127.0.0.1:1080/messages/1.html'
+  sleep(0.5)
+end
+
+When(/^кликаю через xpath на логотип$/) do
+  find(:xpath, "//*[@id='navbar-collapse']/ul[1]/a/img").click
+  sleep(0.5)
+end
+
+When(/^перехожу на страницу письма уведомления для админа$/) do
+  visit 'http://127.0.0.1:1080/messages/2.html'
+  sleep(0.5)
+end
+
+
+When(/^перехожу в админку$/) do
+  visit "http://localhost:3000/admin"
+  sleep(0.5)
+end
+
+When(/^перехожу на страницу письма уведомления для юзера$/) do
+  visit 'http://127.0.0.1:1080/messages/3.html'
+  sleep(0.5)
 end

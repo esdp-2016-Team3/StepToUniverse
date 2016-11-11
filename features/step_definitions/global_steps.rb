@@ -19,7 +19,7 @@ When(/^ввожу в поле "([^"]*)" текст "([^"]*)"$/) do |field, value
 end
 
 When(/^должен увидеть текст "([^"]*)"$/) do |text|
-  sleep(5)
+  sleep(0.5)
   page.assert_text(text)
 end
 
