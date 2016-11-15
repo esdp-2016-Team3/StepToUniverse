@@ -15,7 +15,7 @@
   <% @homeworks.each do |homework| %>
     <div>
       <%= link_to homework.title, show_homework_path(homework) %>  |
-      <%= link_to 'Удалить', homework_destroy_path(homework.id), method: 'delete' %>
+      <%= link_to 'Удалить', homework_destroy_path(homework.id), method: 'delete', data: { confirm: "Вы уверены, что хотите удалить это?"} %>
     </div>
   <% end %>
 </div>
