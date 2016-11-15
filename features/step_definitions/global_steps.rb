@@ -33,7 +33,7 @@ When(/^выбираю в радио батон "([^"]*)" в поле "([^"]*)"$/
   sleep(0.5)
 end
 
-When(/^должен не найти "([^"]*)"$/) do |text|
+When(/^должен не найти текст "([^"]*)"$/) do |text|
   page.assert_no_text(text)
   sleep(0.5)
 end
@@ -43,12 +43,6 @@ When(/^кликаю на "([^"]*)"$/) do |arg|
   click_on(arg)
   sleep(0.5)
 end
-
-When(/^кликаю по html "([^"]*)"$/) do |arg|
-  find('input[name="commit"]').click
-  sleep(0.5)
-end
-
 
 When(/^перехожу на другую вкладку браузера$/) do
   # Find our target window

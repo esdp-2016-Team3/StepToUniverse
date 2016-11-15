@@ -71,7 +71,7 @@ end
 
 Before('@login_teacher') do
   visit new_user_session_path
-  fill_in "Email", with:"teacher1@gmail.com"
+  fill_in "Email", with:"teach1@gmail.com"
   fill_in "Пароль",with: "asdasd"
   click_button "Войти"
 end
@@ -91,7 +91,7 @@ Before('@logadmin') do
 end
 
 After('@logout') do
-  if page.has_content?("Привет")
+  if page.assert_text?("Привет")
       click_on('Аккаунт')
       click_on('Выйти')
   end
