@@ -83,10 +83,10 @@ Before('@login_student') do
   click_button "Войти"
 end
 
-Before('@logadmin') do
+Before('@login_admin') do
   visit new_admin_user_session_path
-  fill_in "Эл. почта", with: "admin@example.com"
-  fill_in "Пароль",with: "password"
+  fill_in "Эл. почта", with: "esdp20163@gmail.com"
+  fill_in "Пароль",with: "esdp2016"
   click_button "Войти"
 end
 

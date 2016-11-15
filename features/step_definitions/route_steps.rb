@@ -51,8 +51,26 @@ end
 
 When(/^прикрепляю книгу$/) do
   page.attach_file("library_file_literature", Rails.root + 'app/assets/images/books/Teplotehnika.pdf')
+  sleep(0.5)
 end
 
 When(/^кликаю через xpath на Удалить$/) do
   find(:xpath, "/html/body/div/div[2]/a[2]").click
+  sleep(0.5)
 end
+
+When(/^кликаю по xpath на Скачать$/) do
+  find(:xpath, "/html/body/div/div[1]/a[1]").click
+  sleep(0.5)
+end
+
+When(/^кликаю на Удалить через хpath$/) do
+  find(:xpath, "//*[@id='library_file_2']/td[4]/div/a[3]").click
+  sleep(0.5)
+end
+
+When(/^кликаю через xpath на книгу Изменить$/) do
+  find(:xpath, "//*[@id='library_file_1']/td[4]/div/a[2]").click
+  sleep(0.5)
+end
+
