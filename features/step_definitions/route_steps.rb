@@ -74,3 +74,7 @@ When(/^кликаю через xpath на книгу Изменить$/) do
   sleep(0.5)
 end
 
+When(/^я на странице логина админа$/) do
+  visit 'http://localhost:3000/admin/login'
+  sleep(0.5)
+end
