@@ -76,6 +76,8 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    airbrussh (1.1.1)
+      sshkit (>= 1.6.1, != 1.7.0)
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (7.1.4)
@@ -90,6 +92,30 @@ GEM
       thor (~> 0.19)
     builder (3.2.2)
     byebug (9.0.6)
+    capistrano (3.6.1)
+      airbrussh (>= 1.0.0)
+      capistrano-harrow
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-harrow (0.5.3)
+    capistrano-rails (1.2.0)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rails-collection (0.1.0)
+      capistrano-rails (~> 1.1)
+    capistrano-rails-console (2.2.0)
+      capistrano (>= 3.5.0, < 4.0.0)
+      sshkit-interactive (~> 0.2.0)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano3-puma (1.2.1)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
     capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
@@ -168,6 +194,7 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    libv8 (3.16.14.15)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -184,6 +211,9 @@ GEM
     minitest (5.9.1)
     multi_json (1.12.1)
     multi_test (0.1.2)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.2.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -240,6 +270,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    ref (2.0.0)
     responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.5.4)
@@ -288,6 +319,14 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.12)
+    sshkit (1.11.3)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
+    sshkit-interactive (0.2.0)
+      sshkit (~> 1.9)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -319,6 +358,13 @@ DEPENDENCIES
   activeadmin!
   bootstrap-sass (~> 3.3.6)
   byebug
+  capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rails-collection
+  capistrano-rails-console
+  capistrano-rvm
+  capistrano3-puma
   capybara
   ckeditor!
   coffee-rails (~> 4.2)
@@ -344,6 +390,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  therubyracer
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
