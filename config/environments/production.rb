@@ -14,9 +14,9 @@ Rails.application.configure do
       domain:               'gmail.com',
       user_name:            'esdp20163@gmail.com',
       password:             'esdp2016',
-      authentication:       :login,
+      authentication:       'login',
       enable_starttls_auto: true,
-      :openssl_verify_mode => 'none'
+      openssl_verify_mode:  'none'
   }
 
   # Settings specified here will take precedence over those in config/application.rb.
