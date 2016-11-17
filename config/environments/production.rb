@@ -1,43 +1,25 @@
 Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb.
+
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+
   config.action_mailer.perform_caching = false
 
-  config.assets.raise_runtime_errors = true
-
-  config.action_mailer.default_url_options = {:host => '138.68.97.74'}
-
-  config.force_ssl = false
-
-  # config.action_mailer.smtp_settings = {
-  #     :address => 'smtp.gmail.com',
-  #     :port => 587,
-  #     :domain => 'gmail.com',
-  #     :authentication => :login,
-  #     :user_name => 'esdp20163@gmail.com',
-  #     :password => 'esdp2016',
-  #     :enable_starttls_auto => true,
-  #     :openssl_verify_mode => 'none'
-  # }
-
-
+  config.action_mailer.default_url_options = { :host => 'http://step2universe.com' }
 
   config.action_mailer.delivery_method = :smtp
-# SMTP settings for gmail
+
   config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      :user_name            => 'esdp20163@gmail.com',
-      :password             => 'esdp2016',
-      :authentication       => "plain",
-      :enable_starttls_auto => true
-  }
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      user_name:            'socialhubs2016@gmail.com',
+      password:             'bishkek2016',
+      authentication:       'plain',
+      enable_starttls_auto: true  }
 
 
-
-
-  # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
