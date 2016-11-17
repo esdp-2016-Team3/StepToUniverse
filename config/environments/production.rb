@@ -1,4 +1,26 @@
 Rails.application.configure do
+  # для отправки писем админу
+  config.action_mailer.smtp_settings = {
+      :address => 'smtp.gmail.com',
+      :port => 587,
+      :domain => 'gmail.com',
+      :authentication => :login,
+      :user_name => 'esdp20163@gmail.com',
+      :password => 'esdp2016',
+      :enable_starttls_auto => true,
+      :openssl_verify_mode => 'none'
+  }
+
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.perform_caching = false
+
+  config.assets.raise_runtime_errors = true
+
+  config.action_mailer.default_url_options = {:host => 'http://step2universe.com'}
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
