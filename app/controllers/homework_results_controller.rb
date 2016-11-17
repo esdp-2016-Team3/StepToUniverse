@@ -9,7 +9,9 @@ class HomeworkResultsController < ApplicationController
     if @homework_result = HomeworkResult.new(result_params)
 
       @result_file = params[:homework_result][:file]
-      @result_file = @result_file.original_filename
+      unless @result_file == nil
+        @result_file = @result_file.original_filename
+      end
       @homework_result.pather = @result_file
 
       assignment = HomeworkAssignment.find(@homework_result.homework_assignment_id)

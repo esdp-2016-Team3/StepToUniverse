@@ -5,7 +5,9 @@ class HomeworksController < ApplicationController
   def create
     params[:homework][:homework_files_attributes].each do |param|
       @file = params[:homework][:homework_files_attributes][param.to_sym][:file]
-      @file = @file.original_filename
+      unless @file == nil
+        @file = @file.original_filename
+      end
       params[:homework][:homework_files_attributes][param.to_sym][:pather] = @file
     end
     
