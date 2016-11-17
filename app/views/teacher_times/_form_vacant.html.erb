@@ -1,0 +1,4 @@
+<%= simple_form_for @teacher_time, url: teacher_time_path(selection_of_the_cell(time, day)), html: {method: "patch"}, remote: true do |f| %>
+  <%= f.hidden_field :status_time_teacher_id, value: 3 %>
+  <%= f.submit 'Vacant', class: "btn btn-success" %>
+<% end %>

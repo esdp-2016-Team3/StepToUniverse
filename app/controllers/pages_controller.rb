@@ -95,5 +95,4 @@ class PagesController < ApplicationController
   def teacher_homeworks
     @homeworks = Homework.where(user_id: current_user.id)
   end
-
 end

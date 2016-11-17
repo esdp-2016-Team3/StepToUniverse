@@ -1,0 +1,26 @@
+<table class="timetable">
+  <tr class="weekdays">
+    <td>
+      Время
+    </td>
+    <% @days_of_week.each do |day| %>
+      <td>
+        <%= day %>
+      </td>
+    <% end %>
+  </tr>
+  <% @times.each do |time| %>
+    <tr>
+      <td class="time_schedule"> <%= time %>:00 </td>
+      <% @days_of_week.each do |day| %>
+        <% if selection_of_the_cell(time, day).nil? %>
+          <td class="vacant">
+            <%= render 'form', day: day, time: time %>
+          </td>
+        <% else %>
+          <%= render 'show', day: day, time: time %>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

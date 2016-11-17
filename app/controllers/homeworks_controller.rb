@@ -47,7 +47,7 @@ class HomeworksController < ApplicationController
     if HomeworkAssignment.create(assignment_params)
       redirect_to teacher_cabinet_path, notice: 'Домашнее задание успешно отправлено.'
     else
-      render 'cabinet'
+      render teacher_cabinet_path
     end
   end
 
@@ -57,7 +57,7 @@ class HomeworksController < ApplicationController
     if assignment.update(homework_status_id: 3)
       redirect_to accepted_homeworks_path, notice: 'Домашнее задание успешно проверенно.'
     else
-      render 'cabinet'
+      render teacher_cabinet_path
     end
   end
 
@@ -73,7 +73,7 @@ class HomeworksController < ApplicationController
     if @homework.save
       redirect_to teacher_homeworks_path, notice: 'Домашнее задание успешно создано.'
     else
-      render 'cabinet'
+      render teacher_cabinet_path
     end
   end
 
@@ -102,7 +102,7 @@ class HomeworksController < ApplicationController
     if @update_hwassignment.update(assignment_params)
       redirect_to :back, notice: 'Домашнее задание успешно завершенно'
     else
-      render 'cabinet'
+      render teacher_cabinet_path
     end
   end
 
