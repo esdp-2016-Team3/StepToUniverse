@@ -3,16 +3,13 @@ class HomeworksController < ApplicationController
   include ApplicationHelper
 
   def create
-    # params[:homework][:homework_files_attributes].each do |param|
-    #   @file = params[:homework][:homework_files_attributes][param.to_sym][:file]
-    #   if @file.original_filename != nil
-    #     @original_name = @file.original_filename
-    #   end
-    #   params[:homework][:homework_files_attributes][param.to_sym][:pather] = @original_name
-    # end
+    params[:homework][:homework_files_attributes].each do |param|
+      @file = params[:homework][:homework_files_attributes][param.to_sym][:file]
+      @file = @file.original_filename
+      params[:homework][:homework_files_attributes][param.to_sym][:pather] = @file
+    end
     
     @homework = Homework.new(homework_params)
-    @homework.homework_files = params[:homework]
     @homework.user_id = current_user.id if current_user
     if @homework.save
       redirect_to teacher_homeworks_path, notice: 'Домашнее задание успешно создано.'
