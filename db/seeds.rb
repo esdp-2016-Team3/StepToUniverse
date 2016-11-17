@@ -25,6 +25,10 @@ Content.create(title: "Контакты", description: "0558 126 394")
 Content.create(title: "О нас", description: "Мы красавчики! Английский знаем лучше всех!")
 Content.create(title: "FAQ", description: "Часто задаваемые вопросы")
 
+StatusTimeTeacher.create(status_time: 'Busy', id: 1)
+StatusTimeTeacher.create(status_time: 'Relax', id: 2)
+StatusTimeTeacher.create(status_time: 'Vacant', id: 3)
+
 Level.create(name: "Beginner")
 Level.create(name: "Intermediate")
 Level.create(name: "Advanced")
