@@ -1,3 +1,41 @@
 // Place all the styles related to the teacher_times controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color:#ddd;
+}
+
+.weekdays td {
+  width: 10%;
+  color: #666;
+  text-align: center;
+}
+
+.busy {
+  background: #ff0000;
+}
+
+.relax {
+  background: #ffff00;
+}
+
+.vacant {
+  background: #33cc33;
+}
+
+.vacant div{
+  display: inline-block;
+}
+
+.time_schedule {
+  padding: 40px;
+  background-color: #ddd;
+}
+
+.timetable table, tr, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}

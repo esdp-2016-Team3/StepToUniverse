@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "teacher_times";
+@import "record_player";
 
 //= require active_admin/editor/wysiwyg
 
@@ -35,60 +37,4 @@ float: right;
 
 .answer_block {
 	width: 100%;
-}
-
-.button{
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0px 5px;
-  padding: 5px 12px;
-  cursor: pointer;
-  outline: none;
-  font-size: 13px;
-  text-decoration: none !important;
-  text-align: center;
-  color:#fff;
-  background-color: #4D90FE;
-  background-image: linear-gradient(top,#4D90FE, #4787ED);
-  background-image: -ms-linear-gradient(top,#4D90FE, #4787ED);
-  background-image: -o-linear-gradient(top,#4D90FE, #4787ED);
-  background-image: linear-gradient(top,#4D90FE, #4787ED);
-  border: 1px solid #4787ED;
-  box-shadow: 0 1px 3px #BFBFBF;
-}
-a.button{
-  color: #fff;
-}
-.button:hover{
-  box-shadow: inset 0px 1px 1px #8C8C8C;
-}
-.button.disabled{
-  box-shadow:none;
-  opacity:0.7;
-}
-canvas{
-  display: block;
-}
-
-table {
-font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-text-align: center;
-border-collapse: collapse;
-border-spacing: 5px;
-background: #E1E3E0;
-border-radius: 20px;
-}
-th {
-font-size: 22px;
-font-weight: 300;
-padding: 12px 10px;
-border-bottom: 2px solid #F56433;
-color: #F56433;
-}
-tbody tr:nth-child(2) {
-border-bottom: 2px solid #F56433;
-}
-td {
-padding: 10px;
-color: #8D8173;
 }
