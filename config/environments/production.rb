@@ -10,16 +10,31 @@ Rails.application.configure do
 
   config.force_ssl = false
 
+  # config.action_mailer.smtp_settings = {
+  #     :address => 'smtp.gmail.com',
+  #     :port => 587,
+  #     :domain => 'gmail.com',
+  #     :authentication => :login,
+  #     :user_name => 'esdp20163@gmail.com',
+  #     :password => 'esdp2016',
+  #     :enable_starttls_auto => true,
+  #     :openssl_verify_mode => 'none'
+  # }
+
+
+
+  config.action_mailer.delivery_method = :smtp
+# SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :address => 'smtp.gmail.com',
-      :port => 587,
-      :domain => 'gmail.com',
-      :authentication => :login,
-      :user_name => 'esdp20163@gmail.com',
-      :password => 'esdp2016',
-      :enable_starttls_auto => true,
-      :openssl_verify_mode => 'none'
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :user_name            => 'esdp20163@gmail.com',
+      :password             => 'esdp2016',
+      :authentication       => "plain",
+      :enable_starttls_auto => true
   }
+
+
 
 
   # Settings specified here will take precedence over those in config/application.rb.
