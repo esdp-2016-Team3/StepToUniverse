@@ -11,13 +11,15 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-      address:              'smtp.gmail.com',
-      port:                 587,
-      domain:               'gmail.com',
-      user_name:            'socialhubs2016@gmail.com',
-      password:             'bishkek2016',
-      authentication:       'plain',
-      enable_starttls_auto: true  }
+      :address => 'smtp.gmail.com',
+      :port => 587,
+      :domain => 'gmail.com',
+      :authentication => :login,
+      :user_name => 'esdp20163@gmail.com',
+      :password => 'esdp2016',
+      :enable_starttls_auto => true,
+      :openssl_verify_mode => 'none'
+  }
 
 
 
