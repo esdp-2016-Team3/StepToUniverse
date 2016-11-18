@@ -15,8 +15,8 @@ Rails.application.configure do
       :port => 587,
       :domain => 'gmail.com',
       :authentication => :login,
-      :user_name => 'esdp20163@gmail.com',
-      :password => 'esdp2016',
+      :user_name => 'socialhubs2016@gmail.com',
+      :password => 'bishkek2016',
       :enable_starttls_auto => true,
       :openssl_verify_mode => 'none'
   }
