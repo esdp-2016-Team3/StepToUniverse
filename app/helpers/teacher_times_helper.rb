@@ -4,12 +4,10 @@ module TeacherTimesHelper
 		teacher_time.last
 	end
 
-	def list_of_students(students)
-		students_list = []
-		students.each do |student|
-			students_list << student.name
-		end
-		return students_list
+	def student_name(teacher_time)
+		student_id = teacher_time.student_id
+		student = User.find(student_id)
+		student.name
 	end
 
 	def status_teacher_time(teacher_time)

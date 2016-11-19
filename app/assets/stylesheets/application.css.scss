@@ -1,0 +1,110 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+//= require bootstrap-modal
+//= require active_admin/editor/wysiwyg
+
+#flash_alert {
+padding-top: 16px;
+float: right;
+}
+
+#flash_notice {
+padding-top: 16px;
+float: right;
+}
+
+.label_home{
+	color: #F0FFF0
+}
+
+.link-to-top {
+  font-size: 30px;
+  width: 40px;
+  text-align: center;
+  color: red;
+  position: fixed;
+  bottom: 30px;
+  right: 50px;
+}
+
+
+.list-group-item {
+  padding-left: 30px;
+}
+
+
+.answer_block {
+	width: 100%;
+}
+
+.button{
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0px 5px;
+  padding: 5px 12px;
+  cursor: pointer;
+  outline: none;
+  font-size: 13px;
+  text-decoration: none !important;
+  text-align: center;
+  color:#fff;
+  background-color: #4D90FE;
+  background-image: linear-gradient(top,#4D90FE, #4787ED);
+  background-image: -ms-linear-gradient(top,#4D90FE, #4787ED);
+  background-image: -o-linear-gradient(top,#4D90FE, #4787ED);
+  background-image: linear-gradient(top,#4D90FE, #4787ED);
+  border: 1px solid #4787ED;
+  box-shadow: 0 1px 3px #BFBFBF;
+}
+a.button{
+  color: #fff;
+}
+.button:hover{
+  box-shadow: inset 0px 1px 1px #8C8C8C;
+}
+.button.disabled{
+  box-shadow:none;
+  opacity:0.7;
+}
+canvas{
+  display: block;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color:#ddd;
+}
+
+.weekdays td {
+    width: 10%;
+    color: #666;
+    text-align: center;
+}
+
+.busy {
+  background: #ff0000;
+}
+
+.relax {
+  background: #ffff00;
+}
+
+.vacant {
+  background: #33cc33;
+}
+
+.vacant div{
+   display: inline-block;
+}
+
+.time_schedule {
+   padding: 40px;
+   background-color: #ddd;
+}
+
+.timetable table, tr, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}

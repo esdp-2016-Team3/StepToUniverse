@@ -14,7 +14,10 @@ class TeacherTimesController < ApplicationController
   end
 
   def new
-    @teacher_time = TeacherTime.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
@@ -22,16 +25,20 @@ class TeacherTimesController < ApplicationController
 
   def create
     @teacher_time = TeacherTime.new(teacher_time_params)
-    @teacher_time.save
+      if @teacher_time.save
+        redirect_to teacher_times_path
+      else
+        redirect_to teacher_times_path
+      end
   end
 
   def update
     @teacher_time = TeacherTime.find(params[:id])
-    if @teacher_time.update_attributes(teacher_time_params)
-      # Handle a successful update.
-    else
-      render @teacher_time
-    end
+      if @teacher_time.update_attributes(teacher_time_params)
+        redirect_to teacher_times_path
+      else
+        redirect_to teacher_times_path
+      end
   end
 
   def destroy

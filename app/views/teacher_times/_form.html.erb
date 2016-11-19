@@ -1,5 +1,5 @@
-<%= simple_form_for @teacher_time, remote: true do |f| %>
-  <%= f.select :student_id, list_of_students(@students) %>
+<%= simple_form_for @teacher_time do |f| %>
+  <%= f.input :student_id, as: :select,collection: @students.map { |s| [s.name, s.id]} %>
   <%= f.hidden_field :day_of_week, value: day %>
   <%= f.hidden_field :status_time_teacher_id, value: 1 %>
   <%= f.hidden_field :teacher_id, value: current_user.id %>
@@ -7,7 +7,7 @@
   <%= f.submit 'Ok', class: "btn btn-default btn-xs" %>
 <% end %>
 
-<%= simple_form_for @teacher_time, remote: true do |f| %>
+<%= simple_form_for @teacher_time do |f| %>
   <%= f.hidden_field :day_of_week, value: day %>
   <%= f.hidden_field :teacher_id, value: current_user.id %>
   <%= f.hidden_field :time, value: time %>

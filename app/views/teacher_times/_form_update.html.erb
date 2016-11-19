@@ -1,5 +1,0 @@
-<%= simple_form_for @teacher_time, url: teacher_time_path(selection_of_the_cell(time, day)), html: {method: "patch"}, remote: true do |f| %>
-  <%= f.select :student_id, list_of_students(@students) %>
-  <%= f.hidden_field :status_time_teacher_id, value: 1 %>
-  <%= f.submit 'Ok', class: "btn btn-default btn-xs" %>
-<% end %>

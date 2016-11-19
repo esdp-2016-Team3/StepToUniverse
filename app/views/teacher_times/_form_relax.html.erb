@@ -1,4 +1,1 @@
-<%= simple_form_for @teacher_time, url: teacher_time_path(selection_of_the_cell(time, day)), html: {method: "patch"}, remote: true do |f| %>
-  <%= f.hidden_field :status_time_teacher_id, value: 2 %>
-  <%= f.submit 'Relax', class: "btn btn-warning" %>
-<% end %>
+<%= button_to 'Отдых', teacher_time_path(selection_of_the_cell(time, day)), method: :put, params: {'[teacher_time][status_time_teacher_id]' => 2} %>

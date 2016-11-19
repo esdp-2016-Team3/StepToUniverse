@@ -14,11 +14,9 @@
       <td class="time_schedule"> <%= time %>:00 </td>
       <% @days_of_week.each do |day| %>
         <% if selection_of_the_cell(time, day).nil? %>
-          <td class="vacant">
-            <%= render 'form', day: day, time: time %>
-          </td>
+            <%= render 'show_create', day: day, time: time %>
         <% else %>
-          <%= render 'show', day: day, time: time %>
+            <%= render 'update', day: day, time: time %>
         <% end %>
       <% end %>
     </tr>
