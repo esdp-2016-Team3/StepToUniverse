@@ -2,13 +2,14 @@
 <table>
   <tr>
     <th>Название ДЗ</th>
-    <th>Описание ДЗ(описание прикрепленного файла)</th>
-    <th>Файл</th>
+    <th>Описание ДЗ(или описание файла преподавателя)</th>
+    <th>Файл преподавателя</th>
+    <th>Описание ДЗ студента</th>
+    <th>Файл студента</th>
     <th>Статус ДЗ</th>
   </tr>
   <% @homework_assignment.each do |homework_assignment| %>
     <tr>
-      <% if current_user.position_id == 1 %>
         <td><%= link_to homework(homework_assignment).title, show_student_homework_path(homework_assignment) %></td>
         <% homework_assignment.homework.homework_files.each do |homework_file| %>
           <td><%= homework_file.description %></td>
@@ -20,19 +21,20 @@
               <td>отсутствует</td>
           <% end %>
         <% end %>
-        <td><%= status_homework(homework_assignment) %></td>
-      <% elsif current_user.position_id == 2 %>
-          <td><%= homework(homework_assignment).title %></td>
-          <% homework_assignment.homework.homework_files.each do |homework_file| %>
-              <td><%= homework_file.description %></td>
-              <% unless homework_file.file_file_name == nil %>
-                  <td><%= homework_file.file_file_name %></td>
-              <% else %>
-                  <td>отсутствует</td>
-              <% end %>
+        <% if homework_assignment.homework_result == nil %>
+          <td>не сделано</td>
+          <td>не сделано</td>
+        <% else %>
+          <td><%= homework_assignment.homework_result.description %></td>
+          <% unless homework_assignment.homework_result.file_file_name == nil %>
+              <td><%= homework_assignment.homework_result.file_file_name %>/
+                <%= link_to 'скачать', '/homework_results/' + homework_assignment.homework_result.file_file_name.to_s,
+                            download: homework_assignment.homework_result.file_file_name.to_s %></td>
+          <% else %>
+              <td>отсутствует</td>
           <% end %>
-          <td><%= status_homework(homework_assignment) %></td>
-      <% end %>
+        <% end %>
+        <td><%= status_homework(homework_assignment) %></td>
     </tr>
   <% end %>
 </table>

@@ -17,7 +17,7 @@
     <% end %>
 	<% end %>
 </div>
-<% if @status_name == "Sent" %>
+<% if @status_name == "Sent" && current_user.position_id == 1 %>
 	<div class="col-md-6">
 		<%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
 			<%= result.input :description  %>
