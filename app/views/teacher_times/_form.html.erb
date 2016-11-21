@@ -4,7 +4,7 @@
   <%= f.hidden_field :status_time_teacher_id, value: 1 %>
   <%= f.hidden_field :teacher_id, value: current_user.id %>
   <%= f.hidden_field :time, value: time %>
-  <%= f.submit 'Ok', class: "btn btn-default btn-xs" %>
+  <%= f.submit 'Сохранить изменения', class: "btn btn-primary" %>
 <% end %>
 
 <%= simple_form_for @teacher_time do |f| %>
@@ -12,5 +12,5 @@
   <%= f.hidden_field :teacher_id, value: current_user.id %>
   <%= f.hidden_field :time, value: time %>
   <%= f.hidden_field :status_time_teacher_id, value: 2 %>
-  <%= f.submit 'Relax', class: "btn btn-warning" %>
+  <%= f.submit 'Отдых', class: "btn btn-warning" %>
 <% end %>
