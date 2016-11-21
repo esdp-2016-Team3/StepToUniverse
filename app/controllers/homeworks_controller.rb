@@ -9,7 +9,7 @@ class HomeworksController < ApplicationController
       redirect_to teacher_homeworks_path, notice: 'Домашнее задание успешно создано.'
     else
       redirect_to new_homework_path
-      flash[:notice] = 'Формат загруженного файла не поддерживается'
+      flash[:notice] = 'Формат загруженного файла не поддерживается или поле "Название" не может быть пустым'
     end
   end
 

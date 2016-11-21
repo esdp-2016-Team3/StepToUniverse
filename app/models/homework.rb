@@ -1,4 +1,5 @@
 class Homework < ApplicationRecord
+  validates :title, presence: true
   belongs_to :user
   has_many :homework_files, dependent: :destroy
   has_many :homework_assignments, dependent: :destroy
