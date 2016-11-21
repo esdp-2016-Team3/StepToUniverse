@@ -10,6 +10,7 @@ class AcceptionsController < ApplicationController
   def reject
     @user = User.find(params[:format])
     @user.status = 'denied'
+    @user.teacher_id = nil
     @user.save
     ToAdminMailer.reject_alert(@user).deliver
     redirect_to admin_notactives_path
