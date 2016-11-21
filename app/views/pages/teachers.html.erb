@@ -3,5 +3,6 @@
   <%= teacher.name %></br>
   <%= teacher.description %></br>
   <%= image_tag teacher.avatar.url(:medium) %></br>
+  <%= link_to 'Расписание', timetable_path(teacher.id) %>
   </br>
 <% end %>

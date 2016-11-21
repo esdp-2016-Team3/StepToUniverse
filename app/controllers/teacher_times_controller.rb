@@ -3,10 +3,7 @@ class TeacherTimesController < ApplicationController
 	TIME = %w[07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 00 01 02 03 04 05 06]
 
 	def index
-		@students = User.where(teacher_id: current_user.id)
-    @teacher_time = TeacherTime.new
- 	  @days_of_week = HEADER
- 	  @times = TIME
+
 	end
 
   def show
@@ -20,7 +17,12 @@ class TeacherTimesController < ApplicationController
     end
   end
 
-  def edit
+  def timetable
+    @user = User.find(params[:id])
+    @students = User.where(teacher_id: @user.id)
+    @teacher_time = TeacherTime.new
+    @days_of_week = HEADER
+    @times = TIME
   end
 
   def create
@@ -33,7 +35,7 @@ class TeacherTimesController < ApplicationController
   end
 
   def update
-    @teacher_time = TeacherTime.find(params[:id])
+    @teacher_time = set_teacher_time
       if @teacher_time.update_attributes(teacher_time_params)
         redirect_to teacher_times_path
       else

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :teacher_times
+
+  get '/timetable/:id' => 'teacher_times#timetable', as: 'timetable'
   
   delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
   post '/library_file/create' => 'library_files#create', as: 'library_file_create'
