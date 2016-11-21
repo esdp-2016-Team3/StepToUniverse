@@ -1,7 +1,4 @@
 class TeacherTimesController < ApplicationController
-	HEADER = %w[Понедельник Вторник Среда Четверг Пятница Суббота Воскресенье]
-	TIME = %w[07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 00 01 02 03 04 05 06]
-
 	def index
 
 	end
@@ -28,18 +25,18 @@ class TeacherTimesController < ApplicationController
   def create
     @teacher_time = TeacherTime.new(teacher_time_params)
       if @teacher_time.save
-        redirect_to teacher_times_path
+        redirect_to timetable_path(current_user)
       else
-        redirect_to teacher_times_path
+        redirect_to timetable_path(current_user)
       end
   end
 
   def update
-    @teacher_time = set_teacher_time
+    set_teacher_time
       if @teacher_time.update_attributes(teacher_time_params)
-        redirect_to teacher_times_path
+        redirect_to timetable_path(current_user)
       else
-        redirect_to teacher_times_path
+        redirect_to timetable_path(current_user)
       end
   end
 
