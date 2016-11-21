@@ -1,4 +1,22 @@
+<table>
+  <tr>
+    <th>Имя студента</th>
+    <th>Skype</th>
+    <th>Телефон</th>
+    <th>Почта</th>
+    <th>Описание студента</th>
+    <th>Фото</th>
+    <th>Домашние задания</th>
+  </tr>
 <% @students.each do |student| %>
-	<div><%= student.name %>  |  
-	<%= link_to 'история студента', student_cabinet_path(student) %></div>
+  <tr>
+	  <td><%= student.name %></td>
+    <td><%= student.skype %></td>
+    <td><%= student.phone %></td>
+    <td><%= student.email %></td>
+    <td><%= student.description %></td>
+    <td><%= image_tag student.avatar.url(:thumb) %></td>
+	  <td><%= link_to 'история дз студента', student_cabinet_path(student) %></td>
+  </tr>
 <% end %>
+</table>
