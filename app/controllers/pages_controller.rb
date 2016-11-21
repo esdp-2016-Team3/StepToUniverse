@@ -73,7 +73,7 @@ class PagesController < ApplicationController
   def student_cabinet
     @user_id = User.find(params[:id])
     @homework_assignment = homeworks_student(@user_id)
-    @days_of_week = HEADER
+    @days_of_week = DAYS_OF_THE_WEEK
   end
 
   def teacher_cabinet

@@ -18,7 +18,7 @@ class TeacherTimesController < ApplicationController
     @user = User.find(params[:id])
     @students = User.where(teacher_id: @user.id)
     @teacher_time = TeacherTime.new
-    @days_of_week = HEADER
+    @days_of_week = DAYS_OF_THE_WEEK
     @times = TIME
   end
 

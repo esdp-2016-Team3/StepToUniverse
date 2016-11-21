@@ -1,1 +1,1 @@
-<%= button_to 'Отдых', teacher_time_path(selection_of_the_cell(time, day)), method: :put, params: {'[teacher_time][status_time_teacher_id]' => 2}, class: "btn btn-warning" %>
+<%= button_to 'Отдых', teacher_time_path(selection_of_the_cell(time, day)), method: :put, params: {'[teacher_time][status_time_teacher_id]' => 2, '[teacher_time][student_id]' => nil }, class: "btn btn-warning" %>

@@ -1,5 +1,4 @@
 module ApplicationHelper
-
 	def flash_messages(opts = {})
 		flash.each do |msg_type, message|
 			concat(content_tag(:div, message, class: "alert alert-#{msg_type} fade in alert-dismissible") do
@@ -30,5 +29,4 @@ module ApplicationHelper
     end
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
-
 end
