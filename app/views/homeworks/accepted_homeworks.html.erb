@@ -1,19 +1,48 @@
 <div class="col-md-12">
 	<h2>ДЗ на проверку</h2>
-  <%  @unchecked_homeworks.each do |unchecked_homework| %>
-  	<% if homework_type(unchecked_homework.homework_id) == 'Question' %>
-	    <h3>Домашнее задание: <%= unchecked_homework.homework.title %></h3>
-	    <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
-	    <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
-	    <%= link_to 'Посмотреть', show_result_question_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></br>
-		<% else %>
-	    <h3>Домашнее задание: <%= unchecked_homework.homework.title %></h3>
-	    <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
-	    <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
-	    <h5><%= unchecked_homework.homework_result.description %></h5>
-	    <%= link_to "Скачать", '/homework_results/'+unchecked_homework.homework_result.pather.to_s, download: unchecked_homework.homework_result.pather.to_s %>
-	    <%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></br>
-  	<% end %>
-  <% end %>
+  <table>
+    <tr>
+      <th>Название ДЗ</th>
+      <th>Описание ДЗ(описание файла)</th>
+      <th>Файл преподавателя</th>
+      <th>Студент</th>
+      <th>Описание ДЗ студента</th>
+      <th>Файл студента</th>
+      <th>Статус ДЗ</th>
+      <th>Действие</th>
+    </tr>
+    <%  @unchecked_homeworks.each do |unchecked_homework| %>
+      <tr>
+        <% if homework_type(unchecked_homework.homework_id) == 'Question' %>
+          <h3>Домашнее задание: <%= unchecked_homework.homework.title %></h3>
+          <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
+          <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
+          <%= link_to 'Посмотреть', show_result_question_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></br>
+        <% else %>
+          <td><%= unchecked_homework.homework.title %></td>
+          <% unchecked_homework.homework.homework_files.each do |homework_file| %>
+              <td><%= homework_file.description %></td>
+              <% unless homework_file.file_file_name == nil %>
+                  <td><%= homework_file.file_file_name %>/
+                    <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
+                                download: homework_file.file_file_name.to_s %></td>
+              <% else %>
+                  <td>отсутствует</td>
+              <% end %>
+          <% end %>
+          <td><%= unchecked_homework.user.name %></td>
+          <td><%= unchecked_homework.homework_result.description %></td>
+          <% unless unchecked_homework.homework_result.file_file_name == nil %>
+              <td><%= unchecked_homework.homework_result.file_file_name %><%= link_to "Скачать", '/homework_results/' + unchecked_homework.homework_result.file_file_name,
+                              download: unchecked_homework.homework_result.file_file_name %></td>
+          <% else  %>
+              <td>Файл отсутствует</td>
+          <% end %>
+          <td><%= unchecked_homework.homework_status.status %></td>
+          <td><%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
 </div>
 

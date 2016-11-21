@@ -26,4 +26,13 @@ module PagesHelper
     end
     return @counter
   end
+
+  def student_timetable(user)
+    a = TeacherTime.where(student_id: user)
+    array = []
+    a.each do |f|
+      array << [f.time, f.day_of_week]
+    end
+    # binding.pry
+  end
 end

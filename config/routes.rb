@@ -8,13 +8,14 @@ Rails.application.routes.draw do
   root 'pages#homepage'
 
   resources :questions
+  resources :teacher_times
+
+  get '/timetable/:id' => 'teacher_times#timetable', as: 'timetable'
   
   delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
   post '/library_file/create' => 'library_files#create', as: 'library_file_create'
 
   post '/homework_results/result_homework' => 'homework_results#result_homework', as: 'result_homework'
-  
-  get '/timetable/' => 'pages#timetable', as: 'timetable'
   get '/teacher_homeworks' => "pages#teacher_homeworks", as: 'teacher_homeworks' 
   get '/my_students' => "pages#my_students", as: 'my_students' 
   get '/teacher_literature' => "pages#teacher_literature", as: 'teacher_literature'  

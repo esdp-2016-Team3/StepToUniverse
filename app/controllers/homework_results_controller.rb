@@ -7,12 +7,6 @@ class HomeworkResultsController < ApplicationController
 
   def result_homework
     if @homework_result = HomeworkResult.new(result_params)
-
-      if @result_file = params[:homework_result][:file] != nil
-        @result_file = @result_file.original_filename 
-        @homework_result.pather = @result_file
-      end
-
       assignment = HomeworkAssignment.find(@homework_result.homework_assignment_id)
       homework_id = assignment.homework_id
 
@@ -21,12 +15,13 @@ class HomeworkResultsController < ApplicationController
         @homework_result.update(description: student_responses)
       end
 
-      assignment.update(homework_status_id: 2)
-      @homework_result.save
-
-      redirect_to student_cabinet_path(current_user), notice: 'Домашнее задание успешно завершено.'
-    else
-      render 'cabinet'
+      if @homework_result.save
+        assignment.update(homework_status_id: 2)
+        redirect_to student_cabinet_path(current_user), notice: 'Домашнее задание успешно завершено.'
+      else
+        redirect_to root_path
+        flash[:notice] = 'Формат загруженного файла не поддерживается'
+      end
     end
   end
 

@@ -3,22 +3,13 @@ class HomeworksController < ApplicationController
   include ApplicationHelper
 
   def create
-    # params[:homework][:homework_files_attributes].each do |param|
-    #   @file = params[:homework][:homework_files_attributes][param.to_sym][:file]
-    #   if @file.original_filename != nil
-    #     @original_name = @file.original_filename
-    #   end
-    #   params[:homework][:homework_files_attributes][param.to_sym][:pather] = @original_name
-    # end
-    
     @homework = Homework.new(homework_params)
-    @homework.homework_files = params[:homework]
     @homework.user_id = current_user.id if current_user
     if @homework.save
       redirect_to teacher_homeworks_path, notice: 'Домашнее задание успешно создано.'
     else
       redirect_to new_homework_path
-      flash[:notice] = 'Не могу сохранить это домашнее задание'
+      flash[:notice] = 'Формат загруженного файла не поддерживается или поле "Название" не может быть пустым'
     end
   end
 
@@ -50,7 +41,7 @@ class HomeworksController < ApplicationController
     if HomeworkAssignment.create(assignment_params)
       redirect_to teacher_cabinet_path, notice: 'Домашнее задание успешно отправлено.'
     else
-      render 'cabinet'
+      render teacher_cabinet_path
     end
   end
 
@@ -60,7 +51,7 @@ class HomeworksController < ApplicationController
     if assignment.update(homework_status_id: 3)
       redirect_to accepted_homeworks_path, notice: 'Домашнее задание успешно проверенно.'
     else
-      render 'cabinet'
+      render teacher_cabinet_path
     end
   end
 
@@ -76,7 +67,7 @@ class HomeworksController < ApplicationController
     if @homework.save
       redirect_to teacher_homeworks_path, notice: 'Домашнее задание успешно создано.'
     else
-      render 'cabinet'
+      render teacher_cabinet_path
     end
   end
 
@@ -105,7 +96,7 @@ class HomeworksController < ApplicationController
     if @update_hwassignment.update(assignment_params)
       redirect_to :back, notice: 'Домашнее задание успешно завершенно'
     else
-      render 'cabinet'
+      render teacher_cabinet_path
     end
   end
 

@@ -71,8 +71,8 @@ class PagesController < ApplicationController
   end
 
   def student_cabinet
-    user_id = User.find(params[:id])
-    @homework_assignment = homeworks_student(user_id)
+    @user_id = User.find(params[:id])
+    @homework_assignment = homeworks_student(@user_id)
   end
 
   def teacher_cabinet
@@ -95,5 +95,4 @@ class PagesController < ApplicationController
   def teacher_homeworks
     @homeworks = Homework.where(user_id: current_user.id)
   end
-
 end

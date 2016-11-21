@@ -1,0 +1,32 @@
+<% if current_user != @user %>
+  <h1>Таблица преподавателя: <%= @user.name %></h1>
+<% end %>
+
+<table class="timetable">
+  <tr class="weekdays">
+    <td>
+      Время
+    </td>
+    <% @days_of_week.each do |day| %>
+      <td>
+        <%= day %>
+      </td>
+    <% end %>
+  </tr>
+  <% @times.each do |time| %>
+    <tr>
+      <td class="time_schedule"> <%= time %>:00 </td>
+      <% @days_of_week.each do |day| %>
+        <% if current_user == @user %>
+          <% if selection_of_the_cell(time, day).nil? %>
+              <%= render 'show_create', day: day, time: time %>
+          <% else %>
+              <%= render 'update', day: day, time: time %>
+          <% end %>
+        <% else %>
+          <%= render 'for_guests', day: day, time: time %>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

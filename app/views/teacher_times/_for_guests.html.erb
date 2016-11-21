@@ -1,0 +1,27 @@
+<% if selection_of_the_cell(time, day).nil? %>
+	<td align="center" class="vacant">
+		<div>
+			Свободно
+		</div>
+	</td>
+<% elsif %>
+	<% if status_teacher_time(selection_of_the_cell(time, day)) == "Busy" %>
+	  <td align="center" class="busy">
+		  <div>
+				Занято
+			</div>
+	  </td>
+	<% elsif status_teacher_time(selection_of_the_cell(time, day)) == "Relax" %>
+	  <td align="center" class="relax">
+			<div>
+				Нерабочее время
+			</div>
+		</td>
+	<% elsif status_teacher_time(selection_of_the_cell(time, day)) == "Vacant" %>
+	  <td align="center" class="vacant">
+	  	<div>
+	  		Свободно
+	  	</div>
+	  </td>
+	<% end %>
+<% end %>

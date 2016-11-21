@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+//= require bootstrap-modal
 //= require active_admin/editor/wysiwyg
 
 #flash_alert {
@@ -70,25 +71,56 @@ canvas{
   display: block;
 }
 
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color:#ddd;
+}
+
+.weekdays td {
+    width: 10%;
+    color: #666;
+    text-align: center;
+}
+
+.busy {
+  background: #ff0000;
+}
+
+.relax {
+  background: #ffff00;
+}
+
+.vacant {
+  background: #33cc33;
+}
+
+.vacant div{
+   display: inline-block;
+}
+
+.time_schedule {
+   padding: 40px;
+   background-color: #ddd;
+}
+
+.timetable table, tr, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
 table {
-font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-text-align: center;
-border-collapse: collapse;
-border-spacing: 5px;
-background: #E1E3E0;
-border-radius: 20px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
-th {
-font-size: 22px;
-font-weight: 300;
-padding: 12px 10px;
-border-bottom: 2px solid #F56433;
-color: #F56433;
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
-tbody tr:nth-child(2) {
-border-bottom: 2px solid #F56433;
-}
-td {
-padding: 10px;
-color: #8D8173;
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }

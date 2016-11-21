@@ -1,14 +1,14 @@
 <h3>Создать домашнее задание</h3>
-  <%= simple_form_for @homework, url: homework_create_path, method: 'post' do |f| %>
-    <%= f.label 'Название' %> <br>
-    <%= f.text_field :title %> <br>
-    <%= f.hidden_field :type_homework, value: 'File' %>
-    <%= f.fields_for :homework_files do |ff| %>
-      <%= ff.label 'Описание' %> <br>
-      <%= ff.text_area :description %> <br>
-      <%= ff.label 'Файл' %> <br>
-      <%= ff.file_field :file %> <br>
-      <% ff.hidden_field :pather, value: '' %>
-    <% end %>
-    <%= f.submit %>
+<%= simple_form_for @homework, url: homework_create_path, method: 'post' do |f| %>
+  <%= f.label 'Название' %> <br>
+  <%= f.text_field :title %> <br>
+  <%= f.hidden_field :type_homework, value: 'File' %>
+  <%= f.fields_for :homework_files do |ff| %>
+    <%= ff.label 'Описание' %> <br>
+    <%= ff.text_area :description %> <br>
+    <%= ff.label 'Файл' %> <br>
+    <%= ff.file_field :file %> <br>
+    <% ff.hidden_field :pather, value: '' %>
   <% end %>
+  <%= f.submit %>
+<% end %>
