@@ -33,6 +33,6 @@ module PagesHelper
     a.each do |f|
       array << [f.time, f.day_of_week]
     end
-    binding.pry
+    # binding.pry
   end
 end

@@ -22,12 +22,20 @@
         <% end %>
         <td><%= status_homework(homework_assignment) %></td>
       <% elsif current_user.position_id == 2 %>
-        <%= homework(homework_assignment).title %>
-        <%= status_homework(homework_assignment) %>
+          <td><%= homework(homework_assignment).title %></td>
+          <% homework_assignment.homework.homework_files.each do |homework_file| %>
+              <td><%= homework_file.description %></td>
+              <% unless homework_file.file_file_name == nil %>
+                  <td><%= homework_file.file_file_name %></td>
+              <% else %>
+                  <td>отсутствует</td>
+              <% end %>
+          <% end %>
+          <td><%= status_homework(homework_assignment) %></td>
       <% end %>
     </tr>
   <% end %>
 </table>
-<div class="col-md-12">
+<div>
 	<%= student_timetable(current_user) %>
 </div>
