@@ -1,4 +1,4 @@
-<div class="col-md-4">
+<div class="col-md-3">
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3>Создание домашнего задания</h3>
@@ -11,11 +11,30 @@
     </div>
   </div>
 </div>
-<div class="col-md-8">
-  <% @homeworks.each do |homework| %>
-    <div>
-      <%= link_to homework.title, show_homework_path(homework) %>  |
-      <%= link_to 'Удалить', homework_destroy_path(homework.id), method: 'delete', data: { confirm: "Вы уверены, что хотите удалить это?"} %>
-    </div>
-  <% end %>
+<div class="col-md-9">
+  <table>
+    <tr>
+      <th>Название ДЗ</th>
+      <th>Описание ДЗ(описание прикрепленного файла)</th>
+      <th>Файл</th>
+      <th>Действие</th>
+    </tr>
+    <% @homeworks.each do |homework| %>
+      <tr>
+        <td><%= link_to homework.title, show_homework_path(homework) %></td>
+          <% homework.homework_files.each do |homework_file| %>
+            <td><%= homework_file.description %></td>
+            <% unless homework_file.file_file_name == nil %>
+              <td><%= homework_file.file_file_name %>/
+                <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
+                            download: homework_file.file_file_name.to_s %></td>
+            <% else %>
+              <td>отсутствует</td>
+            <% end %>
+          <% end %>
+        <td><%= link_to 'Удалить', homework_destroy_path(homework.id), method: 'delete',
+                        data: { confirm: "Вы уверены, что хотите удалить это?"} %></td>
+      </tr>
+    <% end %>
+    </table>
 </div>

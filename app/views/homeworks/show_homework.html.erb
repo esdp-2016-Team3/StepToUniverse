@@ -1,10 +1,18 @@
 <div class="col-md-12">
-	<h2><%= @homework.title %></h2>
 	<% if @type == "File" %>
-		<%= @homework.title %>
+		<h3>Название ДЗ:</h3><%= @homework.title %>
+    <h3>----------------------------------------------</h3>
 		<% @homework.homework_files.each do |homework_file| %>
-		  <h5><%= homework_file.description %></h5>
-		  <%= link_to "Скачать", '/homework_files/'+homework_file.pather.to_s, download: homework_file.pather.to_s%>
+		  <h3>Описание ДЗ:</h3><%= homework_file.description %>
+      <h3>----------------------------------------------</h3>
+      <% unless homework_file.file_file_name == nil %>
+        <h3>Наименование файла:</h3><%= homework_file.file_file_name %><br><br>
+		    <h3><%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name,
+                    download: homework_file.file_file_name %></h3>
+      <% else %>
+        <h3>Файл отсутствует</h3>
+      <% end %>
+      <h1>----------------------------------------------</h1>
 		<% end %>
 	<% elsif @type == "Question" %>
 		<% @homework.homework_questions.each do |question| %>

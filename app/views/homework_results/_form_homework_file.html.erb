@@ -1,8 +1,20 @@
-<div class="col-md-12">
-	<%= @homework.title %>
+<div class="col-md-6">
+  <h3>Статус ДЗ:</h3>
+  <% @homework.homework_assignments.each do |f| %>
+      <%= f.homework_status.status %>
+  <% end %>
+  <h3>-------------------------------------------</h3>
+  <h3>Название ДЗ:</h3><%= @homework.title %>
+  <h3>-------------------------------------------</h3>
 	<% @homework.homework_files.each do |homework_file| %>
-	  <h5><%= homework_file.description %></h5>
-	  <%= link_to "Скачать", '/homework_files/'+homework_file.pather.to_s, download: homework_file.pather.to_s%>
+	  <h3>Описание ДЗ:</h3><%= homework_file.description %>
+    <h3>-------------------------------------------</h3>
+    <% unless homework_file.file_file_name == nil %>
+	    <h3><%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name,
+                  download: homework_file.file_file_name %></h3>
+    <% else %>
+      <h3>Файл отсутствует</h3>
+    <% end %>
 	<% end %>
 </div>
 <% if @status_name == "Sent" %>
