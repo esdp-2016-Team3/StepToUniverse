@@ -25,7 +25,9 @@
           <td>не сделано</td>
           <td>не сделано</td>
         <% else %>
-          <td><%= homework_assignment.homework_result.description %></td>
+          <td>тест</td>
+          <td>тест</td>
+          <td>тест</td>
           <% unless homework_assignment.homework_result.file_file_name == nil %>
               <td><%= homework_assignment.homework_result.file_file_name %>/
                 <%= link_to 'скачать', '/homework_results/' + homework_assignment.homework_result.file_file_name.to_s,
