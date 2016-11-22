@@ -1,3 +1,4 @@
+<div class="col-md-4">
   <%= simple_form_for :library_file, url: library_file_create_path, method: 'post' do |f| %>
     <%= f.label "Наименование" %> <br>
     <%= f.text_field :name %> <br>
@@ -5,11 +6,28 @@
     <%= f.text_area :description %> <br>
     <%= f.label "Файл" %> <br>
     <%= f.file_field :literature %> <br>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit 'Добавить' %>
   <% end %>
-
-<% @literatures.each do |library_file| %>
-	<div><%= library_file.name %> 
-	<%= link_to "Скачать", '/library_files/'+library_file.path_file.to_s %> 
-	<%= link_to 'Удалить', library_file_destroy_path(library_file.id), method: 'delete', data: { confirm: "Вы уверены, что хотите удалить это?"} %></div>
-<% end %>
+</div>
+<div class="col-md-4">
+  <table>
+    <tr>
+      <th>Наименование литературы</th>
+      <th>Описание литературы</th>
+      <th>Файл</th>
+      <th>Действие</th>
+    </tr>
+    <% @literatures.each do |library_file| %>
+      <tr>
+        <td><%= library_file.name %></td>
+        <td><%= library_file.description %></td>
+        <td><%= library_file.literature_file_name %>/
+          <%= link_to "Скачать", '/library_files/' + library_file.literature_file_name.to_s,
+                download: library_file.literature_file_name.to_s %></td>
+        <td><%= link_to 'Удалить', library_file_destroy_path(library_file.id), method: 'delete',
+                    data: { confirm: "Вы уверены, что хотите удалить это?"} %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

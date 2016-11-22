@@ -34,8 +34,8 @@ Level.create(name: "Intermediate")
 Level.create(name: "Advanced")
 Level.create(name: "Proficiency")
 
-LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 3, path_file: 'Fazovye_perehody.pdf', literature: File.open(books_path.join('Fazovye_perehody.pdf')))
-LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 3, path_file: 'Teplotehnika.pdf', literature: File.open(books_path.join('Teplotehnika.pdf')))
+LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 3, literature: File.new('app/assets/library_files/Fazovye_perehody.pdf'))
+LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 3, literature: File.new('app/assets/library_files/Teplotehnika.pdf'))
 
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 1, file: File.new('app/assets/homework_files/hw1.pdf'))
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, file: File.new('app/assets/homework_files/hw2.pdf'))
