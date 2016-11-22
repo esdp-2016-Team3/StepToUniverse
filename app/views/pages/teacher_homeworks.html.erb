@@ -34,7 +34,7 @@
               <% end %>
             <% end %>
         <% else %>
-          <td><%= homework.title %></td>
+          <td><%= link_to homework.title, show_homework_path(homework) %></td>
           <td>тест</td>
           <td></td>
         <% end %>

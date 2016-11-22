@@ -1,22 +1,21 @@
 <div class="col-md-12">
   <%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
-    <h1><%= @homework.title %></h1>
-      <% @homework.homework_questions.each do |question| %>
+    <h1>Название теста: <%= @homework.title %></h1>
+    <% @homework.homework_questions.each do |question| %>
+      <div>
+        <h3>Вопрос: <%= question.title %></h3>
+      </div>
+      <% question.homework_answers.each do |answer| %>
         <div>
-          <h3><%= question.title %></h3>
+          <h3><%= check_box_tag answer.id %>  <%= answer.title %></h3>
         </div>
-        <% question.homework_answers.each do |answer| %>
-          <div>
-            <h6><%= answer.title %><%= check_box_tag answer.id %></h6>
-          </div>
-        <% end %>
       <% end %>
+    <% end %>
     <%= result.hidden_field :homework_assignment_id, value: homework_result(@homework_assignment.id) %>
     <% if current_user.position_id == 1 %>
       <%= submit_tag 'Завершить', class: 'btn btn-success' %>
-    <% else %>
-      <h1>pap</h1>
     <% end %>
   <% end %>
+  </br>
   <%= link_to 'назад', :back %>
 </div>
