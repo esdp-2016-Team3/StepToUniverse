@@ -31,7 +31,7 @@
                     <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
                                 download: homework_file.file_file_name.to_s %></td>
               <% else %>
-                  <td>отсутствует</td>
+                  <td></td>
               <% end %>
           <% end %>
           <td><%= unchecked_homework.user.name %></td>
@@ -40,7 +40,7 @@
               <td><%= unchecked_homework.homework_result.file_file_name %><%= link_to "Скачать", '/homework_results/' + unchecked_homework.homework_result.file_file_name,
                               download: unchecked_homework.homework_result.file_file_name %></td>
           <% else  %>
-              <td>Файл отсутствует</td>
+              <td></td>
           <% end %>
           <td><%= unchecked_homework.homework_status.status %></td>
           <td><%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></td>

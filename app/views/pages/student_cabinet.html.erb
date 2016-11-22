@@ -10,33 +10,40 @@
   </tr>
   <% @homework_assignment.each do |homework_assignment| %>
     <tr>
-        <td><%= link_to homework(homework_assignment).title, show_student_homework_path(homework_assignment) %></td>
-        <% homework_assignment.homework.homework_files.each do |homework_file| %>
-          <td><%= homework_file.description %></td>
-          <% unless homework_file.file_file_name == nil %>
-              <td><%= homework_file.file_file_name %>/
-                <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
-                            download: homework_file.file_file_name.to_s %></td>
-          <% else %>
-              <td>отсутствует</td>
+      <% if homework_assignment.homework.type_homework == 'File' %>
+          <td><%= link_to homework(homework_assignment).title, show_student_homework_path(homework_assignment) %></td>
+          <% homework_assignment.homework.homework_files.each do |homework_file| %>
+            <td><%= homework_file.description %></td>
+            <% unless homework_file.file_file_name == nil %>
+                <td><%= homework_file.file_file_name %>/
+                  <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
+                              download: homework_file.file_file_name.to_s %></td>
+            <% else %>
+                <td>отсутствует</td>
+            <% end %>
           <% end %>
-        <% end %>
-        <% if homework_assignment.homework_result == nil %>
-          <td>не сделано</td>
-          <td>не сделано</td>
-        <% else %>
-          <td>тест</td>
-          <td>тест</td>
-          <td>тест</td>
-          <% unless homework_assignment.homework_result.file_file_name == nil %>
-              <td><%= homework_assignment.homework_result.file_file_name %>/
-                <%= link_to 'скачать', '/homework_results/' + homework_assignment.homework_result.file_file_name.to_s,
-                            download: homework_assignment.homework_result.file_file_name.to_s %></td>
+          <% if homework_assignment.homework_result == nil %>
+            <td>не сделано</td>
+            <td>не сделано</td>
           <% else %>
-              <td>отсутствует</td>
+            <td><%= homework_assignment.homework_result.description %></td>
+            <% unless homework_assignment.homework_result.file_file_name == nil %>
+                <td><%= homework_assignment.homework_result.file_file_name %>/
+                  <%= link_to 'скачать', '/homework_results/' + homework_assignment.homework_result.file_file_name.to_s,
+                              download: homework_assignment.homework_result.file_file_name.to_s %></td>
+            <% else %>
+                <td></td>
+            <% end %>
           <% end %>
-        <% end %>
+          <td><%= status_homework(homework_assignment) %></td>
+      <% else %>
+        <td><%= link_to homework_assignment.homework.title, show_student_homework_path(homework_assignment) %></td>
+        <td>Тест</td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td><%= status_homework(homework_assignment) %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

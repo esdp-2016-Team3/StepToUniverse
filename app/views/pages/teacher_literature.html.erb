@@ -22,9 +22,13 @@
       <tr>
         <td><%= library_file.name %></td>
         <td><%= library_file.description %></td>
-        <td><%= library_file.literature_file_name %>/
-          <%= link_to "Скачать", '/library_files/' + library_file.literature_file_name.to_s,
-                download: library_file.literature_file_name.to_s %></td>
+        <% unless library_file.literature_file_name == nil %>
+          <td><%= library_file.literature_file_name %>/
+              <%= link_to "Скачать", '/library_files/' + library_file.literature_file_name.to_s,
+                                               download: library_file.literature_file_name.to_s %></td>
+        <% else %>
+            <td></td>
+        <% end %>
         <td><%= link_to 'Удалить', library_file_destroy_path(library_file.id), method: 'delete',
                     data: { confirm: "Вы уверены, что хотите удалить это?"} %></td>
       </tr>
