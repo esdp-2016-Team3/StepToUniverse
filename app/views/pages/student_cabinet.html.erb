@@ -43,7 +43,7 @@
           </td>
         <% elsif current_user.position_id == 2 %>
           <td>
-            <%= link_to homework_assignment.homework.title, show_homework_path(homework_assignment) %>
+            <%= link_to homework_assignment.homework.title, show_homework_path(homework_assignment.homework) %>
           </td>
         <% end %>
         <td>Тест</td>
