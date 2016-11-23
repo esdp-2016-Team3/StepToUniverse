@@ -36,8 +36,16 @@
             <% end %>
           <% end %>
           <td><%= status_homework(homework_assignment) %></td>
-      <% else %>
-        <td><%= link_to homework_assignment.homework.title, show_student_homework_path(homework_assignment) %></td>
+      <% elsif homework_assignment.homework.type_homework == 'Question' %>
+        <% if current_user.position_id == 1 %>
+          <td>
+            <%= link_to homework_assignment.homework.title, show_student_homework_path(homework_assignment) %>
+          </td>
+        <% else %>
+          <td>
+            <%= link_to homework_assignment.homework.title, show_homework_path(homework_assignment) %>
+          </td>
+        <% end %>
         <td>Тест</td>
         <td></td>
         <td></td>

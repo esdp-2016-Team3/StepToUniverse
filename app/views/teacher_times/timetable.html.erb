@@ -19,9 +19,9 @@
       <% @days_of_week.each do |day| %>
         <% if current_user == @user %>
           <% if selection_of_the_cell(time, day).nil? %>
-              <%= render 'show_create', day: day, time: time %>
+            <%= render 'show_create', day: day, time: time %>
           <% else %>
-              <%= render 'update', day: day, time: time %>
+            <%= render 'update', day: day, time: time %>
           <% end %>
         <% else %>
           <%= render 'for_guests', day: day, time: time %>
