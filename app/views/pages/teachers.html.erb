@@ -1,8 +1,15 @@
 <h1>Наши преподаватели</h1>
-<% @teachers.each do |teacher| %>
-  <%= teacher.name %></br>
-  <%= teacher.description %></br>
-  <%= image_tag teacher.avatar.url(:medium) %></br>
-  <%= link_to 'Расписание', timetable_path(teacher.id) %>
-  </br>
-<% end %>
+<div class="row">
+  <% @teachers.each do |teacher| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <%= image_tag teacher.avatar.url(:medium) %>
+          <div class="caption">
+            <h3>Имя преподавателя: <span style="color: red"><%= teacher.name %></span></h3>
+            <p>Описание: <span style="color: blue"><%= teacher.description %></span></p>
+            <p><a href="<%= timetable_path(teacher.id) %>" class="btn btn-primary" role="button">Посмотреть расписание</a></p>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
