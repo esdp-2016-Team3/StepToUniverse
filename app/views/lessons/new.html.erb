@@ -13,6 +13,7 @@
 	  <%= f.hidden_field :student_id, value: @teacher_time.teacher_id %>
   </div>
   <%= f.hidden_field :teacher_id, value: @teacher_time.student_id %>
+  <%= f.hidden_field :teacher_time_id, value: @teacher_time.id %>
   <div>
   	<%= f.button :submit, "Потдтвердить", class: "btn btn-primary" %>
   </div>

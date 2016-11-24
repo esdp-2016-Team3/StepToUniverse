@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   resources :teacher_times
 
   get 'lessons/new/:id' => 'lessons#new', as: 'new_lesson'
-  get 'lessons/create' => 'lessons#create', as: 'create_lesson'
+  get 'lessons/show/:id' => 'lessons#show', as: 'show_lesson'
+  post 'lessons/create' => 'lessons#create', as: 'create_lesson'
 
   get '/timetable/:id' => 'teacher_times#timetable', as: 'timetable'
   
