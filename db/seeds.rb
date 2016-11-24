@@ -5,6 +5,7 @@ Position.create(title: "Преподаватель", id: 2)
 HomeworkStatus.create(status: "Sent", id: 1)
 HomeworkStatus.create(status: "Unchecked", id: 2)
 HomeworkStatus.create(status: "Checked", id: 3)
+HomeworkStatus.create(status: "Deleted", id: 4)
 
 fixtures_path = Rails.root.join('app', 'assets', 'images', 'avatars')
 books_path = Rails.root.join('app', 'assets', 'images', 'books')

@@ -48,7 +48,11 @@
         <% end %>
         <td>Тест</td>
         <td></td>
-        <td></td>
+        <% unless homework_assignment.homework_result == nil %>
+          <td><%= link_to "посмотреть", show_result_question_path(homework_assignment.homework_result.id) %></td>
+        <% else %>
+          <td></td>
+        <% end %>
         <td></td>
         <td><%= status_homework(homework_assignment) %></td>
       <% end %>

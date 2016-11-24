@@ -1,21 +1,24 @@
 <div class="col-md-12">
-  <%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
-    <h1>Название теста: <%= @homework.title %></h1>
-    <% @homework.homework_questions.each do |question| %>
-      <div>
-        <h3>Вопрос: <%= question.title %></h3>
-      </div>
-      <% question.homework_answers.each do |answer| %>
+  <% if @status_name == 'Sent' %>
+    <%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
+      <% @homework.homework_questions.each do |question| %>
         <div>
-          <h3><%= check_box_tag answer.id %>  <%= answer.title %></h3>
+          <h3>Вопрос: <%= question.title %></h3>
         </div>
+        <% question.homework_answers.each do |answer| %>
+          <div>
+            <h3><%= check_box_tag answer.id %>  <%= answer.title %></h3>
+          </div>
+        <% end %>
       <% end %>
+      <%= result.hidden_field :homework_assignment_id, value: homework_result(@homework_assignment.id) %>
+      <%# if current_user.position_id == 1 %>
+        <%= submit_tag 'Завершить', class: 'btn btn-success' %>
+      <%# end %>
     <% end %>
-    <%= result.hidden_field :homework_assignment_id, value: homework_result(@homework_assignment.id) %>
-    <% if current_user.position_id == 1 %>
-      <%= submit_tag 'Завершить', class: 'btn btn-success' %>
-    <% end %>
+    </br>
+  <% else %>
+      <h1>Тест завершен</h1>
   <% end %>
-  </br>
   <%= link_to 'назад', :back %>
 </div>
