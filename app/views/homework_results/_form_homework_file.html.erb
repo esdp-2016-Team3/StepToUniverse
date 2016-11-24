@@ -1,11 +1,11 @@
 <div>
 	<% @homework.homework_files.each do |homework_file| %>
-	  <h3>Описание ДЗ:</h3><h5 style="color:red"><%= homework_file.description %></h5>
+	  <h3>Описание ДЗ: <span style="color:red"><%= homework_file.description %></span></h3>
     <% unless homework_file.file_file_name == nil %>
-	    <h3>Файл: <h3 style="color:forestgreen"><%= homework_file.file_file_name %></h3><%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name,
+	    <h3>Файл: <span style="color:forestgreen"><%= homework_file.file_file_name %></span>/<%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name,
                   download: homework_file.file_file_name %></h3>
     <% else %>
-      <h3 style="color:red">Файл отсутствует</h3>
+      <h3>Файл: <span style="color:green">отсутствует</span></h3>
     <% end %>
 	<% end %>
 </div>
@@ -16,7 +16,7 @@
 			<%= result.hidden_field :homework_assignment_id, value: homework_result(@homework_assignment.id) %>
 	      <%= result.file_field :file %> <br>
 	      <% result.hidden_field :pather, value: '' %>
-			<%= result.submit %>
+			<%= result.submit "Отправить ДЗ" %>
 		<% end %>
 	</div>
 <% end %>

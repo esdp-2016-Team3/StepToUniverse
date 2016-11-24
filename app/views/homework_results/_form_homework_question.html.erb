@@ -1,20 +1,18 @@
-<div class="col-md-12">
+<div>
   <% if @status_name == 'Sent' %>
     <%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
       <% @homework.homework_questions.each do |question| %>
         <div>
-          <h3>Вопрос: <%= question.title %></h3>
+          <h3>Вопрос: <span style="color: #4D90FE"><%= question.title %></span></h3>
         </div>
         <% question.homework_answers.each do |answer| %>
           <div>
-            <h3><%= check_box_tag answer.id %>  <%= answer.title %></h3>
+            <h3><%= check_box_tag answer.id %>  <span style="color: green"><%= answer.title %></span></h3>
           </div>
-        <% end %>
+        <% end %><br>
       <% end %>
       <%= result.hidden_field :homework_assignment_id, value: homework_result(@homework_assignment.id) %>
-      <%# if current_user.position_id == 1 %>
-        <%= submit_tag 'Завершить', class: 'btn btn-success' %>
-      <%# end %>
+      <%= submit_tag 'Завершить Тест', class: 'btn btn-success' %>
     <% end %>
     </br>
   <% else %>

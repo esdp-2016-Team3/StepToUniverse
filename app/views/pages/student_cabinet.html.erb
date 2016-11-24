@@ -19,12 +19,12 @@
                   <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
                               download: homework_file.file_file_name.to_s %></td>
             <% else %>
-                <td>отсутствует</td>
+                <td></td>
             <% end %>
           <% end %>
           <% if homework_assignment.homework_result == nil %>
-            <td>не сделано</td>
-            <td>не сделано</td>
+            <td></td>
+            <td></td>
           <% else %>
             <td><%= homework_assignment.homework_result.description %></td>
             <% unless homework_assignment.homework_result.file_file_name == nil %>
@@ -47,13 +47,13 @@
           </td>
         <% end %>
         <td>Тест</td>
-        <td></td>
+        <td>Тест</td>
+        <td>Тест</td>
         <% unless homework_assignment.homework_result == nil %>
-          <td><%= link_to "посмотреть", show_result_question_path(homework_assignment.homework_result.id) %></td>
+          <td><%= link_to "Просмотр теста", show_result_question_path(homework_assignment.homework_result.id) %></td>
         <% else %>
           <td></td>
         <% end %>
-        <td></td>
         <td><%= status_homework(homework_assignment) %></td>
       <% end %>
     </tr>
