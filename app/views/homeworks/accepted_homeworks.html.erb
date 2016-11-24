@@ -14,10 +14,14 @@
     <%  @unchecked_homeworks.each do |unchecked_homework| %>
       <tr>
         <% if homework_type(unchecked_homework.homework_id) == 'Question' %>
-          <h3>Домашнее задание: <%= unchecked_homework.homework.title %></h3>
-          <h3>Имя студента:<%= unchecked_homework.user.name %></h3>
-          <h3>Статус домашки:<%= unchecked_homework.homework_status.status %></h3>
-          <%= link_to 'Посмотреть', show_result_question_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></br>
+          <td><%= unchecked_homework.homework.title %></td>
+          <td>Тест</td>
+          <td>Тест</td>
+          <td><%= unchecked_homework.user.name %></td>
+          <td>Тест</td>
+          <td><%= link_to 'Просмотр теста', show_result_question_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></td>
+          <td><%= unchecked_homework.homework_status.status %></td>
+          <td><%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></td>
         <% else %>
           <td><%= unchecked_homework.homework.title %></td>
           <% unchecked_homework.homework.homework_files.each do |homework_file| %>
@@ -27,7 +31,7 @@
                     <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
                                 download: homework_file.file_file_name.to_s %></td>
               <% else %>
-                  <td>отсутствует</td>
+                  <td></td>
               <% end %>
           <% end %>
           <td><%= unchecked_homework.user.name %></td>
@@ -36,7 +40,7 @@
               <td><%= unchecked_homework.homework_result.file_file_name %><%= link_to "Скачать", '/homework_results/' + unchecked_homework.homework_result.file_file_name,
                               download: unchecked_homework.homework_result.file_file_name %></td>
           <% else  %>
-              <td>Файл отсутствует</td>
+              <td></td>
           <% end %>
           <td><%= unchecked_homework.homework_status.status %></td>
           <td><%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></td>

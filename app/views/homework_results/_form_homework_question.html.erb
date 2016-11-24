@@ -1,17 +1,22 @@
-<div class="col-md-12">
-	<%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
-		<h1><%= @homework.title %></h1>
-			<% @homework.homework_questions.each do |question| %>
-		    <div class="col-md-12">
-			  	<h3><%= question.title %></h3>
-			  </div>
-			   <% question.homework_answers.each do |answer| %>
-		      <div class="col-md-12">
-			   	  <h6><%= answer.title %><%= check_box_tag answer.id %></h6>
-			   	</div>
-			  <% end %>
-			<% end %>
-		<%= result.hidden_field :homework_assignment_id, value: homework_result(@homework_assignment.id) %>
-		<%= submit_tag 'Завершить', class: 'btn btn-success' %>
-	<% end %>
+<div>
+  <% if @status_name == 'Sent' %>
+    <%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
+      <% @homework.homework_questions.each do |question| %>
+        <div>
+          <h3>Вопрос: <span style="color: #4D90FE"><%= question.title %></span></h3>
+        </div>
+        <% question.homework_answers.each do |answer| %>
+          <div>
+            <h3><%= check_box_tag answer.id %>  <span style="color: green"><%= answer.title %></span></h3>
+          </div>
+        <% end %><br>
+      <% end %>
+      <%= result.hidden_field :homework_assignment_id, value: homework_result(@homework_assignment.id) %>
+      <%= submit_tag 'Завершить Тест', class: 'btn btn-success' %>
+    <% end %>
+    </br>
+  <% else %>
+      <h1>Тест завершен</h1>
+  <% end %>
+  <%= link_to 'назад', :back %>
 </div>

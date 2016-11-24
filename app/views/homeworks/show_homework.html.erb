@@ -1,29 +1,23 @@
 <div class="col-md-12">
+  <h3>Название ДЗ: <span style="color:red"><%= @homework.title %></span></h3>
 	<% if @type == "File" %>
-		<h3>Название ДЗ:</h3><%= @homework.title %>
-    <h3>----------------------------------------------</h3>
 		<% @homework.homework_files.each do |homework_file| %>
-		  <h3>Описание ДЗ:</h3><%= homework_file.description %>
-      <h3>----------------------------------------------</h3>
+		  <h3>Описание ДЗ:</h3><h5 style="color:green"><%= homework_file.description %></h5>
       <% unless homework_file.file_file_name == nil %>
-        <h3>Наименование файла:</h3><%= homework_file.file_file_name %><br><br>
-		    <h3><%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name,
+        <h3>Наименование файла: <span style="color:green"><%= homework_file.file_file_name %></span>  /
+		      <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name,
                     download: homework_file.file_file_name %></h3>
       <% else %>
-        <h3>Файл отсутствует</h3>
+        <h3>Файл: <span style="color:green">отсутствует</span></h3>
       <% end %>
-      <h1>----------------------------------------------</h1>
 		<% end %>
 	<% elsif @type == "Question" %>
+      <div>
 		<% @homework.homework_questions.each do |question| %>
-		    <div class="col-md-12">
-			  	<h3><%= question.title %></h3>
-			  </div>
-			   <% question.homework_answers.each do |answer| %>
-		      <div class="col-md-12">
-			   	  <h6><%= answer.title %> <%= answer.is_correct ? "правильный ответ" : " " %> </h6>
-			   	</div>
+      <h3>Вопрос:</h3><h3 style="color:blue"><%= question.title %></h3>
+        <% question.homework_answers.each do |answer| %>
+          <h5 style="color:green"><%= answer.title %> <a style="color:darkorange"><%= answer.is_correct ? "правильный ответ" : " " %></a></h5>
 			  <% end %>
 		<% end %>
-	<% end %>
+	<% end %></div>
 </div>

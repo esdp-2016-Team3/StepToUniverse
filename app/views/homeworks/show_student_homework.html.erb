@@ -1,3 +1,5 @@
+<h3>Статус ДЗ: <span style="color:red"><%= @status_name %></span></h3>
+<h3>Название ДЗ: <span style="color:red"><%= @homework.title %></span></h3>
 <% if @homework_type == "File" %>
  <%= render 'homework_results/form_homework_file' %>
 <% elsif @homework_type == "Question" %>

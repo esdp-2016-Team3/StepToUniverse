@@ -1,13 +1,14 @@
-<div class="col-md-12">
-	<h1><%= @homework.title %></h1>
+<div>
+	<h3>Название ДЗ(Тест): <span style="color:red"><%= @homework.title %></span></h3>
 	<% @homework.homework_questions.each do |question| %>
-		<div class="col-md-12">
-			<h3><%= question.title %></h3>
+		<div>
+			<h3>Вопрос:<span style="color:red"><%= question.title %></span></h3>
 		</div>
 		<% question.homework_answers.each do |answer| %>
-			<div class="col-md-12">
-				<h6><%= answer.title %> <%= status_answer(@array_answers, answer) %> </h6>
+			<div>
+				<h4><span style="color:green"><%= answer.title %></span> <%= status_answer(@array_answers, answer) %> </h4>
 			</div>
-		<% end %>
+		<% end %><br><br>
 	<% end %>
+  <%= link_to 'назад', :back %>
 </div>

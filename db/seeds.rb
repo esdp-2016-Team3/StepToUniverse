@@ -1,10 +1,11 @@
-AdminUser.create!(email: 'esdp20163@gmail.com', password: 'esdp2016', password_confirmation: 'esdp2016')
+AdminUser.create!(email: 'step2universe@gmail.com', password: 'fjdksl56', password_confirmation: 'fjdksl56')
 Position.create(title: "Студент", id: 1)
 Position.create(title: "Преподаватель", id: 2)
 
 HomeworkStatus.create(status: "Sent", id: 1)
 HomeworkStatus.create(status: "Unchecked", id: 2)
 HomeworkStatus.create(status: "Checked", id: 3)
+HomeworkStatus.create(status: "Deleted", id: 4)
 
 fixtures_path = Rails.root.join('app', 'assets', 'images', 'avatars')
 books_path = Rails.root.join('app', 'assets', 'images', 'books')
@@ -34,8 +35,8 @@ Level.create(name: "Intermediate")
 Level.create(name: "Advanced")
 Level.create(name: "Proficiency")
 
-LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 3, path_file: 'Fazovye_perehody.pdf', literature: File.open(books_path.join('Fazovye_perehody.pdf')))
-LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 3, path_file: 'Teplotehnika.pdf', literature: File.open(books_path.join('Teplotehnika.pdf')))
+LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 3, literature: File.new('app/assets/library_files/Fazovye_perehody.pdf'))
+LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 3, literature: File.new('app/assets/library_files/Teplotehnika.pdf'))
 
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 1, file: File.new('app/assets/homework_files/hw1.pdf'))
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, file: File.new('app/assets/homework_files/hw2.pdf'))

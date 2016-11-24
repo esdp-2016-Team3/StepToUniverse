@@ -21,17 +21,23 @@
     </tr>
     <% @homeworks.each do |homework| %>
       <tr>
-        <td><%= link_to homework.title, show_homework_path(homework) %></td>
-          <% homework.homework_files.each do |homework_file| %>
-            <td><%= homework_file.description %></td>
-            <% unless homework_file.file_file_name == nil %>
-              <td><%= homework_file.file_file_name %>/
-                <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
-                            download: homework_file.file_file_name.to_s %></td>
-            <% else %>
-              <td>отсутствует</td>
+        <% if homework.type_homework == 'File' %>
+          <td><%= link_to homework.title, show_homework_path(homework) %></td>
+            <% homework.homework_files.each do |homework_file| %>
+              <td><%= homework_file.description %></td>
+              <% unless homework_file.file_file_name == nil %>
+                <td><%= homework_file.file_file_name %>/
+                  <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
+                              download: homework_file.file_file_name.to_s %></td>
+              <% else %>
+                <td></td>
+              <% end %>
             <% end %>
-          <% end %>
+        <% else %>
+          <td><%= link_to homework.title, show_homework_path(homework) %></td>
+          <td>тест</td>
+          <td></td>
+        <% end %>
         <td><%= link_to 'Удалить', homework_destroy_path(homework.id), method: 'delete',
                         data: { confirm: "Вы уверены, что хотите удалить это?"} %></td>
       </tr>

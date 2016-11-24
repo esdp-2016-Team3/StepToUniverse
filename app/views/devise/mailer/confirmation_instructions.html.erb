@@ -1,0 +1,5 @@
+<p>Привет, <%= @user.name%>!</p>
+
+<p>Вы можете подтвердить свою учетную запись, нажав ссылку снизу:</p>
+
+<p><%= link_to 'Подтвердить', confirmation_url(@resource, confirmation_token: @token) %></p>

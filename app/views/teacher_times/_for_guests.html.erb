@@ -4,7 +4,7 @@
 			Свободно
 		</div>
 	</td>
-<% elsif %>
+<% elsif selection_of_the_cell(time, day).teacher_id.to_i == @user.id %>
 	<% if status_teacher_time(selection_of_the_cell(time, day)) == "Busy" %>
 	  <td align="center" class="busy">
 		  <div>
@@ -24,4 +24,10 @@
 	  	</div>
 	  </td>
 	<% end %>
+<% else %>
+	<td align="center" class="vacant">
+		<div>
+			Свободно
+		</div>
+	</td>
 <% end %>
