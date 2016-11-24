@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day_of_week: 2016-11-24
+  time: 2016-11-24 17:25:19
+  student_id: MyString
+  teacher_id: MyString
+
+two:
+  day_of_week: 2016-11-24
+  time: 2016-11-24 17:25:19
+  student_id: MyString
+  teacher_id: MyString

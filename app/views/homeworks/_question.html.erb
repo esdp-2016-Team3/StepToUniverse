@@ -1,0 +1,20 @@
+<td>
+  <%= unchecked_homework.homework.title %>
+</td>
+<td></td>
+<td></td>
+<td>
+  <%= unchecked_homework.user.name %>
+</td>
+<td>
+  <%= unchecked_homework.homework_status.status %>
+</td>
+<td>
+  <%= link_to 'Посмотреть', show_result_question_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %>
+</td>
+<td>
+  <%= unchecked_homework.homework_status.status %>
+</td>
+<td>
+  <%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %>
+</td>

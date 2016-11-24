@@ -38,7 +38,7 @@
           <td>тест</td>
           <td></td>
         <% end %>
-        <td><%= link_to 'Удалить', homework_destroy_path(homework.id), method: 'delete',
+        <td><%= link_to 'Удалить', homework_update_path(homework.id, is_deleted: true), method: 'put',
                         data: { confirm: "Вы уверены, что хотите удалить это?"} %></td>
       </tr>
     <% end %>

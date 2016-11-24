@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -9,6 +10,10 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :teacher_times
+
+  get 'lessons/new/:id' => 'lessons#new', as: 'new_lesson'
+  get 'lessons/show/:id' => 'lessons#show', as: 'show_lesson'
+  post 'lessons/create' => 'lessons#create', as: 'create_lesson'
 
   get '/timetable/:id' => 'teacher_times#timetable', as: 'timetable'
   
@@ -45,7 +50,7 @@ Rails.application.routes.draw do
   post '/homework/finish' => 'homeworks#result', as: 'hw_result_create'
   get '/homework/:id/check' => 'homeworks#check', as: 'hw_check'
   put '/student_cabinet/:id' => 'homeworks#update_hwassignment', as: 'update_hwassignment'
-  delete '/homework/:id/delete' => 'homeworks#destroy', as: 'homework_destroy'
+  put '/homework/:id/update' => 'homeworks#homework_update', as: 'homework_update'
   get '/record' => 'homeworks#record', as: 'record'
 
 end

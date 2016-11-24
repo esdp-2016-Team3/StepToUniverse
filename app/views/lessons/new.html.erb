@@ -1,0 +1,20 @@
+<%= simple_form_for @lesson, url: create_lesson_path do |f| %>
+  <div>
+  	<%= f.input :day_of_week, as: :date, start_year: Date.today - 90,
+                              end_year: Date.today + 1, discard_day: true,
+                              order: [ :year] %>
+  </div>
+  <div>
+	  <%= f.label "Время: " + @teacher_time.time + ":00" %>
+	  <%= f.hidden_field :time, value: @teacher_time.time %>
+  </div>
+  <div>
+	  <%= f.label "Студент: " + student_name(@teacher_time) %>
+	  <%= f.hidden_field :student_id, value: @teacher_time.teacher_id %>
+  </div>
+  <%= f.hidden_field :teacher_id, value: @teacher_time.student_id %>
+  <%= f.hidden_field :teacher_time_id, value: @teacher_time.id %>
+  <div>
+  	<%= f.button :submit, "Потдтвердить", class: "btn btn-primary" %>
+  </div>
+<% end %>
