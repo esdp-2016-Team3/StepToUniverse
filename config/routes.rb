@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   post '/homework/finish' => 'homeworks#result', as: 'hw_result_create'
   get '/homework/:id/check' => 'homeworks#check', as: 'hw_check'
   put '/student_cabinet/:id' => 'homeworks#update_hwassignment', as: 'update_hwassignment'
-  delete '/homework/:id/delete' => 'homeworks#destroy', as: 'homework_destroy'
+  put '/homework/:id/update' => 'homeworks#homework_update', as: 'homework_update'
   get '/record' => 'homeworks#record', as: 'record'
 
 end

@@ -9,7 +9,7 @@
           <%= f.label 'Ученик' %>
           <%= f.collection_select :user_id, User.where(teacher_id: current_user.id), :id, :name %> <br> <br>
           <%= f.label 'Домашка' %>
-          <%= f.collection_select :homework_id, Homework.where(user_id: current_user.id), :id, :title %>
+          <%= f.collection_select :homework_id, Homework.where(user_id: current_user.id, is_deleted: nil), :id, :title %>
           <br> <br>
           <%= f.hidden_field :homework_status_id, value: 1 %>
           <%= f.submit 'Отправить', class: 'btn btn-default' %>

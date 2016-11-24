@@ -30,9 +30,9 @@ class HomeworksController < ApplicationController
     @status_name = homework_status.status
   end
 
-  def destroy
+  def homework_update
     @homework = Homework.find(params[:id])
-    @homework.destroy
+    @homework.update_attribute(:is_deleted, true)
     
     redirect_to teacher_homeworks_path, notice: 'Успешно удалено.'
   end
@@ -103,7 +103,7 @@ class HomeworksController < ApplicationController
   private
 
   def homework_params
-    params.require(:homework).permit(:title, :user_id, :type_homework, 
+    params.require(:homework).permit(:title, :is_deleted, :user_id, :type_homework,
                          homework_files_attributes: [:id,
                                               :description, 
                                               :file,

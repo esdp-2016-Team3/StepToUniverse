@@ -94,6 +94,6 @@ class PagesController < ApplicationController
   end
 
   def teacher_homeworks
-    @homeworks = Homework.where(user_id: current_user.id)
+    @homeworks = Homework.where(user_id: current_user.id, is_deleted: nil)
   end
 end
