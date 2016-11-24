@@ -20,6 +20,7 @@
        	<%= render 'form_select_student', day: day, time: time %>
         <%= render 'form_relax', day: day, time: time %>
         <%= render 'form_vacant', day: day, time: time %>
+        <%= link_to "проведено", new_lesson_path(selection_of_the_cell(time, day)) %>
       </div>
     </div>
   </div>

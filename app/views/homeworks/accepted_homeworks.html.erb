@@ -14,14 +14,7 @@
     <%  @unchecked_homeworks.each do |unchecked_homework| %>
       <tr>
         <% if homework_type(unchecked_homework.homework_id) == 'Question' %>
-          <td><%= unchecked_homework.homework.title %></td>
-          <td>Тест</td>
-          <td>Тест</td>
-          <td><%= unchecked_homework.user.name %></td>
-          <td>Тест</td>
-          <td><%= link_to 'Просмотр теста', show_result_question_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></td>
-          <td><%= unchecked_homework.homework_status.status %></td>
-          <td><%= link_to 'Проверить', hw_check_path(unchecked_homework.homework_result.id), class: 'btn btn-default navbar-btn' %></td>
+          <%= render 'question',  unchecked_homework:  unchecked_homework %>
         <% else %>
           <td><%= unchecked_homework.homework.title %></td>
           <% unchecked_homework.homework.homework_files.each do |homework_file| %>
@@ -49,4 +42,3 @@
     <% end %>
   </table>
 </div>
-
