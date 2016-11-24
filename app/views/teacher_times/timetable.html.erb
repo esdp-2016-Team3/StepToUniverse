@@ -20,8 +20,10 @@
         <% if current_user == @user %>
           <% if selection_of_the_cell(time, day).nil? %>
             <%= render 'show_create', day: day, time: time %>
-          <% else %>
+          <% elsif selection_of_the_cell(time, day).teacher_id.to_i == current_user.id %>
             <%= render 'update', day: day, time: time %>
+          <% else %>
+            <%= render 'show_create', day: day, time: time %>
           <% end %>
         <% else %>
           <%= render 'for_guests', day: day, time: time %>
