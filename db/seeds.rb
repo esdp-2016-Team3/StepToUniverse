@@ -1,4 +1,4 @@
-AdminUser.create!(email: 'esdp20163@gmail.com', password: 'esdp2016', password_confirmation: 'esdp2016')
+AdminUser.create!(email: 'step2universe@gmail.com', password: 'fjdksl56', password_confirmation: 'fjdksl56')
 Position.create(title: "Студент", id: 1)
 Position.create(title: "Преподаватель", id: 2)
 
