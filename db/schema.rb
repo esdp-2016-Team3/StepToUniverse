@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 20161124112810) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.string   "pather"
     t.index ["homework_id"], name: "index_homework_files_on_homework_id"
   end
 
@@ -125,7 +124,6 @@ ActiveRecord::Schema.define(version: 20161124112810) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.string   "pather"
     t.index ["homework_assignment_id"], name: "index_homework_results_on_homework_assignment_id"
   end
 

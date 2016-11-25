@@ -9,8 +9,9 @@
             <h3>Описание: <span style="color: blue"><%= library_file.description %></span></h3>
             <% if user_signed_in? %>
               <% unless library_file.literature_file_name == nil  %>
-                <h3>Файл: <%= library_file.literature_file_name%>/<%= link_to "Скачать", '/library_files/' + library_file.literature_file_name.to_s,
-                                                                              download: library_file.literature_file_name.to_s %></h3>
+                <h3>Файл: <span style="color: lightseagreen"><%= library_file.literature_file_name%></span>/
+                                <%= link_to "Скачать", '/library_files/' + library_file.literature_file_name.to_s,
+                                                                 download: library_file.literature_file_name.to_s %></h3>
               <% end %>
             <% end %>
         </div>

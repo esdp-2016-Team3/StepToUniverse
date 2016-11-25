@@ -53,7 +53,7 @@ class HomeworkResultsController < ApplicationController
   private 
 
   def result_params
-    params.require(:homework_result).permit(:id, :description, :file, :pather, :homework_assignment_id)
+    params.require(:homework_result).permit(:id, :description, :file, :homework_assignment_id)
   end
 end
 

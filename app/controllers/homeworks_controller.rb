@@ -107,7 +107,6 @@ class HomeworksController < ApplicationController
                          homework_files_attributes: [:id,
                                               :description, 
                                               :file,
-                                              :pather, 
                                               :homework_id],
                          homework_questions_attributes: [:id, 
                                               :title, 
