@@ -61,7 +61,7 @@
 </table>
 <% if current_user.position_id == 1 %><br>
   <%= image_tag @user_id.teacher.avatar.url(:thumb) %>
-  <h6>Мой преподаватель <span style="color: red"><%= @user_id.teacher.name %></span></h6>
+  <h6>Мой преподаватель: <span style="color: red"><%= @user_id.teacher.name %></span></h6>
   <h6>Skype: <span style="color: green"><%= @user_id.teacher.skype %></span></h6>
   <h6>Почта: <span style="color: green"><%= @user_id.teacher.email %></span></h6>
   <h6>Телефон: <span style="color: green"><%= @user_id.teacher.phone %></span></h6>
@@ -84,4 +84,5 @@
         </td>
     <% end %>
   </tr>
-</table> 
+</table>
+<br><br>
