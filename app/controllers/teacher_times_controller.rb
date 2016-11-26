@@ -28,6 +28,7 @@ class TeacherTimesController < ApplicationController
         redirect_to timetable_path(current_user)
       else
         redirect_to timetable_path(current_user)
+        flash[:notice] = 'Изменений не произошло.'
       end
   end
 
@@ -37,6 +38,7 @@ class TeacherTimesController < ApplicationController
         redirect_to timetable_path(current_user)
       else
         redirect_to timetable_path(current_user)
+        flash[:notice] = 'Изменений не произошло.'
       end
   end
 

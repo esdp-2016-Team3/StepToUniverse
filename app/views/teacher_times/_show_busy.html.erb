@@ -1,6 +1,8 @@
 <td align="center" class="busy">
   <div>
-    <h4><%= student_name(selection_of_the_cell(time, day)) %></h4>
+    <% if selection_of_the_cell(time, day).student_id.to_i != 0 %>
+      <h4><%= student_name(selection_of_the_cell(time, day)) %></h4>
+    <% end %>
   </div>
   <button class="btn" data-toggle="modal" data-target="#myModal<%= day + time %>">
     Изменить
@@ -14,9 +16,11 @@
         <h4 class="modal-title" id="myModalLabel"><%= day %>-<%= time %>:00</h4>
       </div>
       <div class="modal-body">
-          <div>
+        <div>
+          <% if selection_of_the_cell(time, day).student_id.to_i != 0 %>
             <h4><%= student_name(selection_of_the_cell(time, day)) %></h4>
-          </div>
+          <% end %>
+        </div>
        	<%= render 'form_select_student', day: day, time: time %>
         <%= render 'form_relax', day: day, time: time %>
         <%= render 'form_vacant', day: day, time: time %>
