@@ -4,7 +4,9 @@ module PagesHelper
 		homework_assignments = []
     homework_assignment = HomeworkAssignment.where(user_id: user_id)
 		homework_assignment.each do |hwa|
-  		homework_assignments << hwa
+      if hwa.homework.user_id == hwa.user.teacher_id
+  		  homework_assignments << hwa
+      end
     end
     return homework_assignments
 	end
@@ -17,12 +19,11 @@ module PagesHelper
 
   def accepted_homeworks
     unchecked_homeworks = HomeworkAssignment.where(homework_status_id: 2)
-    @unchecked_homeworks = []
     @counter = 0
     unchecked_homeworks.each do |unchecked_homework|
-      unchecked_homework.homework.user == current_user
-      @unchecked_homeworks.push unchecked_homework
-      @counter+=1
+      if unchecked_homework.homework.user == current_user  and unchecked_homework.user.teacher_id == current_user.id
+        @counter+=1
+      end
     end
     return @counter
   end

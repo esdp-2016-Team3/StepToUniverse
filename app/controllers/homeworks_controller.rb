@@ -84,9 +84,10 @@ class HomeworksController < ApplicationController
     unchecked_homeworks = HomeworkAssignment.where(homework_status_id: 2)
     @unchecked_homeworks = []
     unchecked_homeworks.each do |unchecked_homework|
-       unchecked_homework.homework.user == current_user
+      if unchecked_homework.homework.user == current_user and unchecked_homework.user.teacher_id == current_user.id
         @unchecked_homeworks.push unchecked_homework
       end
+    end
   end
 
   def update_hwassignment
