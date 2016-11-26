@@ -2,7 +2,7 @@ module PagesHelper
 
 	def homeworks_student(user_id)
 		homework_assignments = []
-    homework_assignment = HomeworkAssignment.where(user_id: user_id)
+    homework_assignment = HomeworkAssignment.where(user_id: user_id).order(:created_at => "desc")
 		homework_assignment.each do |hwa|
       if hwa.homework.user_id == hwa.user.teacher_id
   		  homework_assignments << hwa
