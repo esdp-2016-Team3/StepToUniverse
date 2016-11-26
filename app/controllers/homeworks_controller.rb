@@ -38,10 +38,11 @@ class HomeworksController < ApplicationController
   end
 
   def assign
-    if HomeworkAssignment.create(assignment_params)
-      redirect_to teacher_cabinet_path, notice: 'Домашнее задание успешно отправлено.'
+    @hw_assignment = HomeworkAssignment.new(assignment_params)
+    if @hw_assignment.save
+      redirect_to teacher_cabinet_path, notice: 'Домашнее задание успешно отправлено студенту.'
     else
-      render teacher_cabinet_path
+      redirect_to :back, notice: 'Пожалуста выберите Студента и ДЗ обязательно !!!'
     end
   end
 
