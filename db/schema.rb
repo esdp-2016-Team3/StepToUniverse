@@ -145,8 +145,10 @@ ActiveRecord::Schema.define(version: 20161124112810) do
 
   create_table "lessons", force: :cascade do |t|
     t.date     "day_of_week"
-    t.time     "time"
+    t.string   "time"
+    t.string   "student_name"
     t.string   "student_id"
+    t.string   "teacher_name"
     t.string   "teacher_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

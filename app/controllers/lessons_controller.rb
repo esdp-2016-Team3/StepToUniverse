@@ -25,6 +25,6 @@ class LessonsController < ApplicationController
   private
 
   	def lesson_params
-    	params.require(:lesson).permit(:teacher_id, :student_id, :day_of_week, :time, :teacher_time_id)
+    	params.require(:lesson).permit(:teacher_id, :student_id, :day_of_week, :time, :teacher_time_id, :teacher_name, :student_name)
   	end
 end
