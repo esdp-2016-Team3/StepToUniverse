@@ -1,7 +1,11 @@
 <td align="center" class="vacant">
-  <button class="btn" data-toggle="modal" data-target="#myModal<%= day + time %>">
-    Изменить
-  </button>
+  <div class='timetable_first_block'>
+    <div class='timetable_second_block'>
+      <button class="btn" data-toggle="modal" data-target="#myModal<%= day + time %>">
+        Изменить
+      </button>
+    </div>
+  </div>
 </td>
 
 <div class="modal fade" id="myModal<%= day + time %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

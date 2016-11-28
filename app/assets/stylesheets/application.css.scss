@@ -95,8 +95,21 @@ canvas{
   background: #33cc33;
 }
 
-.vacant div{
+span.vacant{
    display: inline-block;
+}
+span.relax{
+   display: inline-block;
+}
+
+.timetable_first_block{
+      padding: 30px;
+}
+.timetable_second_block {
+      display: none;
+}
+.timetable_first_block:hover .timetable_second_block {
+      display: block;
 }
 
 .time_schedule {
