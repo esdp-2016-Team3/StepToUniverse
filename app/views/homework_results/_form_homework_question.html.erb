@@ -3,11 +3,11 @@
     <%= simple_form_for @new_homework_result, url: result_homework_path, method: 'post' do |result|  %>
       <% @homework.homework_questions.each do |question| %>
         <div>
-          <h3>Вопрос: <span style="color: #4D90FE"><%= question.title %></span></h3>
+          <h3>Вопрос: <span class="for_special_color_word_1"><%= question.title %></span></h3>
         </div>
         <% question.homework_answers.each do |answer| %>
           <div>
-            <h3><%= check_box_tag answer.id %>  <span style="color: green"><%= answer.title %></span></h3>
+            <h3><%= check_box_tag answer.id %>  <span class="for_green_words"><%= answer.title %></span></h3>
           </div>
         <% end %><br>
       <% end %>

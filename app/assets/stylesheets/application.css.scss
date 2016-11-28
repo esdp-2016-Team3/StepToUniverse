@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "color_words";
 
 //= require bootstrap-modal
 //= require active_admin/editor/wysiwyg
@@ -140,3 +141,4 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
