@@ -124,9 +124,4 @@ class HomeworksController < ApplicationController
   def assignment_params
     params.require(:homework_assignment).permit(:user_id, :homework_id, :homework_status_id)
   end
-
-  def result_params
-    params.require(:homework_result).permit(:homework_assignment_id)
-  end
-
 end

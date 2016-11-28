@@ -12,7 +12,7 @@ class HomeworkResultsController < ApplicationController
 
       if homework_type(homework_id) == "Question"
         student_responses = search_for_answers(params.keys)
-        @homework_result.update(description: student_responses)
+        @homework_result.update(test_result: student_responses)
       end
 
       if @homework_result.save
@@ -29,7 +29,7 @@ class HomeworkResultsController < ApplicationController
     @homework_result = HomeworkResult.find(params[:id])
     @homework_assignment = HomeworkAssignment.find(@homework_result.homework_assignment_id)
     @homework = homework(@homework_assignment)
-    @array_answers = student_answers(@homework_result.description)
+    @array_answers = student_answers(@homework_result.test_result)
   end
 
   def new
@@ -53,7 +53,7 @@ class HomeworkResultsController < ApplicationController
   private 
 
   def result_params
-    params.require(:homework_result).permit(:id, :description, :file, :homework_assignment_id)
+    params.require(:homework_result).permit(:id, :description, :file, :homework_assignment_id, :test_result)
   end
 end
 
