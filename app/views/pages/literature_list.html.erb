@@ -1,13 +1,21 @@
 <h1>Список литературы</h1>
-
-<ol>
+<div class="row">
   <% @library_files.each do |library_file| %>
-    	<h3><li><%= library_file.name %></h3>
-      <h4><%= User.find(library_file.user_id).name %></h4>
-      <h4><%= library_file.description %></h4>
-      <% if user_signed_in? %>
-        <%= link_to "Скачать", '/library_files/'+library_file.path_file.to_s %>
-      <% end %>
-    </li>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3>Название литературы: <span style="color: green"><%= library_file.name %></h3>
+            <h3>Автор: <span style="color: red"><%= User.find(library_file.user_id).name %></span></h3>
+            <h3>Описание: <span style="color: blue"><%= library_file.description %></span></h3>
+            <% if user_signed_in? %>
+              <% unless library_file.literature_file_name == nil  %>
+                <h3>Файл: <span style="color: lightseagreen"><%= library_file.literature_file_name%></span>/
+                                <%= link_to "Скачать", '/library_files/' + library_file.literature_file_name.to_s,
+                                                                 download: library_file.literature_file_name.to_s %></h3>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ol>
+</div>

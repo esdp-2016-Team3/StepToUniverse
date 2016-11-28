@@ -4,7 +4,7 @@ class AcceptionsController < ApplicationController
     @user.status = 'active'
     @user.save
     ToAdminMailer.confirm_alert(@user).deliver
-    redirect_to admin_rejecteds_path
+    redirect_to :back
   end
 
   def reject

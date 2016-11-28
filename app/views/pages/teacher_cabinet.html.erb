@@ -6,9 +6,9 @@
     <div class="panel-body">
       <br>
       <%= form_for @hw_assignment, url: hw_assignment_create_path, method: 'post' do |f| %>
-          <%= f.label 'Ученик' %>
+          <%= f.label 'Студент' %>
           <%= f.collection_select :user_id, User.where(teacher_id: current_user.id), :id, :name %> <br> <br>
-          <%= f.label 'Домашка' %>
+          <%= f.label 'ДЗ' %>
           <%= f.collection_select :homework_id, Homework.where(user_id: current_user.id, is_deleted: nil), :id, :title %>
           <br> <br>
           <%= f.hidden_field :homework_status_id, value: 1 %>

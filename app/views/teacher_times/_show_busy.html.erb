@@ -1,10 +1,16 @@
 <td align="center" class="busy">
-  <div>
-    <h4><%= student_name(selection_of_the_cell(time, day)) %></h4>
+  <div class='timetable_first_block'>
+    <div align="center">
+      <% if selection_of_the_cell(time, day).student_id.to_i != 0 %>
+        <h4><%= student_name(selection_of_the_cell(time, day)) %></h4>
+      <% end %>
+    </div>
+    <div class='timetable_second_block'>
+      <button class="btn" data-toggle="modal" data-target="#myModal<%= day + time %>">
+        Изменить
+      </button>
+    </div>
   </div>
-  <button class="btn" data-toggle="modal" data-target="#myModal<%= day + time %>">
-    Изменить
-  </button>
 </td>
  <div class="modal fade" id="myModal<%= day + time %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -14,13 +20,17 @@
         <h4 class="modal-title" id="myModalLabel"><%= day %>-<%= time %>:00</h4>
       </div>
       <div class="modal-body">
-          <div>
+        <div>
+          <% if selection_of_the_cell(time, day).student_id.to_i != 0 %>
             <h4><%= student_name(selection_of_the_cell(time, day)) %></h4>
-          </div>
+          <% end %>
+        </div>
        	<%= render 'form_select_student', day: day, time: time %>
         <%= render 'form_relax', day: day, time: time %>
         <%= render 'form_vacant', day: day, time: time %>
-        <%= link_to "проведено", new_lesson_path(selection_of_the_cell(time, day)) %>
+      </div>
+      <div class="modal-footer">
+        <%= link_to "Занятие проведено", new_lesson_path(selection_of_the_cell(time, day)), class: "btn btn-info" %>
       </div>
     </div>
   </div>

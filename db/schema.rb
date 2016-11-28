@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 20161124112810) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.string   "pather"
     t.index ["homework_id"], name: "index_homework_files_on_homework_id"
   end
 
@@ -125,7 +124,6 @@ ActiveRecord::Schema.define(version: 20161124112810) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.string   "pather"
     t.index ["homework_assignment_id"], name: "index_homework_results_on_homework_assignment_id"
   end
 
@@ -147,8 +145,10 @@ ActiveRecord::Schema.define(version: 20161124112810) do
 
   create_table "lessons", force: :cascade do |t|
     t.date     "day_of_week"
-    t.time     "time"
+    t.string   "time"
+    t.string   "student_name"
     t.string   "student_id"
+    t.string   "teacher_name"
     t.string   "teacher_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

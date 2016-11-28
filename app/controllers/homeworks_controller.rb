@@ -38,10 +38,11 @@ class HomeworksController < ApplicationController
   end
 
   def assign
-    if HomeworkAssignment.create(assignment_params)
-      redirect_to teacher_cabinet_path, notice: 'Домашнее задание успешно отправлено.'
+    @hw_assignment = HomeworkAssignment.new(assignment_params)
+    if @hw_assignment.save
+      redirect_to teacher_cabinet_path, notice: 'Домашнее задание успешно отправлено студенту.'
     else
-      render teacher_cabinet_path
+      redirect_to :back, notice: 'Пожалуста выберите Студента и ДЗ обязательно !!!'
     end
   end
 
@@ -84,9 +85,10 @@ class HomeworksController < ApplicationController
     unchecked_homeworks = HomeworkAssignment.where(homework_status_id: 2)
     @unchecked_homeworks = []
     unchecked_homeworks.each do |unchecked_homework|
-       unchecked_homework.homework.user == current_user
+      if unchecked_homework.homework.user == current_user and unchecked_homework.user.teacher_id == current_user.id
         @unchecked_homeworks.push unchecked_homework
       end
+    end
   end
 
   def update_hwassignment
@@ -107,7 +109,6 @@ class HomeworksController < ApplicationController
                          homework_files_attributes: [:id,
                                               :description, 
                                               :file,
-                                              :pather, 
                                               :homework_id],
                          homework_questions_attributes: [:id, 
                                               :title, 

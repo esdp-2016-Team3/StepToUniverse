@@ -15,7 +15,7 @@ class LessonsController < ApplicationController
   	@lesson = Lesson.new(lesson_params)
   	if @lesson.save
   		redirect_to show_lesson_path(@lesson)
-  		flash[:notice] = 'Отчет успешно отправлено.'
+  		flash[:notice] = 'Отчет успешно отправлен.'
   	else
   		resirect_to timetable_path(current_user)
       flash[:notice] = 'Отчет не был отправлен.'
@@ -25,6 +25,6 @@ class LessonsController < ApplicationController
   private
 
   	def lesson_params
-    	params.require(:lesson).permit(:teacher_id, :student_id, :day_of_week, :time, :teacher_time_id)
+    	params.require(:lesson).permit(:teacher_id, :student_id, :day_of_week, :time, :teacher_time_id, :teacher_name, :student_name)
   	end
 end

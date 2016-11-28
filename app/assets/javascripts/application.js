@@ -21,5 +21,3 @@
 //= require record_player/recorder.js
 //= require record_player/app.js
 //= require_tree .
-
-
