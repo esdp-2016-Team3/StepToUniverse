@@ -1,6 +1,7 @@
 <h1>Кабинет студента <span style="color: red"><%= @user_id.name %></span> <%= image_tag @user_id.avatar.url(:thumb) %></h1>
 <table>
   <tr>
+    <th>Преподаватель</th>
     <th>Название ДЗ</th>
     <th>Описание ДЗ(или описание файла преподавателя)</th>
     <th>Файл преподавателя</th>
@@ -10,32 +11,32 @@
   </tr>
   <% @homework_assignment.each do |homework_assignment| %>
     <tr>
+      <td><%= image_tag homework_assignment.homework.user.avatar.url(:thumb) %><%= homework_assignment.homework.user.name %></td>
       <% if homework_assignment.homework.type_homework == 'File' %>
-          <td><%= link_to homework(homework_assignment).title, show_student_homework_path(homework_assignment) %></td>
-          <% homework_assignment.homework.homework_files.each do |homework_file| %>
-            <td><%= homework_file.description %></td>
-            <% unless homework_file.file_file_name == nil %>
-                <td><%= homework_file.file_file_name %>/
-                  <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
-                              download: homework_file.file_file_name.to_s %></td>
-            <% else %>
-                <td></td>
-            <% end %>
-          <% end %>
-          <% if homework_assignment.homework_result == nil %>
-            <td></td>
-            <td></td>
+        <td><%= link_to homework(homework_assignment).title, show_student_homework_path(homework_assignment) %></td>
+        <% homework_assignment.homework.homework_files.each do |homework_file| %>
+          <td><%= homework_file.description %></td>
+          <% unless homework_file.file_file_name == nil %>
+              <td><%= homework_file.file_file_name %>/
+                <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name.to_s,
+                            download: homework_file.file_file_name.to_s %></td>
           <% else %>
-            <td><%= homework_assignment.homework_result.description %></td>
-            <% unless homework_assignment.homework_result.file_file_name == nil %>
-                <td><%= homework_assignment.homework_result.file_file_name %>/
-                  <%= link_to 'скачать', '/homework_results/' + homework_assignment.homework_result.file_file_name.to_s,
-                              download: homework_assignment.homework_result.file_file_name.to_s %></td>
-            <% else %>
-                <td></td>
-            <% end %>
+              <td></td>
           <% end %>
-          <td><%= status_homework(homework_assignment) %></td>
+        <% end %>
+        <% if homework_assignment.homework_result == nil %>
+          <td></td>
+          <td></td>
+        <% else %>
+          <td><%= homework_assignment.homework_result.description %></td>
+          <% unless homework_assignment.homework_result.file_file_name == nil %>
+              <td><%= homework_assignment.homework_result.file_file_name %>/
+                <%= link_to 'скачать', '/homework_results/' + homework_assignment.homework_result.file_file_name.to_s,
+                            download: homework_assignment.homework_result.file_file_name.to_s %></td>
+          <% else %>
+              <td></td>
+          <% end %>
+        <% end %>
       <% elsif homework_assignment.homework.type_homework == 'Question' %>
         <% if current_user.position_id == 1 %>
           <td>
@@ -54,8 +55,8 @@
         <% else %>
           <td></td>
         <% end %>
-        <td><%= status_homework(homework_assignment) %></td>
       <% end %>
+      <td><%= status_homework(homework_assignment) %></td>
     </tr>
   <% end %>
 </table>
@@ -65,24 +66,24 @@
   <h6>Skype: <span style="color: green"><%= @user_id.teacher.skype %></span></h6>
   <h6>Почта: <span style="color: green"><%= @user_id.teacher.email %></span></h6>
   <h6>Телефон: <span style="color: green"><%= @user_id.teacher.phone %></span></h6>
+  <h3>Расписание</h3>
+  <table>
+    <tr>
+      <% @days_of_week.each do |day| %>
+          <td><%= day %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <% @days_of_week.each do |day| %>
+          <td>
+            <% student_timetable(current_user).each do |table| %>
+                <% if table.day_of_week == day %>
+                    <%= table.time %>:00
+                <% end %>
+            <% end %>
+          </td>
+      <% end %>
+    </tr>
+  </table>
 <% end %>
-<h3>Расписание</h3>
-<table>
-  <tr>
-    <% @days_of_week.each do |day| %>
-        <td><%= day %></td>
-    <% end %>
-  </tr>
-  <tr>
-    <% @days_of_week.each do |day| %>
-        <td>
-          <% student_timetable(current_user).each do |table| %>
-              <% if table.day_of_week == day %>
-                  <%= table.time %>:00
-              <% end %>
-          <% end %>
-        </td>
-    <% end %>
-  </tr>
-</table>
 <br><br>
