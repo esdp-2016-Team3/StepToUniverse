@@ -108,13 +108,10 @@ span.relax{
     width: 6em
 }
 
-.timetable_first_block{
-      padding: 1px;
-}
 .timetable_second_block {
       display: none;
 }
-.timetable_first_block:hover .timetable_second_block {
+#timetable_first_block:hover .timetable_second_block {
       display: block;
 }
 
