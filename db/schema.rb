@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124112810) do
+ActiveRecord::Schema.define(version: 20161128120608) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -119,11 +119,12 @@ ActiveRecord::Schema.define(version: 20161124112810) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "homework_assignment_id"
-    t.text     "description"
     t.string   "file_file_name"
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.text     "test_result"
+    t.text     "description"
     t.index ["homework_assignment_id"], name: "index_homework_results_on_homework_assignment_id"
   end
 
