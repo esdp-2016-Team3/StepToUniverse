@@ -22,6 +22,9 @@
 # Ignore all pictures
 public/*
 
+# Ignore database.yml
+config/database.yml
+
 # Ignore Byebug command history file.
 .byebug_history
 
