@@ -17,13 +17,7 @@
 
   production:
      database: step2u_prod
-         adapter: postgresql
-         encoding: unicode
-         host: step2universe.com
-         pool: 5
-         timeout: 5000
-         username: step2u
-         password: step2universe2016
+     <<: *base
 
   cucumber:
      database: cucumber
