@@ -1,20 +1,30 @@
+  base: &base
+    adapter: postgresql
+    encoding: unicode
+    host: localhost
+    pool: 5
+    timeout: 5000
+    username: alex
+    password: qwerty123
 
-default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+  development:
+     database: alex_dev
+     <<: *base
 
-development:
-  <<: *default
-  database: db/development.sqlite3
+  test: &test
+     database: alex_test
+     <<: *base
 
-test: &test
-  <<: *default
-  database: db/test.sqlite3
+  production:
+     database: step2u_prod
+         adapter: postgresql
+         encoding: unicode
+         host: step2universe.com
+         pool: 5
+         timeout: 5000
+         username: step2u
+         password: step2universe2016
 
-production:
-  <<: *default
-  database: db/production.sqlite3
-
-cucumber:
-  <<: *test
+  cucumber:
+     database: cucumber
+     <<: *base

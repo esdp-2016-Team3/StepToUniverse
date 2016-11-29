@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161128120608) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
     t.text     "body"
@@ -21,9 +24,9 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "answers", force: :cascade do |t|
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "question_id"
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -64,8 +67,8 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.integer  "height"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+    t.index ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+    t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
   end
 
   create_table "contents", force: :cascade do |t|
@@ -81,7 +84,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "homework_question_id"
-    t.index ["homework_question_id"], name: "index_homework_answers_on_homework_question_id"
+    t.index ["homework_question_id"], name: "index_homework_answers_on_homework_question_id", using: :btree
   end
 
   create_table "homework_assignments", force: :cascade do |t|
@@ -90,9 +93,9 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.integer  "user_id"
     t.integer  "homework_id"
     t.integer  "homework_status_id"
-    t.index ["homework_id"], name: "index_homework_assignments_on_homework_id"
-    t.index ["homework_status_id"], name: "index_homework_assignments_on_homework_status_id"
-    t.index ["user_id"], name: "index_homework_assignments_on_user_id"
+    t.index ["homework_id"], name: "index_homework_assignments_on_homework_id", using: :btree
+    t.index ["homework_status_id"], name: "index_homework_assignments_on_homework_status_id", using: :btree
+    t.index ["user_id"], name: "index_homework_assignments_on_user_id", using: :btree
   end
 
   create_table "homework_files", force: :cascade do |t|
@@ -104,7 +107,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
-    t.index ["homework_id"], name: "index_homework_files_on_homework_id"
+    t.index ["homework_id"], name: "index_homework_files_on_homework_id", using: :btree
   end
 
   create_table "homework_questions", force: :cascade do |t|
@@ -112,7 +115,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "homework_id"
-    t.index ["homework_id"], name: "index_homework_questions_on_homework_id"
+    t.index ["homework_id"], name: "index_homework_questions_on_homework_id", using: :btree
   end
 
   create_table "homework_results", force: :cascade do |t|
@@ -125,7 +128,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.datetime "file_updated_at"
     t.text     "test_result"
     t.text     "description"
-    t.index ["homework_assignment_id"], name: "index_homework_results_on_homework_assignment_id"
+    t.index ["homework_assignment_id"], name: "index_homework_results_on_homework_assignment_id", using: :btree
   end
 
   create_table "homework_statuses", force: :cascade do |t|
@@ -141,7 +144,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "type_homework"
-    t.index ["user_id"], name: "index_homeworks_on_user_id"
+    t.index ["user_id"], name: "index_homeworks_on_user_id", using: :btree
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -154,7 +157,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "teacher_time_id"
-    t.index ["teacher_time_id"], name: "index_lessons_on_teacher_time_id"
+    t.index ["teacher_time_id"], name: "index_lessons_on_teacher_time_id", using: :btree
   end
 
   create_table "levels", force: :cascade do |t|
@@ -175,7 +178,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.integer  "literature_file_size"
     t.datetime "literature_updated_at"
     t.string   "path_file"
-    t.index ["user_id"], name: "index_library_files_on_user_id"
+    t.index ["user_id"], name: "index_library_files_on_user_id", using: :btree
   end
 
   create_table "positions", force: :cascade do |t|
@@ -190,7 +193,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "level_id"
-    t.index ["level_id"], name: "index_questions_on_level_id"
+    t.index ["level_id"], name: "index_questions_on_level_id", using: :btree
   end
 
   create_table "status_time_teachers", force: :cascade do |t|
@@ -207,7 +210,7 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "status_time_teacher_id"
-    t.index ["status_time_teacher_id"], name: "index_teacher_times_on_status_time_teacher_id"
+    t.index ["status_time_teacher_id"], name: "index_teacher_times_on_status_time_teacher_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -237,10 +240,10 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["position_id"], name: "index_users_on_position_id"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["teacher_id"], name: "index_users_on_teacher_id"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["position_id"], name: "index_users_on_position_id", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["teacher_id"], name: "index_users_on_teacher_id", using: :btree
   end
 
 end

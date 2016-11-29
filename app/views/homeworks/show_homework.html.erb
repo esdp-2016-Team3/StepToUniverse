@@ -1,14 +1,14 @@
 <div class="col-md-12">
-  <h3>Название ДЗ: <span style="color:red"><%= @homework.title %></span></h3>
+  <h3>Название ДЗ: <span class="for_red_words"><%= @homework.title %></span></h3>
 	<% if @type == "File" %>
 		<% @homework.homework_files.each do |homework_file| %>
 		  <h3>Описание ДЗ:</h3><h5 style="color:green"><%= homework_file.description %></h5>
       <% unless homework_file.file_file_name == nil %>
-        <h3>Наименование файла: <span style="color:green"><%= homework_file.file_file_name %></span>  /
+        <h3>Наименование файла: <span class="for_green_words"><%= homework_file.file_file_name %></span>  /
 		      <%= link_to "Скачать", '/homework_files/' + homework_file.file_file_name,
                     download: homework_file.file_file_name %></h3>
       <% else %>
-        <h3>Файл: <span style="color:green">отсутствует</span></h3>
+        <h3>Файл: <span class="for_green_words">отсутствует</span></h3>
       <% end %>
 		<% end %>
 	<% elsif @type == "Question" %>

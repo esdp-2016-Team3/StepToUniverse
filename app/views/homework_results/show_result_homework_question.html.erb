@@ -1,12 +1,12 @@
 <div>
-	<h3>Название ДЗ(Тест): <span style="color:red"><%= @homework.title %></span></h3>
+	<h3>Название ДЗ(Тест): <span class="for_red_words"><%= @homework.title %></span></h3>
 	<% @homework.homework_questions.each do |question| %>
 		<div>
-			<h3>Вопрос:<span style="color:red"><%= question.title %></span></h3>
+			<h3>Вопрос:<span class="for_red_words"><%= question.title %></span></h3>
 		</div>
 		<% question.homework_answers.each do |answer| %>
 			<div>
-				<h4><span style="color:green"><%= answer.title %></span> <%= status_answer(@array_answers, answer) %> </h4>
+				<h4><span class="for_green_words_words"><%= answer.title %></span> <%= status_answer(@array_answers, answer) %> </h4>
 			</div>
 		<% end %><br><br>
 	<% end %>
