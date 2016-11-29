@@ -4,20 +4,26 @@
     host: localhost
     pool: 5
     timeout: 5000
-    username: step2u
-    password: step2universe2016
+    username: alex
+    password: qwerty123
 
   development:
-     database: step2u_dev
+     database: alex_dev
      <<: *base
 
   test: &test
-     database: step2u_test
+     database: alex_test
      <<: *base
 
   production:
      database: step2u_prod
-     <<: *base
+         adapter: postgresql
+         encoding: unicode
+         host: step2universe.com
+         pool: 5
+         timeout: 5000
+         username: step2u
+         password: step2universe2016
 
   cucumber:
      database: cucumber
