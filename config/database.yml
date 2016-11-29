@@ -19,7 +19,7 @@
      database: step2u_prod
          adapter: postgresql
          encoding: unicode
-         host: step2universe.com
+         host: localhost
          pool: 5
          timeout: 5000
          username: step2u
