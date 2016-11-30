@@ -3,7 +3,6 @@ ActiveAdmin.register ProfileQuestion do
   permit_params :question
 
   form  do |f|
-
     f.inputs 'Question' do
       f.input :question
       f.actions

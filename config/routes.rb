@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :questions
   resources :teacher_times
 
+  post 'profile/create' => 'profile#create', as: 'create_profile_answer'
+
   get 'lessons/new/:id' => 'lessons#new', as: 'new_lesson'
   get 'lessons/show/:id' => 'lessons#show', as: 'show_lesson'
   post 'lessons/create' => 'lessons#create', as: 'create_lesson'
