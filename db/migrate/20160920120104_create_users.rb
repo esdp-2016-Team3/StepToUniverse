@@ -8,5 +8,6 @@ class CreateUsers < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_foreign_key :users, :users, column: teacher_id
   end
 end
