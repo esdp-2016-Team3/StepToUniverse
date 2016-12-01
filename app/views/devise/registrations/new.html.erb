@@ -1,13 +1,16 @@
 <h2>Регистрация</h2>
 
-<%#= render '/profile/profile' %>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <p>
     <%= f.label :position %><br />
     <%= f.collection_select :position_id, Position.all, :id, :title %>
   </p>
-
+  
+  <%= f.simple_fields_for :profile_answers, ProfileAnswer.new do |builde| %>
+    <%= render 'profile_answer', f: builde %>
+  <% end %>
+  
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
