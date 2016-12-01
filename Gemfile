@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'listen', '~> 3.0.5'
 
 group :test do
   gem 'rspec-rails', '~> 3.5'
@@ -24,7 +25,7 @@ group :development, :test do
   gem 'foreman'
   gem 'pry'
   gem 'pry-byebug'
-end 
+end
 
 group :development do
   gem 'capistrano',         require: false
@@ -38,7 +39,6 @@ group :development do
 
 
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
