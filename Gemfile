@@ -25,6 +25,7 @@ group :development, :test do
   gem 'foreman'
   gem 'pry'
   gem 'pry-byebug'
+  gem 'listen', '~> 3.0.5'
 end
 
 group :development do
@@ -41,6 +42,7 @@ group :development do
   gem 'web-console'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'listen', '~> 3.0.5'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :jruby]
