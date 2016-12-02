@@ -8,7 +8,6 @@ HomeworkStatus.create(status: "Checked", id: 3)
 HomeworkStatus.create(status: "Deleted", id: 4)
 
 fixtures_path = Rails.root.join('app', 'assets', 'images', 'avatars')
-books_path = Rails.root.join('app', 'assets', 'images', 'books')
 
 User.create(name: "teach1", email: 'teach1@gmail.com', status: 'active', position_id: 2, skype: "teachskype.1", phone: +9379981, description: 'Я супер преподаватель научу вас английскому', avatar: File.open(fixtures_path.join('teach1.jpg')), password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:47:12')
 User.create(name: "teach2", email: 'teach2@gmail.com', status: 'active', position_id: 2, skype: "teachskype.2", phone: +9379981, description: 'Я квалифицированная преподавательница', avatar: File.open(fixtures_path.join('teach2.jpg')), password: 'asdasd', password_confirmation: 'asdasd', confirmed_at: '2016-09-28 13:48:12')
