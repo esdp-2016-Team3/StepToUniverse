@@ -55,12 +55,12 @@ When(/^прикрепляю книгу$/) do
 end
 
 When(/^кликаю через xpath на Удалить$/) do
-  find(:xpath, "/html/body/div/div[2]/a[2]").click
+  find('tr', text: 'Book2' ).click_link("Удалить")
   sleep(0.5)
 end
 
 When(/^кликаю по xpath на Скачать$/) do
-  find(:xpath, "/html/body/div/div[1]/a[1]").click
+  find('tr', text: 'Book1' ).click_link("Скачать")
   sleep(0.5)
 end
 

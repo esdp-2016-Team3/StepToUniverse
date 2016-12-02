@@ -7,7 +7,6 @@
 require 'cucumber/rails'
 
 require 'selenium-webdriver'
-Selenium::WebDriver::Firefox::Binary.path='/home/maxim/firefox/firefox'
 
 include ActionController::Helpers
 Capybara.default_driver = :selenium
@@ -85,8 +84,8 @@ end
 
 Before('@login_admin') do
   visit new_admin_user_session_path
-  fill_in "Эл. почта", with: "esdp20163@gmail.com"
-  fill_in "Пароль",with: "esdp2016"
+  fill_in "Эл. почта", with: "step2universe@gmail.com"
+  fill_in "Пароль",with: "fjdksl56"
   click_button "Войти"
 end
 
