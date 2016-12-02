@@ -34,21 +34,21 @@ Level.create(name: "Intermediate")
 Level.create(name: "Advanced")
 Level.create(name: "Proficiency")
 
-LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 3, literature: File.new('app/assets/library_files/Fazovye_perehody.pdf'))
-LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 3, literature: File.new('app/assets/library_files/Teplotehnika.pdf'))
+LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 1, literature: File.new('app/assets/library_files/Fazovye_perehody.pdf'))
+LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 1, literature: File.new('app/assets/library_files/Teplotehnika.pdf'))
 
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 1, file: File.new('app/assets/homework_files/hw1.pdf'))
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 2, file: File.new('app/assets/homework_files/hw2.pdf'))
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 3, file: File.new('app/assets/homework_files/hw3.pdf'))
 HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 4, file: File.new('app/assets/homework_files/hw4.pdf'))
 
-Homework.create(title: 'Homework1', user_id: 3, type_homework: 'File')
-Homework.create(title: 'Homework2', user_id: 3, type_homework: 'File')
-Homework.create(title: 'Homework3', user_id: 3, type_homework: 'File')
-Homework.create(title: 'Homework4', user_id: 3, type_homework: 'File')
+Homework.create(title: 'Homework1', user_id: 1, type_homework: 'File')
+Homework.create(title: 'Homework2', user_id: 1, type_homework: 'File')
+Homework.create(title: 'Homework3', user_id: 1, type_homework: 'File')
+Homework.create(title: 'Homework4', user_id: 1, type_homework: 'File')
 
-HomeworkAssignment.create(user_id: 1, homework_id: 1, homework_status_id: 1 )
-HomeworkAssignment.create(user_id: 1, homework_id: 2, homework_status_id: 1 )
+HomeworkAssignment.create(user_id: 3, homework_id: 1, homework_status_id: 1 )
+HomeworkAssignment.create(user_id: 3, homework_id: 2, homework_status_id: 1 )
 
 count = 0
 7.times do
