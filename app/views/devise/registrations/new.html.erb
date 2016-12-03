@@ -7,9 +7,11 @@
     <%= f.collection_select :position_id, Position.all, :id, :title %>
   </p>
   
-  <%= f.simple_fields_for :profile_answers, ProfileAnswer.new do |builde| %>
-    <%= render 'profile_answer', f: builde %>
-  <% end %>
+  <div id='profile' style='display:none'>
+    <%= f.simple_fields_for :profile_answers, ProfileAnswer.new do |builde| %>
+      <%= render 'profile_answer', f: builde %>
+    <% end %>
+  </div>
   
   <div class="field">
     <%= f.label :name %><br />
@@ -62,3 +64,9 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<script>
+  $('select[name="user[position_id]"]').change(function() {
+  $('#profile').show();
+});
+</script>
