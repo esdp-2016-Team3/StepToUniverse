@@ -8,6 +8,7 @@
   </p>
   
   <div id='profile' style='display:none'>
+    <h3>Анкета</h3>
     <%= f.simple_fields_for :profile_answers, ProfileAnswer.new do |builde| %>
       <%= render 'profile_answer', f: builde %>
     <% end %>
@@ -67,6 +68,10 @@
 
 <script>
   $('select[name="user[position_id]"]').change(function() {
-  $('#profile').show();
-});
+    var selectedItemText = this.options[this.selectedIndex].text
+    if(selectedItemText == 'Преподаватель')
+      $('#profile').show();
+    else
+      $('#profile').hide();
+  });
 </script>
