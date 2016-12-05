@@ -3,15 +3,18 @@ class User::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    build_resource({})
+    self.resource.company = ProfileAnswer.new
+    respond_with self.resource
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
-
+ 
+  def create
+    super
+  end
+  
   # GET /resource/edit
   # def edit
   #   super
@@ -57,4 +60,9 @@ class User::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  private 
+    def sign_up_params
+      allow = [:name, :skype, :phone, :description, :avatar, :position_id, :status, profile_answers_attributes: [:id, :answer, :question, :user_id]]
+      params.require(resource_name).permit(allow)
+    end
 end

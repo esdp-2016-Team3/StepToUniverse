@@ -60,7 +60,17 @@ ActiveAdmin.register User, as: 'Teacher' do
     end
   end
 
-    form do |f|
+  show do
+    panel "Table of Contents" do
+      table_for teacher.profile_answers do
+        column :question
+        column :answer
+      end
+    end
+    active_admin_comments
+  end
+  
+  form do |f|
     f.inputs "Teacher" do
       f.input :position
       f.input :name
@@ -87,6 +97,7 @@ ActiveAdmin.register User, as: 'Teacher' do
   end
 
 end
+
 ActiveAdmin.register User, as: 'Notactive' do
 
   permit_params :name, :skype, :phone, :status, :email, :position_id, :password, :password_confirmation

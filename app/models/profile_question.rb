@@ -1,0 +1,2 @@
+class ProfileQuestion < ApplicationRecord
+end

@@ -23,16 +23,10 @@ When(/^перехожу на страницу письма для подтвер
   sleep(0.5)
 end
 
-When(/^кликаю через xpath на логотип$/) do
-  find(:xpath, "//*[@id='navbar-collapse']/ul[1]/a/img").click
-  sleep(0.5)
-end
-
 When(/^перехожу на страницу письма уведомления для админа$/) do
   visit 'http://127.0.0.1:1080/messages/2.html'
   sleep(0.5)
 end
-
 
 When(/^перехожу в админку$/) do
   visit "http://localhost:3000/admin"
@@ -50,17 +44,17 @@ When(/^кликаю по html "([^"]*)"$/) do |arg|
 end
 
 When(/^прикрепляю книгу$/) do
-  page.attach_file("library_file_literature", Rails.root + 'app/assets/images/books/Teplotehnika.pdf')
+  page.attach_file("library_file_literature", Rails.root + 'app/assets/library_files/Teplotehnika.pdf')
   sleep(0.5)
 end
 
 When(/^кликаю через xpath на Удалить$/) do
-  find(:xpath, "/html/body/div/div[2]/a[2]").click
+  find('tr', text: 'Book2' ).click_link("Удалить")
   sleep(0.5)
 end
 
 When(/^кликаю по xpath на Скачать$/) do
-  find(:xpath, "/html/body/div/div[1]/a[1]").click
+  find('tr', text: 'Book1' ).click_link("Скачать")
   sleep(0.5)
 end
 

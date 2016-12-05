@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161128120608) do
+ActiveRecord::Schema.define(version: 20161201150128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -187,6 +187,22 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profile_answers", force: :cascade do |t|
+    t.text     "answer"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "profile_question_id"
+    t.integer  "user_id"
+    t.index ["profile_question_id"], name: "index_profile_answers_on_profile_question_id", using: :btree
+    t.index ["user_id"], name: "index_profile_answers_on_user_id", using: :btree
+  end
+
+  create_table "profile_questions", force: :cascade do |t|
+    t.string   "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string   "content"
     t.boolean  "is_active"
@@ -246,4 +262,6 @@ ActiveRecord::Schema.define(version: 20161128120608) do
     t.index ["teacher_id"], name: "index_users_on_teacher_id", using: :btree
   end
 
+  add_foreign_key "profile_answers", "profile_questions"
+  add_foreign_key "profile_answers", "users"
 end

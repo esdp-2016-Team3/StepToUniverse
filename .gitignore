@@ -8,6 +8,8 @@
 /.bundle
 *.idea
 *.ruby-version
+*.rbenv-version
+/config/*database
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
