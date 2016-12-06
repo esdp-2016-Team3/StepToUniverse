@@ -1,5 +1,5 @@
-<%= simple_form_for @teacher_time, url:  create_student_teachertime_path do |f| %>
-  <%= f.input :student_id, as: :select,collection: @students.map { |s| [s.name, s.id]} %>
+<%= simple_form_for @teacher_time, url: create_student_teachertime_path do |f| %>
+  <%= f.input :student_id, as: :select, collection: @students.map { |student| [student.name, student.id]} %>
   <%= f.hidden_field :day_of_week, value: day %>
   <%= f.hidden_field :status_time_teacher_id, value: 1 %>
   <%= f.hidden_field :teacher_id, value: current_user.id %>
