@@ -24,7 +24,7 @@
         <%= link_to 'FAQ', content_path(6), class: 'btn btn-default navbar-btn' %>
         <% if user_signed_in? %>
           <p class="navbar-text">
-            Привет <%= current_user.name %>
+            Привет, <%= current_user.name %>!
           </p>
           <ul class="nav navbar-nav">
             <li class="dropdown">
