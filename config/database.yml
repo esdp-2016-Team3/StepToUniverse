@@ -1,0 +1,24 @@
+  base: &base
+    adapter: postgresql
+    encoding: unicode
+    host: localhost
+    pool: 5
+    timeout: 5000
+    username: step2u
+    password: step2universe2016
+
+  development:
+     database: step2u_dev
+     <<: *base
+
+  test: &test
+     database: step2u_test
+     <<: *base
+
+  production:
+     database: step2u_prod
+     <<: *base
+
+  cucumber:
+     database: cucumber
+     <<: *base
