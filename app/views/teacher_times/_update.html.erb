@@ -2,8 +2,6 @@
  	<%= render 'show_busy', day: day, time: time %>
 <% elsif status_teacher_time(selection_of_the_cell(time, day)) == "Relax" %>
   <%= render 'show_relax', day: day, time: time %>
-<% elsif status_teacher_time(selection_of_the_cell(time, day)) == "Vacant" %>
-  <%= render 'show_vacant', day: day, time: time %>
 <% else status_teacher_time(selection_of_the_cell(time, day)) == "Vacant" %>
   <%= render 'show_vacant', day: day, time: time %>
 <% end %>

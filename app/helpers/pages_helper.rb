@@ -30,6 +30,11 @@ module PagesHelper
     return @counter
   end
 
+  def check_teacher(table)
+    teacher = table.teacher_id
+    current_user.teacher_id == teacher.to_i
+  end
+
   def student_timetable(user)
     student_timetable = TeacherTime.where(student_id: user)
   end
