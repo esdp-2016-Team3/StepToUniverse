@@ -14,8 +14,8 @@ class LessonsController < ApplicationController
   		redirect_to show_lesson_path(@lesson)
   		flash[:notice] = 'Отчет успешно отправлен.'
   	else
-  		redirect_to timetable_path(current_user)
-      flash[:notice] = 'Отчет не был отправлен.'
+  		redirect_to :back
+      flash[:notice] = 'Нельзя указывать не наступившую дату.'
   	end
   end
 
