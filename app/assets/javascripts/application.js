@@ -20,4 +20,5 @@
 //= require record_player/Fr.voice.js
 //= require record_player/recorder.js
 //= require record_player/app.js
+//= require lessons.js
 //= require_tree .

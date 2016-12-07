@@ -1,7 +1,4 @@
 class LessonsController < ApplicationController
-  def index
-  end
-
   def new
   	@teacher_time = TeacherTime.find(params[:id])
   	@lesson = Lesson.new
