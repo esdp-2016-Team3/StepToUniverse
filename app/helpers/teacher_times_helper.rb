@@ -13,7 +13,7 @@ module TeacherTimesHelper
 	def check_student(teacher_time)
 		student_id = teacher_time.student_id
 		student = User.find(student_id)
-		student.teacher_id == current_user.id
+		student.teacher_id.to_i == current_user.id
 	end
 
 	def teacher_name(teacher_time)

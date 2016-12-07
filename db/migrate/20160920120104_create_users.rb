@@ -4,10 +4,10 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :skype
       t.string :phone
+      t.string :teacher_id
       t.text :description
 
       t.timestamps
     end
-    add_foreign_key :users, :users, column: :teacher_id
   end
 end
