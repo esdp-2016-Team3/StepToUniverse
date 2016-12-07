@@ -50,6 +50,10 @@ HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 4, file: Fi
 HomeworkAssignment.create(user_id: 3, homework_id: 1, homework_status_id: 1 )
 HomeworkAssignment.create(user_id: 3, homework_id: 2, homework_status_id: 1 )
 
+ProfileQuestion.create(question: 'Достаточен ли Ваш уровень знаний для подготовки и преподавания курса на иностранном языке?')
+ProfileQuestion.create(question: 'Имеете ли Вы сертификаты европейских университетов о взаимном признании курсов?')
+ProfileQuestion.create(question: 'Сколько жим лежа?')
+
 count = 0
 7.times do
 
