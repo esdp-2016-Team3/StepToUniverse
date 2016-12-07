@@ -109,6 +109,16 @@ ActiveAdmin.register User, as: 'Notactive' do
     end
   end
 
+  show do
+    panel "Table of Contents" do
+      table_for notactive.profile_answers do
+        column :question
+        column :answer
+      end
+    end
+    active_admin_comments
+  end
+
   form do |f|
     f.inputs "Notactive" do
       f.input :position
