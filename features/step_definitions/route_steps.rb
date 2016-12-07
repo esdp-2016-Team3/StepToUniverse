@@ -82,3 +82,13 @@ When(/^кликаю через xpath на Удалить ДЗ$/) do
   find('tr', text: 'Homework1' ).click_link("Удалить")
   sleep(0.5)
 end
+
+When(/^кликаю на кнопку через xpath "([^"]*)"$/) do |arg|
+  find(:xpath, "//*[@id='new_user']/div[4]/input").click
+  sleep(0.5)
+end
+
+When(/^кликаю на "([^"]*)" через хpath$/) do |arg|
+  find(:xpath, "/html/body/div/table[1]/tbody/tr[2]/td[2]/a").click
+  sleep(0.5)
+end
