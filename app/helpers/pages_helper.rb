@@ -32,7 +32,7 @@ module PagesHelper
 
   def check_teacher(table)
     teacher = table.teacher_id
-    current_user.teacher_id == teacher.to_i
+    current_user.teacher_id == teacher
   end
 
   def student_timetable(user)
