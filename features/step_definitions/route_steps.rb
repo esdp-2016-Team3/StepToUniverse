@@ -48,6 +48,11 @@ When(/^прикрепляю книгу$/) do
   sleep(0.5)
 end
 
+When(/^прикрепляю книгу к домашнему заданию$/) do
+  page.attach_file("homework[homework_files_attributes][0][file]", Rails.root + 'app/assets/library_files/Teplotehnika.pdf')
+  sleep(0.5)
+end
+
 When(/^кликаю через xpath на Удалить$/) do
   find('tr', text: 'Book2' ).click_link("Удалить")
   sleep(0.5)
@@ -70,5 +75,10 @@ end
 
 When(/^я на странице логина админа$/) do
   visit 'http://localhost:3000/admin/login'
+  sleep(0.5)
+end
+
+When(/^кликаю через xpath на Удалить ДЗ$/) do
+  find('tr', text: 'Homework1' ).click_link("Удалить")
   sleep(0.5)
 end
