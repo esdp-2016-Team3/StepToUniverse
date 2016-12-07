@@ -1,4 +1,6 @@
 class HomeworkQuestionsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @homework_questions = HomeworkQuestion.all
 

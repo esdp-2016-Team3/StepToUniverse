@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+	before_action :authenticate_user!
+
   def new
   	@teacher_time = TeacherTime.find(params[:id])
   	@lesson = Lesson.new
