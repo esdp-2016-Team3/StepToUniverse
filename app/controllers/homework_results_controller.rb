@@ -1,5 +1,5 @@
 class HomeworkResultsController < ApplicationController
-
+  before_action :authenticate_user!
   include HomeworkResultsHelper
   include ApplicationHelper
 

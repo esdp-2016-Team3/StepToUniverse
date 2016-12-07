@@ -1,6 +1,5 @@
 class LessonsController < ApplicationController
-  def index
-  end
+	before_action :authenticate_user!
 
   def new
   	@teacher_time = TeacherTime.find(params[:id])
@@ -17,8 +16,8 @@ class LessonsController < ApplicationController
   		redirect_to show_lesson_path(@lesson)
   		flash[:notice] = 'Отчет успешно отправлен.'
   	else
-  		resirect_to timetable_path(current_user)
-      flash[:notice] = 'Отчет не был отправлен.'
+  		redirect_to :back
+      flash[:notice] = 'Нельзя указывать не наступившую дату.'
   	end
   end
 

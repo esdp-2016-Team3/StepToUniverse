@@ -3,7 +3,7 @@
 		<% ProfileQuestion.all.each do |profile_question|  %>
 				<%= profile_question.question %>
 			<%= f.input :answer %>
-			<% f.hidden_field :question, value: profile_question.question %>
+			<%= f.hidden_field :question, value: profile_question.question %>
 		<% end %>
 	</div>
 </div>

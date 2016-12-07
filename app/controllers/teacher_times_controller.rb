@@ -1,4 +1,5 @@
 class TeacherTimesController < ApplicationController
+
 	def index
 
 	end
@@ -35,6 +36,28 @@ class TeacherTimesController < ApplicationController
   def update
     set_teacher_time
       if @teacher_time.update_attributes(teacher_time_params)
+        redirect_to timetable_path(current_user)
+      else
+        redirect_to timetable_path(current_user)
+        flash[:notice] = 'Изменений не произошло.'
+      end
+  end
+
+  def create_student
+    @teacher_time = TeacherTime.new(teacher_time_params)
+      if teacher_time_params[:student_id] != ''
+        @teacher_time.save
+        redirect_to timetable_path(current_user)
+      else
+        redirect_to timetable_path(current_user)
+        flash[:notice] = 'Изменений не произошло.'
+      end
+  end
+
+  def update_student
+    set_teacher_time
+      if teacher_time_params[:student_id] != ''
+        @teacher_time.update_attributes(teacher_time_params)
         redirect_to timetable_path(current_user)
       else
         redirect_to timetable_path(current_user)

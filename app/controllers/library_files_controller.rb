@@ -1,4 +1,6 @@
 class LibraryFilesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @library_file = LibraryFile.new(library_file_params)
     if @library_file.save

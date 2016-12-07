@@ -1,9 +1,7 @@
 <td class="busy" id='timetable_first_block'>
   <div class="timetable_block">
     <div>
-      <% if selection_of_the_cell(time, day).student_id.to_i != 0 %>
-        <h4><%= student_name(selection_of_the_cell(time, day)) %></h4>
-      <% end %>
+      <h4><%= student_name(selection_of_the_cell(time, day)) %></h4>
     </div>
     <div class='timetable_second_block'>
       <button class="btn" data-toggle="modal" data-target="#myModal<%= day + time %>">
@@ -12,7 +10,8 @@
     </div>
   </div>
 </td>
- <div class="modal fade" id="myModal<%= day + time %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="myModal<%= day + time %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

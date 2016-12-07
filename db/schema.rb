@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201150128) do
+ActiveRecord::Schema.define(version: 20161201150040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -189,11 +189,10 @@ ActiveRecord::Schema.define(version: 20161201150128) do
 
   create_table "profile_answers", force: :cascade do |t|
     t.text     "answer"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-    t.integer  "profile_question_id"
+    t.string   "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.index ["profile_question_id"], name: "index_profile_answers_on_profile_question_id", using: :btree
     t.index ["user_id"], name: "index_profile_answers_on_user_id", using: :btree
   end
 
@@ -233,6 +232,7 @@ ActiveRecord::Schema.define(version: 20161201150128) do
     t.string   "name"
     t.string   "skype"
     t.string   "phone"
+    t.string   "teacher_id"
     t.text     "description"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -251,7 +251,6 @@ ActiveRecord::Schema.define(version: 20161201150128) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "status"
-    t.integer  "teacher_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -259,9 +258,21 @@ ActiveRecord::Schema.define(version: 20161201150128) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["position_id"], name: "index_users_on_position_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["teacher_id"], name: "index_users_on_teacher_id", using: :btree
   end
 
-  add_foreign_key "profile_answers", "profile_questions"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "homework_answers", "homework_questions"
+  add_foreign_key "homework_assignments", "homework_statuses"
+  add_foreign_key "homework_assignments", "homeworks"
+  add_foreign_key "homework_assignments", "users"
+  add_foreign_key "homework_files", "homeworks"
+  add_foreign_key "homework_questions", "homeworks"
+  add_foreign_key "homework_results", "homework_assignments"
+  add_foreign_key "homeworks", "users"
+  add_foreign_key "lessons", "teacher_times"
+  add_foreign_key "library_files", "users"
   add_foreign_key "profile_answers", "users"
+  add_foreign_key "questions", "levels"
+  add_foreign_key "teacher_times", "status_time_teachers"
+  add_foreign_key "users", "positions"
 end

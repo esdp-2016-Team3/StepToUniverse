@@ -75,9 +75,16 @@ Before('@login_teacher') do
   click_button "Войти"
 end
 
-Before('@login_student') do
+Before('@login_student1') do
   visit new_user_session_path
   fill_in "Email", with:"stud1@gmail.com"
+  fill_in "Пароль",with: "asdasd"
+  click_button "Войти"
+end
+
+Before('@login_student2') do
+  visit new_user_session_path
+  fill_in "Email", with:"stud2@gmail.com"
   fill_in "Пароль",with: "asdasd"
   click_button "Войти"
 end

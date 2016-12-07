@@ -65,7 +65,6 @@
   <h6>Мой преподаватель: <span class="for_red_words"><%= @user_id.teacher.name %></span></h6>
   <h6>Skype: <span class="for_green_words"><%= @user_id.teacher.skype %></span></h6>
   <h6>Почта: <span class="for_green_words"><%= @user_id.teacher.email %></span></h6>
-  <h6>Телефон: <span class="for_green_words"><%= @user_id.teacher.phone %></span></h6>
   <h3>Расписание</h3>
   <table>
     <tr>
@@ -77,7 +76,7 @@
       <% @days_of_week.each do |day| %>
           <td>
             <% student_timetable(current_user).each do |table| %>
-                <% if table.day_of_week == day %>
+                <% if table.day_of_week == day && check_teacher(table)%>
                     <%= table.time %>:00
                 <% end %>
             <% end %>
