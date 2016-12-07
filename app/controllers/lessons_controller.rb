@@ -14,7 +14,7 @@ class LessonsController < ApplicationController
   		redirect_to show_lesson_path(@lesson)
   		flash[:notice] = 'Отчет успешно отправлен.'
   	else
-  		resirect_to timetable_path(current_user)
+  		redirect_to timetable_path(current_user)
       flash[:notice] = 'Отчет не был отправлен.'
   	end
   end
