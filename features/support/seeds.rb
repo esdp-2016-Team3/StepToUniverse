@@ -36,6 +36,7 @@ Level.create(name: "Proficiency")
 
 LibraryFile.create(name: 'Book1', description: "Fazovye_perehody", user_id: 1, literature: File.new('app/assets/library_files/Fazovye_perehody.pdf'))
 LibraryFile.create(name: 'Book2', description: "Teplotehnika", user_id: 1, literature: File.new('app/assets/library_files/Teplotehnika.pdf'))
+LibraryFile.create(name: 'Book3', description: "Priliv", user_id: 1, literature: File.new('app/assets/library_files/Priliv.pdf'))
 
 Homework.create(title: 'Homework1', user_id: 1, type_homework: 'File')
 Homework.create(title: 'Homework2', user_id: 1, type_homework: 'File')
@@ -49,6 +50,10 @@ HomeworkFile.create(description: Faker::Lorem.sentence, homework_id: 4, file: Fi
 
 HomeworkAssignment.create(user_id: 3, homework_id: 1, homework_status_id: 1 )
 HomeworkAssignment.create(user_id: 3, homework_id: 2, homework_status_id: 1 )
+
+ProfileQuestion.create(question: 'Достаточен ли Ваш уровень знаний для подготовки и преподавания курса на иностранном языке?')
+ProfileQuestion.create(question: 'Имеете ли Вы сертификаты европейских университетов о взаимном признании курсов?')
+ProfileQuestion.create(question: 'Сколько жим лежа?')
 
 count = 0
 7.times do

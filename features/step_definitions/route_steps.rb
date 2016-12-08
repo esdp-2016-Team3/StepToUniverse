@@ -53,8 +53,8 @@ When(/^прикрепляю книгу к домашнему заданию$/) d
   sleep(0.5)
 end
 
-When(/^кликаю через xpath на Удалить$/) do
-  find('tr', text: 'Book2' ).click_link("Удалить")
+When(/^кликаю через tr на Удалить$/) do
+  find('tr', text: 'Книга Максима' ).click_link("Удалить")
   sleep(0.5)
 end
 
@@ -63,8 +63,8 @@ When(/^кликаю по xpath на Скачать$/) do
   sleep(0.5)
 end
 
-When(/^кликаю на Удалить через хpath$/) do
-  find(:xpath, "//*[@id='library_file_2']/td[4]/div/a[3]").click
+When(/^кликаю на Удалить через tr$/) do
+  find('tr', text: 'Book2' ).click_link("Удалить")
   sleep(0.5)
 end
 
