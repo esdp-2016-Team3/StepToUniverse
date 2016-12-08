@@ -27,6 +27,9 @@ public/*
 # Ignore database.yml
 config/database.yml
 
+# Ignore .env
+.env
+
 # Ignore Byebug command history file.
 .byebug_history
 
