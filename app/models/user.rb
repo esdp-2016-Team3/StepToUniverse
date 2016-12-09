@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :library_files
   has_many :homeworks
   has_many :profile_answers, dependent: :destroy
-  has_many :homework_assignments
+  has_many :homework_assignments, dependent: :destroy
 	belongs_to :position
   has_many :students, class_name: "User", foreign_key: 'teacher_id'
   has_one :teacher, class_name: "User", primary_key: 'teacher_id', foreign_key: 'id'
