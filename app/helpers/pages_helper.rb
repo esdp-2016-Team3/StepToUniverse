@@ -46,7 +46,6 @@ module PagesHelper
 		homework_assignments = []
     homework_assignment = HomeworkAssignment.where(user_id: user_id).order(:created_at => "desc")
 		homework_assignment.each do |hwa|
-      # binding.pry
       if hwa.homework.user_id == hwa.user.teacher_id.to_i and current_user.position_id == 2
   		  homework_assignments << hwa
       elsif current_user.position_id == 1
@@ -66,7 +65,7 @@ module PagesHelper
     unchecked_homeworks = HomeworkAssignment.where(homework_status_id: 2)
     @counter = 0
     unchecked_homeworks.each do |unchecked_homework|
-      if unchecked_homework.homework.user == current_user  and unchecked_homework.user.teacher_id == current_user.id
+      if unchecked_homework.homework.user == current_user  and unchecked_homework.user.teacher_id.to_i == current_user.id
         @counter+=1
       end
     end
