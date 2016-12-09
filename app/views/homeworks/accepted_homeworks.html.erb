@@ -11,7 +11,7 @@
       <th>Статус ДЗ</th>
       <th>Действие</th>
     </tr>
-    <%  @unchecked_homeworks.each do |unchecked_homework| %>
+    <% @unchecked_homeworks.each do |unchecked_homework| %>
       <tr>
         <% if homework_type(unchecked_homework.homework_id) == 'Question' %>
           <%= render 'question',  unchecked_homework:  unchecked_homework %>
