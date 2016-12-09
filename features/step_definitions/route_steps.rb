@@ -49,7 +49,7 @@ When(/^прикрепляю книгу$/) do
 end
 
 When(/^прикрепляю книгу к домашнему заданию$/) do
-  page.attach_file("homework[homework_files_attributes][0][file]", Rails.root + 'app/assets/library_files/Teplotehnika.pdf')
+  page.attach_file("homework_result[file]", Rails.root + 'app/assets/library_files/Teplotehnika.pdf')
   sleep(0.5)
 end
 
@@ -90,5 +90,10 @@ end
 
 When(/^кликаю на "([^"]*)" через хpath$/) do |arg|
   find(:xpath, "/html/body/div/table[1]/tbody/tr[2]/td[2]/a").click
+  sleep(0.5)
+end
+
+When(/^по студенту "([^"]*)" нажимаю на "([^"]*)"$/) do |arg1, arg2|
+  find('tr', text: arg1 ).click_link(arg2)
   sleep(0.5)
 end

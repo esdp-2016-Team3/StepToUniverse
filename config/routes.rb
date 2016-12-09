@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get '/timetable/:id' => 'teacher_times#timetable', as: 'timetable'
   post '/create_student' => 'teacher_times#create_student', as: 'create_student_teachertime'
-  put '/update_student' => 'teacher_times#update_student', as: 'update_student_teachertime'
+  patch '/update_student/:id' => 'teacher_times#update_student', as: 'update_student_teachertime'
   
   delete '/library_file/:id/delete' => 'library_files#destroy', as: 'library_file_destroy'
   post '/library_file/create' => 'library_files#create', as: 'library_file_create'
