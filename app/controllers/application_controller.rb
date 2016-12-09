@@ -5,11 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
- config.assets.precompile += Ckeditor.assets
- config.assets.precompile += %w( ckeditor/* )
- config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-
-
   def after_sign_in_path_for(resource)
     if resource.class == AdminUser
       admin_user_session
