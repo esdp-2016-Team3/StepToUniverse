@@ -1,4 +1,10 @@
-<h1>Кабинет студента <span class="for_red_words"><%= @user_id.name %></span> <%= image_tag @user_id.avatar.url(:thumb) %></h1>
+<h1>
+  Кабинет студента
+  <span class="for_red_words">
+    <%= @user_id.name %>
+  </span> 
+  <%= image_tag @user_id.avatar.url(:thumb) %>
+</h1>
 <table>
   <tr>
     <th>Преподаватель</th>
@@ -61,10 +67,9 @@
   <% end %>
 </table>
 <% if current_user.position_id == 1 %><br>
-  <%= image_tag @user_id.teacher.avatar.url(:thumb) %>
-  <h6>Мой преподаватель: <span class="for_red_words"><%= @user_id.teacher.name %></span></h6>
-  <h6>Skype: <span class="for_green_words"><%= @user_id.teacher.skype %></span></h6>
-  <h6>Почта: <span class="for_green_words"><%= @user_id.teacher.email %></span></h6>
+  <% if current_user.teacher_id.present?  %>
+    <%= render 'my_teacher' %>
+  <% end %>
   <h3>Расписание</h3>
   <table>
     <tr>
