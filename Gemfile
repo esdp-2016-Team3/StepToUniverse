@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "non-stupid-digest-assets"
 gem 'dotenv-rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg'
