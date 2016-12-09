@@ -7,10 +7,8 @@ module SearchForAnswers
 
 	    if (correct_questions_count.to_i == 5) && (question.level.name == level_name)
 	      answer_correct = question.answers.where(is_correct: true)
-	      # answer_correct.each {|ans_corr| answers_id.push ans_corr.id}
 	      answers_id << answer_correct.first.id
-	   	end
-
+	    else
 	  end
 	  return answers_id.uniq
 	end
