@@ -6,11 +6,16 @@
     <%= f.label :position %><br />
     <%= f.collection_select :position_id, Position.all, :id, :title %>
   </p>
-  
+
   <div id='profile' style='display:none'>
     <h3>Анкета</h3>
-    <%= f.simple_fields_for :profile_answers, ProfileAnswer.new do |builde| %>
-      <%= render 'profile_answer', f: builde %>
+    <% ProfileQuestion.all.each do |profile_question|  %>
+    <div class="col-md-12">
+      <%= profile_question.question %>
+        <%= f.simple_fields_for :profile_answers, ProfileAnswer.new do |builde| %>
+          <%= render 'profile_answer', f: builde, profile_question: profile_question %>
+        <% end %>
+    </div>
     <% end %>
   </div>
   
