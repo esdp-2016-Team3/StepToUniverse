@@ -33,6 +33,7 @@ ru:
         description: "Описание"
 
     models:
+      profile_question: "Вопросы Анкетирования"
       admin_user: "Администратор"
       user: "Пользователь"
       notactive: 
