@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: git://github.com/galetahub/ckeditor.git
-  revision: 5ebf984420deee57cddedb718ef83f25920b4cf3
+  revision: 78ae17ac4ac9d7fcf132ba8ed3cdf6156bbd4755
   specs:
     ckeditor (4.2.1)
       cocaine
@@ -212,7 +212,7 @@ GEM
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
-    minitest (5.9.1)
+    minitest (5.10.1)
     multi_json (1.12.1)
     multi_test (0.1.2)
     net-scp (1.2.1)
