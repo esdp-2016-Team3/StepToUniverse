@@ -1,5 +1,4 @@
 <% if user_signed_in? %>
-
   <% if current_user.status == 'notactive' %>
   	<h1>Привет <%= current_user.name  %></h1>
   	<h3>Пожалуйста подождите пока администратор подтвердит ваш запрос на регистрацию</h3>
@@ -17,7 +16,6 @@
   <% elsif current_user.position_id == 1 %>
     You are a student.
   <% end %>
-
 <% else %>
   <div class="col-lg-10">
     <%= Content.find(1).description.html_safe %>
