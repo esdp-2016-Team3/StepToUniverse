@@ -69,7 +69,7 @@ ActiveAdmin.register User, as: 'Teacher' do
           row :description
         end
     panel "Анкетирование" do
-      table_for notactive.profile_answers do
+      table_for teacher.profile_answers do
         column :question
         column :answer
       end
