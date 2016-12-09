@@ -5,6 +5,31 @@
   </span> 
   <%= image_tag @user_id.avatar.url(:thumb) %>
 </h1>
+<% if current_user.position_id == 1 %><br>
+  <% if current_user.teacher_id.present?  %>
+    <%= render 'my_teacher' %>
+  <% end %>
+  <h3>Расписание</h3>
+  <table>
+    <tr>
+      <% @days_of_week.each do |day| %>
+          <td><%= day %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <% @days_of_week.each do |day| %>
+          <td>
+            <% student_timetable(current_user).each do |table| %>
+                <% if table.day_of_week == day && check_teacher(table)%>
+                    <%= table.time %>:00
+                <% end %>
+            <% end %>
+          </td>
+      <% end %>
+    </tr>
+  </table>
+<% end %>
+<br><br>
 <table>
   <tr>
     <th>Преподаватель</th>
@@ -66,28 +91,3 @@
     </tr>
   <% end %>
 </table>
-<% if current_user.position_id == 1 %><br>
-  <% if current_user.teacher_id.present?  %>
-    <%= render 'my_teacher' %>
-  <% end %>
-  <h3>Расписание</h3>
-  <table>
-    <tr>
-      <% @days_of_week.each do |day| %>
-          <td><%= day %></td>
-      <% end %>
-    </tr>
-    <tr>
-      <% @days_of_week.each do |day| %>
-          <td>
-            <% student_timetable(current_user).each do |table| %>
-                <% if table.day_of_week == day && check_teacher(table)%>
-                    <%= table.time %>:00
-                <% end %>
-            <% end %>
-          </td>
-      <% end %>
-    </tr>
-  </table>
-<% end %>
-<br><br>
