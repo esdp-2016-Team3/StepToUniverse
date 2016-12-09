@@ -1,5 +1,5 @@
 class ToAdminMailer < ApplicationMailer
-    default from: 'step2universe@gmail.com'
+    default from: ENV['admin_email']
 
     def reg_alert(user)
         mail(to: user.email, subject: 'Новый пользователь зарегистрирован')

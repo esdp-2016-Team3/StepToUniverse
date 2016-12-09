@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'step2universe@gmail.com'
+  default from: ENV['admin_email']
   layout 'mailer'
 end

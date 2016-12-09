@@ -15,8 +15,8 @@ Rails.application.configure do
       :port => 587,
       :domain => 'gmail.com',
       :authentication => :login,
-      :user_name => 'step2universe@gmail.com',
-      :password => 'fjdksl56',
+      :user_name => ENV['admin_email'],
+      :password => ENV['admin_password'],
       :enable_starttls_auto => true,
       :openssl_verify_mode => 'none'
   }

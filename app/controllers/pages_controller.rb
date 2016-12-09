@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  
+  before_action :authenticate_user!, only: [:student_cabinet, :teacher_cabinet]
+
   include Levels
   include Results
   include PagesHelper

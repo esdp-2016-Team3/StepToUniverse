@@ -60,8 +60,15 @@ ActiveAdmin.register User, as: 'Teacher' do
     end
   end
 
-  show do
-    panel "Table of Contents" do
+  show do        
+        attributes_table do
+          row :name
+          row :phone
+          row :skype
+          row :email
+          row :description
+        end
+    panel "Анкетирование" do
       table_for teacher.profile_answers do
         column :question
         column :answer
@@ -102,15 +109,21 @@ ActiveAdmin.register User, as: 'Notactive' do
 
   permit_params :name, :skype, :phone, :status, :email, :position_id, :password, :password_confirmation
   
-
   controller do
     def scoped_collection
       User.where(status: 'notactive').where.not(confirmed_at: nil)
     end
   end
 
-  show do
-    panel "Table of Contents" do
+  show do        
+        attributes_table do
+          row :name
+          row :phone
+          row :skype
+          row :email
+          row :description
+        end
+    panel "Анкетирование" do
       table_for notactive.profile_answers do
         column :question
         column :answer
