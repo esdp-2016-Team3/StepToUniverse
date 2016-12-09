@@ -65,7 +65,7 @@ module PagesHelper
     unchecked_homeworks = HomeworkAssignment.where(homework_status_id: 2)
     @counter = 0
     unchecked_homeworks.each do |unchecked_homework|
-      if unchecked_homework.homework.user == current_user  and unchecked_homework.user.teacher_id == current_user.id
+      if unchecked_homework.homework.user == current_user  and unchecked_homework.user.teacher_id.to_i == current_user.id
         @counter+=1
       end
     end
