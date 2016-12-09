@@ -12,4 +12,5 @@ module SearchForAnswers
 	  end
 	  return answers_id.uniq
 	end
-end
+	end
+  end

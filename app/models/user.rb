@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  has_many :library_files
-  has_many :homeworks
+  has_many :library_files, dependent: :destroy
+  has_many :homeworks, dependent: :destroy
   has_many :profile_answers, dependent: :destroy
   has_many :homework_assignments, dependent: :destroy
 	belongs_to :position
