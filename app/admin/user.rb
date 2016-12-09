@@ -60,9 +60,16 @@ ActiveAdmin.register User, as: 'Teacher' do
     end
   end
 
-  show do
-    panel "Table of Contents" do
-      table_for teacher.profile_answers do
+  show do        
+        attributes_table do
+          row :name
+          row :phone
+          row :skype
+          row :email
+          row :description
+        end
+    panel "Анкетирование" do
+      table_for notactive.profile_answers do
         column :question
         column :answer
       end
@@ -108,13 +115,21 @@ ActiveAdmin.register User, as: 'Notactive' do
     end
   end
 
-  show do
+  show do        
+        attributes_table do
+          row :name
+          row :phone
+          row :skype
+          row :email
+          row :description
+        end
     panel "Анкетирование" do
       table_for notactive.profile_answers do
         column :question
         column :answer
       end
     end
+    active_admin_comments
   end
 
   form do |f|
