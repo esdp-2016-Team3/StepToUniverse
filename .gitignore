@@ -22,7 +22,7 @@
 !/tmp/.keep
 
 # Ignore all pictures
-public/*
+
 
 # Ignore database.yml
 config/database.yml

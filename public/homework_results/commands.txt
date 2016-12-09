@@ -1,0 +1,6 @@
+RAILS_ENV=test rake db:drop      дропает тестовую базу
+rails s -p 8080 -b 0.0.0.0
+
+User.create! =(User_id: 7, name: "Maksim", phone: "123414", created_at: "2000-08-23 12:12:12", updated_at: "2000-08-23 12:12:12", email: "karamba@mail.ru, organization_id: 1, organization_category_id: 1)"
+
+
