@@ -97,3 +97,9 @@ When(/^по студенту "([^"]*)" нажимаю на "([^"]*)"$/) do |arg1
   find('tr', text: arg1 ).click_link(arg2)
   sleep(0.5)
 end
+
+When(/^прикрепляю книгу к новому домашнему заданию$/) do
+  page.attach_file("homework[homework_files_attributes][0][file]", Rails.root + 'app/assets/library_files/Teplotehnika.pdf')
+  # homework[homework_files_attributes][0][file]
+  sleep(0.5)
+end
